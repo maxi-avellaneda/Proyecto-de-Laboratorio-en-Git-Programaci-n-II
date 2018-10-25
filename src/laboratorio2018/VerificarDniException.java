@@ -5,11 +5,14 @@
  */
 package laboratorio2018;
 
-
-public class Laboratorio2018 {
-
-    public static void main(String[] args) {
-        // TODO code application logic here
+/**
+ *
+ * @author Ruth
+ */
+public class VerificarDniException extends Exception{
+    public VerificarDniException(String mensaje){
+        super(mensaje);
     }
-    
+        public VerificarDniException(){
+    }
 }
