@@ -9,18 +9,27 @@ public class Clinica {
     private ArrayList<Doctor> doctores =  new ArrayList<Doctor>();
     private ArrayList<Especialidad> especialidades =  new ArrayList<Especialidad>();
     private ArrayList<Diagnostico> diagnosticos =  new ArrayList<Diagnostico>();
-    
+    private ArrayList<Enfermero> enfermeros =  new ArrayList<Enfermero>();
+    private ArrayList<Chofer> choferes =  new ArrayList<Chofer>();
 
 
     public ArrayList<Afiliado> getAfiliados() {
         return afiliados;
     }
 
-    public void setPacientes(Afiliado a) {
+    public void setAfiliados(Afiliado a) {
         
         afiliados.add(a);
     }
     
+    public ArrayList<Enfermero> getEnfermeros(){
+        return enfermeros;
+    }
+    
+    public void setEnfermeros( Enfermero e){
+        
+        enfermeros.add(e);
+    }
    
     public ArrayList<Doctor> getDoctores() {
         return doctores;

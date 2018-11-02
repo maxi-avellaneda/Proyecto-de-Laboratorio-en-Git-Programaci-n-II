@@ -7,6 +7,7 @@ public class Doctor extends Persona {
     private int matricula;
     private Especialidad especialidad;
     private ArrayList<Afiliado> afiliados =  new ArrayList<Afiliado>();
+    private Integer sueldo;
     
     public Doctor(){};
     public Doctor(String nombre,String apellido,String sexo,String dni,String direccion,int matricula, Especialidad especialidad){

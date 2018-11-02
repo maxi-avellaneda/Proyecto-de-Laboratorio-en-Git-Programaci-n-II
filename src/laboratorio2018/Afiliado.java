@@ -13,14 +13,26 @@ public class Afiliado extends Persona {//es el paciente
     private Calendar fechaDeNaciemiento = Calendar.getInstance();
     private Diagnostico diagnostico;
     private int edad;
-    public Afiliado(){}
-    
-    public Afiliado(String nombre,String apellido,String sexo,String dni,String direccion,int dia, int mes, int ano){
-        super(nombre,apellido,sexo,dni,direccion);
-        //this.fechaDeNaciemiento = fechaDeNaciemiento;
-        fechaDeNaciemiento.set(ano,mes-1,dia);
-        edad = this.calcularEdad();
+    private Integer mora;
+    private ArrayList<Familiar> familiares =  new ArrayList<Familiar>();
+
+    public Afiliado(Doctor doctor, Especialidad especialidad, Diagnostico diagnostico, int edad, Integer mora) {
+        this.doctor = doctor;
+        this.especialidad = especialidad;
+        this.diagnostico = diagnostico;
+        this.edad = edad;
+        this.mora = mora;
     }
+
+    public Afiliado(Doctor doctor, Especialidad especialidad, Diagnostico diagnostico, int edad, Integer mora, String nombre, String apellido, String sexo, String dni, String direccion) {
+        super(nombre, apellido, sexo, dni, direccion);
+        this.doctor = doctor;
+        this.especialidad = especialidad;
+        this.diagnostico = diagnostico;
+        this.edad = edad;
+        this.mora = mora;
+    }
+    
     
     public int calcularEdad(){
         int edad=0;
@@ -49,14 +61,10 @@ public class Afiliado extends Persona {//es el paciente
     }
     @Override
     public String toString(){
-        String paciente = "Paciente: "+getNombre() +" " +getApellido() +"\nSexo: "+getSexo()+"\nDNI N° :"+getDni()+"\nDireccion: "+getDireccion()+"\nFecha de Nacimiento: "+getFechaDeNaciemiento()+"\nEdad: "+calcularEdad();
-        return paciente;
+        String afiliado = "Afiliado: "+getNombre() +" " +getApellido() +"\nSexo: "+getSexo()+"\nDNI N° :"+getDni()+"\nDireccion: "+getDireccion()+"\nFecha de Nacimiento: "+getFechaDeNaciemiento()+"\nEdad: "+calcularEdad();
+        return afiliado;
     }
 
-    
-    
-
-  
     public Doctor getDoctor() {
         return doctor;
     }
@@ -95,6 +103,14 @@ public class Afiliado extends Persona {//es el paciente
   
     public void setDiagnostico(Diagnostico diagnostico) {
         this.diagnostico = diagnostico;
+    }
+
+    public Integer getMora() {
+        return mora;
+    }
+
+    public void setMora(Integer mora) {
+        this.mora = mora;
     }
 
   
