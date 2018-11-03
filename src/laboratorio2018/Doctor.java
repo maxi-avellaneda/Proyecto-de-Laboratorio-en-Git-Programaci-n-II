@@ -5,14 +5,11 @@ import java.util.ArrayList;
 
 public class Doctor extends Persona {
     private int matricula;
-    private Especialidad especialidad;
     private ArrayList<Afiliado> afiliados =  new ArrayList<Afiliado>();
-    private Integer sueldo;
     
     public Doctor(){};
-    public Doctor(String nombre,String apellido,String sexo,String dni,String direccion,int matricula, Especialidad especialidad){
-        super(nombre,apellido,sexo,dni,direccion);
-        this.especialidad = especialidad;
+    public Doctor(String nombre,String apellido,String sexo,String dni,String direccion,long telefono,int matricula){
+        super(nombre,apellido,sexo,dni,direccion,telefono);
         this.matricula = matricula;  
         
 }
@@ -31,37 +28,17 @@ public class Doctor extends Persona {
         return asignados;
     }
     
-    /**
-     * @return the matricula
-     */
+  
     public int getMatricula() {
         return matricula;
     }
 
-    /**
-     * @param matricula the matricula to set
-     */
+    
     public void setMatricula(int matricula) {
         this.matricula = matricula;
     }
 
-    /**
-     * @return the especialidad
-     */
-    public Especialidad getEspecialidad() {
-        return especialidad;
-    }
 
-    /**
-     * @param especialidad the especialidad to set
-     */
-    public void setEspecialidad(Especialidad especialidad) {
-        this.especialidad = especialidad;
-    }
-
-    /**
-     * @return the paciente de acuerdo a su dni
-     */
     public Afiliado getAfiliado(String dni) {
         
         Afiliado resultado = null;

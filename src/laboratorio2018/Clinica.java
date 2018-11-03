@@ -4,10 +4,9 @@ package laboratorio2018;
 import java.util.ArrayList;
 
 
-public class Clinica {
+public class Clinica { // seria la asistencia medica
     private ArrayList<Afiliado> afiliados =  new ArrayList<Afiliado>();
     private ArrayList<Doctor> doctores =  new ArrayList<Doctor>();
-    private ArrayList<Especialidad> especialidades =  new ArrayList<Especialidad>();
     private ArrayList<Diagnostico> diagnosticos =  new ArrayList<Diagnostico>();
     private ArrayList<Enfermero> enfermeros =  new ArrayList<Enfermero>();
     private ArrayList<Chofer> choferes =  new ArrayList<Chofer>();
@@ -40,13 +39,6 @@ public class Clinica {
         doctores.add(d);
     }
    
-    public ArrayList<Especialidad> getEspecialidades() {
-        return especialidades;
-    }
-
-    public void setEspecialidades(Especialidad e) {
-        especialidades.add(e);
-    } 
    
     public ArrayList<Diagnostico> getDiagnosticos() {
         return diagnosticos;
@@ -72,7 +64,7 @@ public class Clinica {
                 
     }
     
-    public void sincronisarInformacion(Afiliado afiliado, Object doctor, Object especialidad,Object habitacion, int numCama){
+    /*public void sincronisarInformacion(Afiliado afiliado, Object doctor, Object especialidad,Object habitacion, int numCama){
         
         for (Doctor doc : this.getDoctores()){
             if(doc.toString().equals(doctor.toString())){
@@ -86,7 +78,7 @@ public class Clinica {
                 afiliado.setEspecialidad(esp);
             }
         }
-    }
+    }*/
     
     public void verificarDni(String dni) throws VerificarDniException{
         

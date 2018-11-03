@@ -1,4 +1,4 @@
-
+ 
 package laboratorio2018;
 
 import java.text.DateFormat;
@@ -6,28 +6,26 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class Afiliado extends Persona {//es el paciente
+public class Afiliado extends Persona { //el afiliado es un paciente
     
     private Doctor doctor;
-    private Especialidad especialidad;
     private Calendar fechaDeNaciemiento = Calendar.getInstance();
     private Diagnostico diagnostico;
     private int edad;
     private Integer mora;
     private ArrayList<Familiar> familiares =  new ArrayList<Familiar>();
+    //private Integer diaPago,mesPago,añoPago; //atributos que sirven para saber la ultima fecha en que abono un afiliado
 
-    public Afiliado(Doctor doctor, Especialidad especialidad, Diagnostico diagnostico, int edad, Integer mora) {
-        this.doctor = doctor;
-        this.especialidad = especialidad;
-        this.diagnostico = diagnostico;
-        this.edad = edad;
-        this.mora = mora;
+    public Afiliado(String nombre,String apellido,String sexo,String dni,String direccion,long telefono,int dia, int mes, int ano){
+        super(nombre,apellido,sexo,dni,direccion,telefono);
+        //this.fechaDeNaciemiento = fechaDeNaciemiento;
+        fechaDeNaciemiento.set(ano,mes-1,dia);
+        edad = this.calcularEdad();
     }
 
-    public Afiliado(Doctor doctor, Especialidad especialidad, Diagnostico diagnostico, int edad, Integer mora, String nombre, String apellido, String sexo, String dni, String direccion) {
-        super(nombre, apellido, sexo, dni, direccion);
+    public Afiliado(Doctor doctor, Diagnostico diagnostico, int edad, Integer mora, String nombre, String apellido, String sexo, String dni, String direccion,long telefono) {
+        super(nombre, apellido, sexo, dni, direccion,telefono);
         this.doctor = doctor;
-        this.especialidad = especialidad;
         this.diagnostico = diagnostico;
         this.edad = edad;
         this.mora = mora;
@@ -73,18 +71,6 @@ public class Afiliado extends Persona {//es el paciente
         this.doctor = doctor;
     }
 
-    public Especialidad getEspecialidad() {
-        return especialidad;
-    }
-
-  
-    public void setEspecialidad(Especialidad especialidad) {
-        this.especialidad = especialidad;
-    }
-
- 
-   
-    
     public String getFechaDeNaciemiento() {
         DateFormat formato1 = new SimpleDateFormat("dd/MM/yyyy");
         String fecha = formato1.format(fechaDeNaciemiento.getTime());

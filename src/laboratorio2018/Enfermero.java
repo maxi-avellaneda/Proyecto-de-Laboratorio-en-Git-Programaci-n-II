@@ -8,18 +8,15 @@ package laboratorio2018;
 
 public class Enfermero extends Persona {
     private String sector;
-    private Integer sueldo;
 
 
-    public Enfermero(String sector, Integer sueldo) {
+    public Enfermero(String sector) {
         this.sector = sector;
-        this.sueldo = sueldo;
     }
 
-    public Enfermero(String sector, Integer sueldo, String nombre, String apellido, String sexo, String dni, String direccion) {
-        super(nombre, apellido, sexo, dni, direccion);
+    public Enfermero(String nombre, String apellido, String sexo, String dni, String direccion,long telefono,String sector) {
+        super(nombre, apellido, sexo, dni, direccion,telefono);
         this.sector = sector;
-        this.sueldo = sueldo;
     }
 
     public String getSector() {
@@ -31,13 +28,5 @@ public class Enfermero extends Persona {
         this.sector = sector;
     }
 
-    public Integer getSueldo() {
-        return sueldo;
-    }
-
-    public void setSueldo(Integer sueldo) {
-        this.sueldo = sueldo;
-    }
-    
     
 }

@@ -8,15 +8,17 @@ public abstract class Persona {
     private String sexo;
     private String dni;
     private String direccion;
+    private long telefono;
     
     public Persona(){};
     
-    public Persona(String nombre,String apellido,String sexo,String dni,String direccion){
+    public Persona(String nombre,String apellido,String sexo,String dni,String direccion,long telefono){
         this.nombre = nombre;
         this.apellido = apellido;
         this.sexo = sexo;
         this.dni = dni;
         this.direccion = direccion;
+        this.telefono=telefono;
     }
 
  
@@ -67,6 +69,15 @@ public abstract class Persona {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
+
+    public long getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(long telefono) {
+        this.telefono = telefono;
+    }
+    
     
     
     

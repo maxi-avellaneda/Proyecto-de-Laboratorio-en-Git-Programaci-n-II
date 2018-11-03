@@ -10,8 +10,7 @@ public class Diagnostico {
     private String observacion;
     private String tipo;
     private String tratamiento;
-    
-    
+  
     public Diagnostico(){}
     public Diagnostico(String observacion,String tipo,String tratamiento){
         this.observacion = observacion;
@@ -24,44 +23,31 @@ public class Diagnostico {
         return diagnostico;
     }
 
-    /**
-     * @return the observacion
-     */
     public String getObservacion() {
         return observacion;
     }
 
-    /**
-     * @param observacion the observacion to set
-     */
+    
     public void setObservacion(String observacion) {
         this.observacion = observacion;
     }
 
-    /**
-     * @return the tipo
-     */
+   
     public String getTipo() {
         return tipo;
     }
 
-    /**
-     * @param tipo the tipo to set
-     */
+   
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 
-    /**
-     * @return the tratamiento
-     */
+    
     public String getTratamiento() {
         return tratamiento;
     }
 
-    /**
-     * @param tratamiento the tratamiento to set
-     */
+
     public void setTratamiento(String tratamiento) {
         this.tratamiento = tratamiento;
     }

@@ -2,20 +2,18 @@
 package laboratorio2018;
 
 
-public class Chofer extends Persona {
+public class Chofer extends Persona{
     
     private Movil movil;
-    private Integer sueldo;
 
-    public Chofer(Movil movil, Integer sueldo) {
+    public Chofer(Movil movil) {
+        
         this.movil = movil;
-        this.sueldo = sueldo;
     }
 
-    public Chofer(Movil movil, Integer sueldo, String nombre, String apellido, String sexo, String dni, String direccion) {
-        super(nombre, apellido, sexo, dni, direccion);
+    public Chofer(Movil movil, String nombre, String apellido, String sexo, String dni, String direccion,long telefono) {
+        super(nombre, apellido, sexo, dni, direccion,telefono);
         this.movil = movil;
-        this.sueldo = sueldo;
     }
 
     public Movil getMovil() {
@@ -26,12 +24,5 @@ public class Chofer extends Persona {
         this.movil = movil;
     }
 
-    public Integer getSueldo() {
-        return sueldo;
-    }
-
-    public void setSueldo(Integer sueldo) {
-        this.sueldo = sueldo;
-    }
     
 }
