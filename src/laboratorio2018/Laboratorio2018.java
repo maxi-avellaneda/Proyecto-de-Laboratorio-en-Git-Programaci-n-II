@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package laboratorio2018;
- import java.util.*;
 
 public class Laboratorio2018 {
 
@@ -37,10 +36,11 @@ public class Laboratorio2018 {
         Administrativo ad2 = new Administrativo("Mercedes","Castro","Femenino","37123456","Mate de Luna",222244);
         
         //Abono de Afiliados
-        AbonoAfiliados abono1 = new AbonoAfiliados(afi1,15,9,2018,1000); abono1.fechaPagoAbono();
-        System.out.println("condicion abono1: "+abono1.fechaPagoAbono());
-        AbonoAfiliados abono2 = new AbonoAfiliados(afi1,2,11,2018,1000);
-        AbonoAfiliados abono3 = new AbonoAfiliados(afi1,2,9,2018,1000);
+        AbonoAfiliados abono1 = new AbonoAfiliados(afi1,2,9,2018,1000); abono1.fechaPagoAbono();
+        abono1.datos(afi1);
+        AbonoAfiliados abono2 = new AbonoAfiliados(afi2,2,11,2018,1000);
+        AbonoAfiliados abono3 = new AbonoAfiliados(afi3,10,10,2018,1000);
+        
         
         
         

@@ -21,18 +21,27 @@ public class AbonoAfiliados {
     public AbonoAfiliados(){}
     
     public String fechaPagoAbono(){
-        Integer mesP,anioP;
+        Integer diaP,mesP,anioP;
         anioP = (calendario.get(Calendar.YEAR))- anio;
         Math.abs(anioP);
         mesP = (calendario.get(Calendar.MONTH)+1)- mes;
         Math.abs(mesP);
-        if(anioP==0 && mesP<=2 && (calendario.get(Calendar.DAY_OF_MONTH))<= dia){
-            condicion="Sin mora";
+        diaP = (calendario.get(Calendar.DAY_OF_MONTH))- dia;
+        if(anioP==0 && mesP<=2 && diaP<= 0){
+            condicion="SIN MORA";
             return condicion;
         }else{
-            condicion="mora";
+            condicion="MOROSO";
         } 
         return condicion; 
+    }
+    
+    public void datos(Afiliado afiliado){
+        System.out.println(afiliado);
+        System.out.println("\nFECHA DE PAGO:\n");
+        System.out.println(dia+"/"+mes+"/"+anio);
+        System.out.println("Abono: "+abono);
+        System.out.println("CONDICION DEL AFILIADO: "+condicion+" HASTA EL DIA DE LA FECHA");
     }
     
 }

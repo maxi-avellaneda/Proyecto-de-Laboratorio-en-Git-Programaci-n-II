@@ -12,51 +12,65 @@ public class Afiliado extends Persona { //el afiliado es un paciente
     private Calendar fechaDeNaciemiento = Calendar.getInstance();
     private Diagnostico diagnostico;
     private int edad;
-    private Integer mora;
     private ArrayList<Familiar> familiares =  new ArrayList<Familiar>();
-    //private Integer diaPago,mesPago,añoPago; //atributos que sirven para saber la ultima fecha en que abono un afiliado
 
     public Afiliado(String nombre,String apellido,String sexo,String dni,String direccion,long telefono,int dia, int mes, int ano){
         super(nombre,apellido,sexo,dni,direccion,telefono);
-        //this.fechaDeNaciemiento = fechaDeNaciemiento;
         fechaDeNaciemiento.set(ano,mes-1,dia);
         edad = this.calcularEdad();
     }
 
-    public Afiliado(Doctor doctor, Diagnostico diagnostico, int edad, Integer mora, String nombre, String apellido, String sexo, String dni, String direccion,long telefono) {
+    public Afiliado(Doctor doctor, Diagnostico diagnostico, int edad, String nombre, String apellido, String sexo, String dni, String direccion,long telefono) {
         super(nombre, apellido, sexo, dni, direccion,telefono);
         this.doctor = doctor;
         this.diagnostico = diagnostico;
         this.edad = edad;
-        this.mora = mora;
     }
     
     
     public int calcularEdad(){
         int edad=0;
         Calendar fechaActual = Calendar.getInstance();
-        int anoAc = fechaActual.get(Calendar.YEAR);
+        int anioAc = fechaActual.get(Calendar.YEAR);
         int mesAc = fechaActual.get(Calendar.MONTH);
         int diaAc = fechaActual.get(Calendar.DAY_OF_MONTH);
-        int anoNac = fechaDeNaciemiento.get(Calendar.YEAR);
+        int anioNac = fechaDeNaciemiento.get(Calendar.YEAR);
         int mesNac = fechaDeNaciemiento.get(Calendar.MONTH);
         int diaNac = fechaDeNaciemiento.get(Calendar.DAY_OF_MONTH);
-        if (anoNac <= anoAc){
-            if (mesNac <= mesAc){
-                if (diaNac <= diaAc)
-                    edad = anoAc - anoNac;
-                else 
-                    edad = anoAc - anoNac -1;
-            }else
-                edad = anoAc - anoNac -1;
-        }else
-            System.out.println("Error de Fecha de nacimiento");
-        
-        
-        //System.out.println("Fecha Actual:  " + fechaActual.getTime());
-        //System.out.println("Fecha Nacimiento:  " + fechaDeNaciemiento.getTime());
+        if(mesAc>mesNac){
+            edad = anioAc - anioNac;
+        }
+        if(mesAc<mesNac){
+            edad = anioAc - anioNac-1;
+        }
+        if(mesAc==mesNac){
+            if(diaAc>=diaNac){
+                edad = anioAc - anioNac;
+            }
+            else{
+                edad = anioAc - anioNac-1;
+            }
+        }
+        if(edad==0){
+            if(mesAc>mesNac){
+                edad = mesAc - mesNac;
+            }
+            if(mesAc<mesNac){
+                edad = 12 - mesNac + mesAc;
+            }
+            if(mesAc==mesNac){
+                if(diaAc>=diaNac){
+                    edad = mesAc - mesNac;
+                }
+                else{
+                    edad = mesAc - mesNac-1;
+                }
+            }
+        }
+        if(anioNac>anioAc){System.out.println("FECHA DE NACIMIENTO MAL INGRESADA");}
         return edad;
     }
+    
     @Override
     public String toString(){
         String afiliado = "Afiliado: "+getNombre() +" " +getApellido() +"\nSexo: "+getSexo()+"\nDNI N° :"+getDni()+"\nDireccion: "+getDireccion()+"\nFecha de Nacimiento: "+getFechaDeNaciemiento()+"\nEdad: "+calcularEdad();
@@ -91,13 +105,6 @@ public class Afiliado extends Persona { //el afiliado es un paciente
         this.diagnostico = diagnostico;
     }
 
-    public Integer getMora() {
-        return mora;
-    }
-
-    public void setMora(Integer mora) {
-        this.mora = mora;
-    }
 
   
 
