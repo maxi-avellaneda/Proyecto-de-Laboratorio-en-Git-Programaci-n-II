@@ -8,11 +8,11 @@ public abstract class Persona {
     private String sexo;
     private String dni;
     private String direccion;
-    private long telefono;
+    private String telefono;
     
     public Persona(){};
     
-    public Persona(String nombre,String apellido,String sexo,String dni,String direccion,long telefono){
+    public Persona(String nombre,String apellido,String sexo,String dni,String direccion,String telefono){
         this.nombre = nombre;
         this.apellido = apellido;
         this.sexo = sexo;
@@ -70,11 +70,11 @@ public abstract class Persona {
         this.direccion = direccion;
     }
 
-    public long getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(long telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
     

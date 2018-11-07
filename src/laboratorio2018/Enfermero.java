@@ -14,7 +14,7 @@ public class Enfermero extends Persona {
         this.sector = sector;
     }
 
-    public Enfermero(String nombre, String apellido, String sexo, String dni, String direccion,long telefono,String sector) {
+    public Enfermero(String nombre, String apellido, String sexo, String dni, String direccion,String telefono,String sector) {
         super(nombre, apellido, sexo, dni, direccion,telefono);
         this.sector = sector;
     }

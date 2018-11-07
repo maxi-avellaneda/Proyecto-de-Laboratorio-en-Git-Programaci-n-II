@@ -8,7 +8,7 @@ public class Doctor extends Persona {
     private ArrayList<Afiliado> afiliados =  new ArrayList<Afiliado>();
     
     public Doctor(){};
-    public Doctor(String nombre,String apellido,String sexo,String dni,String direccion,long telefono,int matricula){
+    public Doctor(String nombre,String apellido,String sexo,String dni,String direccion,String telefono,int matricula){
         super(nombre,apellido,sexo,dni,direccion,telefono);
         this.matricula = matricula;  
         

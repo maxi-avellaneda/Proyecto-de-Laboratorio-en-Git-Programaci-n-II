@@ -4,12 +4,13 @@ package laboratorio2018;
 import java.util.ArrayList;
 
 
-public class Clinica { // seria la asistencia medica
+public class Sistema { // seria la asistencia medica
     private ArrayList<Afiliado> afiliados =  new ArrayList<Afiliado>();
     private ArrayList<Doctor> doctores =  new ArrayList<Doctor>();
     private ArrayList<Diagnostico> diagnosticos =  new ArrayList<Diagnostico>();
     private ArrayList<Enfermero> enfermeros =  new ArrayList<Enfermero>();
     private ArrayList<Chofer> choferes =  new ArrayList<Chofer>();
+    private ArrayList<Administrativo> adminis =  new ArrayList<Administrativo>();
 
 
     public ArrayList<Afiliado> getAfiliados() {
@@ -17,8 +18,7 @@ public class Clinica { // seria la asistencia medica
     }
 
     public void setAfiliados(Afiliado a) {
-        
-        afiliados.add(a);
+        afiliados.add(a);         
     }
     
     public ArrayList<Enfermero> getEnfermeros(){
@@ -39,7 +39,20 @@ public class Clinica { // seria la asistencia medica
         doctores.add(d);
     }
    
-   
+    public void setChoferes(Chofer c){
+        choferes.add(c);
+    }
+    public ArrayList<Chofer> getChoferes() {
+        return choferes;
+    }
+    
+    public void setAdminis(Administrativo ad){
+        adminis.add(ad);
+    }
+    public ArrayList<Administrativo> getAdminis(){
+        return adminis;
+    }
+
     public ArrayList<Diagnostico> getDiagnosticos() {
         return diagnosticos;
     }
@@ -49,7 +62,7 @@ public class Clinica { // seria la asistencia medica
     }
     
     
-    public void verificarDatos(String dni, String nombre, String apellido,String domicilio) throws VerificarDniException, VerficarCampoVacioException{
+    public void verificarDatos(String dni, String nombre, String apellido,String domicilio,String telefono) throws VerificarDniException, VerficarCampoVacioException{
         
         if(dni.length() == 8 || dni.length() == 7){
             int numero = Integer.parseInt(dni);
@@ -59,7 +72,7 @@ public class Clinica { // seria la asistencia medica
         else 
             throw new VerificarDniException();
         
-        if(nombre.equals("")||apellido.equals("")||domicilio.equals(""))
+        if(nombre.equals("")||apellido.equals("")||domicilio.equals("")|| telefono.equals(""))
                     throw new VerficarCampoVacioException();
                 
     }

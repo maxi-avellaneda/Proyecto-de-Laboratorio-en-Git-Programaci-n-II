@@ -3,7 +3,7 @@ package laboratorio2018;
 
 public class Administrativo extends Persona {
     
-     public Administrativo(String nombre, String apellido, String sexo, String dni, String direccion,long telefono) {
+     public Administrativo(String nombre, String apellido, String sexo, String dni, String direccion,String telefono) {
         super(nombre, apellido, sexo, dni, direccion,telefono);
     }
 

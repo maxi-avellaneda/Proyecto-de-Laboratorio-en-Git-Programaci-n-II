@@ -14,13 +14,18 @@ public class Afiliado extends Persona { //el afiliado es un paciente
     private int edad;
     private ArrayList<Familiar> familiares =  new ArrayList<Familiar>();
 
-    public Afiliado(String nombre,String apellido,String sexo,String dni,String direccion,long telefono,int dia, int mes, int ano){
+    public Afiliado(String nombre,String apellido,String sexo,String dni,String direccion,String telefono,int dia, int mes,int ano){
         super(nombre,apellido,sexo,dni,direccion,telefono);
         fechaDeNaciemiento.set(ano,mes-1,dia);
         edad = this.calcularEdad();
     }
+    /*public Afiliado(String nombre,String apellido,String sexo,String dni,String direccion,String telefono,int dia, int mes, int ano){
+        super(nombre,apellido,sexo,dni,direccion,telefono);
+        fechaDeNaciemiento.set(ano,mes-1,dia);
+        edad = this.calcularEdad();
+    }*/
 
-    public Afiliado(Doctor doctor, Diagnostico diagnostico, int edad, String nombre, String apellido, String sexo, String dni, String direccion,long telefono) {
+    public Afiliado(Doctor doctor, Diagnostico diagnostico, int edad, String nombre, String apellido, String sexo, String dni, String direccion,String telefono) {
         super(nombre, apellido, sexo, dni, direccion,telefono);
         this.doctor = doctor;
         this.diagnostico = diagnostico;

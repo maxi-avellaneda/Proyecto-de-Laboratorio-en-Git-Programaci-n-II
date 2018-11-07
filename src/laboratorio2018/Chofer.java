@@ -11,7 +11,7 @@ public class Chofer extends Persona{
         this.movil = movil;
     }
 
-    public Chofer(Movil movil, String nombre, String apellido, String sexo, String dni, String direccion,long telefono) {
+    public Chofer(Movil movil, String nombre, String apellido, String sexo, String dni, String direccion,String telefono) {
         super(nombre, apellido, sexo, dni, direccion,telefono);
         this.movil = movil;
     }
