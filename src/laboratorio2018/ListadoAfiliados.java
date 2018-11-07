@@ -7,6 +7,7 @@ package laboratorio2018;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,10 +16,28 @@ import java.util.Iterator;
 public class ListadoAfiliados extends javax.swing.JFrame {
 
     private ArrayList<Afiliado> afiliados = new ArrayList<Afiliado>();
+    private Sistema sistema;
+    
+    public ListadoAfiliados(Sistema c){
+        sistema=c;
+        initComponents();
+        setLocationRelativeTo(null);
+        setResizable(false);
+        setTitle("LISTADO DE AFILIADOS");
+        
+        if(!sistema.getAfiliados().isEmpty()) {
+            Iterator iterador = sistema.getAfiliados().listIterator(); //el objeto iterador te ayuda a recorrer una coleccion.
+            while (iterador.hasNext()) {
+                jTextAreaListadoAfiliado.append(iterador.next() + "\n\n"); //el objeto at es un JTextArea y el método append agrega el contenido de persona al area de texto
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "ERROR", "NO SE ENCONTRARON AFILIADOS", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
 
     public ListadoAfiliados() {
         initComponents();
-        setLocationRelativeTo(null);
+        /*setLocationRelativeTo(null);
         setResizable(false);
         setTitle("LISTADO DE AFILIADOS");
         Afiliado afi1 = new Afiliado("Roberto", "Gomez", "Masculino", "10111236", "av Mexico", "22113", 8, 5, 1950);
@@ -32,7 +51,7 @@ public class ListadoAfiliados extends javax.swing.JFrame {
             while (iterador.hasNext()) {
                 jTextAreaListadoAfiliado.append(iterador.next() + "\n\n"); //el objeto at es un JTextArea y el método append agrega el contenido de persona al area de texto
             }
-        }
+        }*/
     }
 
     /**
@@ -48,6 +67,7 @@ public class ListadoAfiliados extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaListadoAfiliado = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
+        jButtonVolverGestionAfiliado = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
 
@@ -60,6 +80,14 @@ public class ListadoAfiliados extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("LISTADO DE AFILIADOS");
 
+        jButtonVolverGestionAfiliado.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonVolverGestionAfiliado.setText("Volver");
+        jButtonVolverGestionAfiliado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVolverGestionAfiliadoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -69,17 +97,32 @@ public class ListadoAfiliados extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addContainerGap(261, Short.MAX_VALUE))
             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButtonVolverGestionAfiliado, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonVolverGestionAfiliado, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonVolverGestionAfiliadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverGestionAfiliadoActionPerformed
+        // TODO add your handling code here:
+        GestionAfiliados ges = new GestionAfiliados(sistema);
+        ges.setVisible(true);
+        setLocationRelativeTo(null);
+        setResizable(false);
+        setTitle("MENU GESTION AFILIADOS");
+        dispose();
+    }//GEN-LAST:event_jButtonVolverGestionAfiliadoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -117,6 +160,7 @@ public class ListadoAfiliados extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonVolverGestionAfiliado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;

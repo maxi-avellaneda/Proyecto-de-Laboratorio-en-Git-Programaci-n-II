@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 public class AltaAfiliado extends javax.swing.JFrame {
 
     private Sistema sistema;
+    //private Afiliado afiliado;
 
     public AltaAfiliado(Sistema c) {
         sistema = c;
@@ -25,9 +26,6 @@ public class AltaAfiliado extends javax.swing.JFrame {
 
     public AltaAfiliado() {
         initComponents();
-        setLocationRelativeTo(null);
-        setResizable(false);
-        setTitle("Alta Afiliado");
     }
 
     
@@ -197,6 +195,8 @@ public class AltaAfiliado extends javax.swing.JFrame {
         // TODO add your handling code here:
         GestionAfiliados g = new GestionAfiliados();
         g.setVisible(true);
+        setLocationRelativeTo(null);
+        setResizable(false);
         dispose();
     }//GEN-LAST:event_jButtonVolverGestionaAfiliadosActionPerformed
 
@@ -219,18 +219,18 @@ public class AltaAfiliado extends javax.swing.JFrame {
             dia = Integer.parseInt(diaNac.getText());
             mes = Integer.parseInt(MesNac.getText());
             anio = Integer.parseInt(anioNac.getText());
-            System.out.println("nom: "+nom+" ape: "+ape+" sexo: "+sex+" doc: "+doc+" dire: "+dire+" tele: "+tele+" dia: "+dia+" mes: "+mes+" anio: "+anio);
+            System.out.println("nom: "+nom+" \nape: "+ape+" \nsexo: "+sex+" \ndoc: "+doc+" \ndire: "+dire+" \ntele: "+tele+" \ndia: "+dia+" \nmes: "+mes+" \nanio: "+anio);
             sistema.verificarDatos(doc, nom, ape, dire,tele);
             sistema.buscarRepetido(doc);
             Afiliado afi = new Afiliado(nom,ape,sex,doc,dire,tele,dia,mes,anio);
             sistema.setAfiliados(afi);
             this.limpliarTextos();
             JOptionPane.showMessageDialog(null, "Afiliado guardado", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
-            MenuPrincipal m = new MenuPrincipal();
+            MenuPrincipal m = new MenuPrincipal(sistema);
             m.setVisible(true);
-            //m.setLocationRelativeTo(null);
-            //m.setResizable(false);
-            //dispose();
+            m.setLocationRelativeTo(null);
+            m.setResizable(false);
+            dispose();
             
             
         }catch(VerificarDniException vdni){

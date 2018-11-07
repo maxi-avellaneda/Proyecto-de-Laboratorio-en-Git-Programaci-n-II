@@ -11,15 +11,14 @@ package laboratorio2018;
  */
 public class MenuPrincipal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form MenuPrincipal
-     */
+    private Sistema sistema;
     public MenuPrincipal() {
         initComponents();
     }
     
-    public MenuPrincipal(Sistema sistema){
+    public MenuPrincipal(Sistema c){
         initComponents();
+        sistema=c;
         setLocationRelativeTo(null);
         setResizable(false);
         setTitle("MENU PRINCIPAL");
@@ -124,7 +123,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void jButtonGestionAfiliadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGestionAfiliadosActionPerformed
         // TODO add your handling code here:
-        GestionAfiliados ga = new GestionAfiliados();
+        GestionAfiliados ga = new GestionAfiliados(sistema);
         ga.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonGestionAfiliadosActionPerformed

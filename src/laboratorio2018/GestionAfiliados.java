@@ -11,10 +11,12 @@ package laboratorio2018;
  */
 public class GestionAfiliados extends javax.swing.JFrame {
 
-    /**
-     * Creates new form GestionAfiliados
-     */
-    public GestionAfiliados() {
+    private Sistema sistema;
+    public GestionAfiliados(){
+        initComponents();
+    }
+    public GestionAfiliados(Sistema c) {
+        sistema=c;
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
@@ -157,14 +159,14 @@ public class GestionAfiliados extends javax.swing.JFrame {
 
     private void jButtonVolverMenuPrincipal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverMenuPrincipal1ActionPerformed
         // TODO add your handling code here:
-        MenuPrincipal m = new MenuPrincipal();
+        MenuPrincipal m = new MenuPrincipal(sistema);
         m.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonVolverMenuPrincipal1ActionPerformed
 
     private void jButtonAltaAfiliadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAltaAfiliadoActionPerformed
         // TODO add your handling code here:
-        AltaAfiliado alta = new AltaAfiliado();
+        AltaAfiliado alta = new AltaAfiliado(sistema);
         alta.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonAltaAfiliadoActionPerformed
@@ -178,7 +180,7 @@ public class GestionAfiliados extends javax.swing.JFrame {
 
     private void jButtonListAfiliadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListAfiliadosActionPerformed
         // TODO add your handling code here:
-        ListadoAfiliados lista = new ListadoAfiliados();
+        ListadoAfiliados lista = new ListadoAfiliados(sistema);
         lista.setVisible(true);
         dispose();
         
