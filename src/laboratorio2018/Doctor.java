@@ -15,10 +15,10 @@ public class Doctor extends Persona {
 }
     @Override
     public String toString(){
-        String doctor = getNombre() +" " +getApellido() +"- MPN° "+getMatricula();
+        String doctor = "Doctor: "+getNombre() +" " +getApellido() +"- Matricula N°: "+getMatricula()+getSexo()+"\nDNI N° :"+getDni()+"\nDireccion: "+getDireccion();
         return doctor;
     }
-    public String afiliadosAsignados(){
+    /*public String afiliadosAsignados(){
         String lista = "";
         for (int i=0; i< afiliados.size();i++){
             Object hab = afiliados.get(i);
@@ -26,7 +26,7 @@ public class Doctor extends Persona {
         }
         String asignados = toString()+"\nPacientes asignados"+lista;
         return asignados;
-    }
+    }*/
     
   
     public int getMatricula() {

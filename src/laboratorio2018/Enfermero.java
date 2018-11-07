@@ -27,6 +27,12 @@ public class Enfermero extends Persona {
     public void setSector(String sector) {
         this.sector = sector;
     }
+    
+    @Override
+    public String toString(){
+        String enfermero = "Enfermero: "+getNombre() +" " +getApellido() +"\nSexo: "+getSexo()+"\nDNI N° :"+getDni()+"\nDireccion: "+getDireccion()+"Sector: "+getSector()/*+"\nFecha de Nacimiento: "+getFechaDeNaciemiento()+"\nEdad: "+calcularEdad()*/;
+        return enfermero;
+    }
 
     
 }

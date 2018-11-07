@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package laboratorio2018;
 
 public class Administrativo extends Persona {
@@ -11,6 +7,10 @@ public class Administrativo extends Persona {
         super(nombre, apellido, sexo, dni, direccion,telefono);
     }
 
-
+     @Override
+    public String toString(){
+        String administrativo = "Administrativo: "+getNombre() +" " +getApellido() +"\nSexo: "+getSexo()+"\nDNI N° :"+getDni()+"\nDireccion: "+getDireccion()+"\nTelefono: "+getTelefono()/*+"\nFecha de Nacimiento: "+getFechaDeNaciemiento()+"\nEdad: "+calcularEdad()*/;
+        return administrativo;
+    }
     
 }

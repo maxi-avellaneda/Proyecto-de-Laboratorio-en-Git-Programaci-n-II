@@ -95,23 +95,13 @@ public class Afiliado extends Persona { //el afiliado es un paciente
         fechaDeNaciemiento.set(ano,mes-1,dia);
     }
 
-
     public Diagnostico getDiagnostico() {
         return diagnostico;
     }
 
-  
     public void setDiagnostico(Diagnostico diagnostico) {
         this.diagnostico = diagnostico;
     }
 
-
-  
-
-    
-
-    
-  
-    
             
 }

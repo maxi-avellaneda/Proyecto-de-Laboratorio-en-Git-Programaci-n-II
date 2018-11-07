@@ -24,5 +24,9 @@ public class Chofer extends Persona{
         this.movil = movil;
     }
 
-    
+    @Override
+    public String toString(){
+        String chofer = "Chofer: "+getNombre() +" " +getApellido() +"\nSexo: "+getSexo()+"\nDNI N° :"+getDni()+"\nDireccion: "+getDireccion()/*+"\nFecha de Nacimiento: "+getFechaDeNaciemiento()+"\nEdad: "+calcularEdad()*/;
+        return chofer;
+    }
 }
