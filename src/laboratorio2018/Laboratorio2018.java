@@ -41,6 +41,7 @@ public class Laboratorio2018 {
         AbonoAfiliados abono3 = new AbonoAfiliados(afi3,10,10,2018,1000);abono3.fechaPagoAbono();
         
         Sistema sistema = new Sistema();
+        
         sistema.setAfiliados(afi1);
         sistema.setAfiliados(afi2);
         sistema.setAfiliados(afi3);
@@ -56,6 +57,10 @@ public class Laboratorio2018 {
         sistema.setChoferes(ch1);
         sistema.setChoferes(ch2);
         sistema.setChoferes(ch3);
+        
+        sistema.setMovil(m1);
+        sistema.setMovil(m2);
+        sistema.setMovil(m3);
         
         sistema.setAdminis(ad1);
         sistema.setAdminis(ad2);

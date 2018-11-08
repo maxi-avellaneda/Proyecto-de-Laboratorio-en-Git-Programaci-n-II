@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package laboratorio2018;
 
 import javax.swing.JOptionPane;
@@ -193,7 +189,7 @@ public class AltaAfiliado extends javax.swing.JFrame {
 
     private void jButtonVolverGestionaAfiliadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverGestionaAfiliadosActionPerformed
         // TODO add your handling code here:
-        GestionAfiliados g = new GestionAfiliados();
+        GestionAfiliados g = new GestionAfiliados(sistema);
         g.setVisible(true);
         setLocationRelativeTo(null);
         setResizable(false);

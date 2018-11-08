@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package laboratorio2018;
 
 import java.util.ArrayList;
@@ -37,21 +33,6 @@ public class ListadoAfiliados extends javax.swing.JFrame {
 
     public ListadoAfiliados() {
         initComponents();
-        /*setLocationRelativeTo(null);
-        setResizable(false);
-        setTitle("LISTADO DE AFILIADOS");
-        Afiliado afi1 = new Afiliado("Roberto", "Gomez", "Masculino", "10111236", "av Mexico", "22113", 8, 5, 1950);
-        Afiliado afi2 = new Afiliado("Marcos", "Herrra", "Masculino", "20888999", "Mota Botello", "102030", 10, 8, 1965);
-        Afiliado afi3 = new Afiliado("Florencia", "Andrada", "Femenina", "41028963", "Belgrano", "405060", 25, 10, 1998);
-        afiliados.add(afi1);
-        afiliados.add(afi2);
-        afiliados.add(afi3);
-        if (!afiliados.isEmpty()) { //persona es tu arraylist o list
-            Iterator iterador = afiliados.listIterator(); //el objeto iterador te ayuda a recorrer una coleccion.
-            while (iterador.hasNext()) {
-                jTextAreaListadoAfiliado.append(iterador.next() + "\n\n"); //el objeto at es un JTextArea y el método append agrega el contenido de persona al area de texto
-            }
-        }*/
     }
 
     /**

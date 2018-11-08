@@ -9,7 +9,8 @@ public class Sistema { // seria la asistencia medica
     private ArrayList<Diagnostico> diagnosticos = new ArrayList<Diagnostico>();
     private ArrayList<Enfermero> enfermeros = new ArrayList<Enfermero>();
     private ArrayList<Chofer> choferes = new ArrayList<Chofer>();
-    private ArrayList<Administrativo> adminis = new ArrayList<Administrativo>();
+    private ArrayList<Administrativo> adminis = new ArrayList<Administrativo>();//no es necesario
+    private ArrayList<Movil> moviles = new ArrayList<Movil>();
 
     public ArrayList<Afiliado> getAfiliados() {
         return afiliados;
@@ -51,6 +52,14 @@ public class Sistema { // seria la asistencia medica
     public ArrayList<Administrativo> getAdminis() {
         return adminis;
     }
+    
+    public void setMovil(Movil m){
+        moviles.add(m);
+    }
+    
+    public ArrayList<Movil> getMovil(){
+        return moviles;
+    }
 
     public ArrayList<Diagnostico> getDiagnosticos() {
         return diagnosticos;
@@ -77,7 +86,7 @@ public class Sistema { // seria la asistencia medica
 
     }
 
-    /*public void verificarDni(String dni) throws VerificarDniException {
+    public void verificarDni(String dni) throws VerificarDniException {
 
         if (dni.length() == 8 || dni.length() == 7) {
             int numero = Integer.parseInt(dni);
@@ -87,7 +96,7 @@ public class Sistema { // seria la asistencia medica
         } else {
             throw new VerificarDniException();
         }
-    }*/
+    }
 
     public void buscarAfiliado(String dni) throws AfiliadoNoEncontradoException {
         int bandera = 0;
