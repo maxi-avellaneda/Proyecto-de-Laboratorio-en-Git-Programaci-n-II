@@ -2,14 +2,6 @@
 package laboratorio2018;
 
 import Interfaz.MenuPrincipal;
-import laboratorio2018.AbonoAfiliados;
-import laboratorio2018.Administrativo;
-import laboratorio2018.Afiliado;
-import laboratorio2018.Chofer;
-import laboratorio2018.Doctor;
-import laboratorio2018.Enfermero;
-import laboratorio2018.Movil;
-import laboratorio2018.Sistema;
 
 public class Laboratorio2018 {
 
@@ -19,6 +11,9 @@ public class Laboratorio2018 {
         Afiliado afi1 = new Afiliado("Maximiliano","Avellaneda","Masculino","41015072","Sumalao","298222",8,5,1998);
         Afiliado afi2 = new Afiliado("Marcos","Herrra","Masculino","20888999","Mota Botello","102030",10,8,1965);
         Afiliado afi3 = new Afiliado("Florencia","Andrada","Femenina","41028963","Belgrano","405060",25,10,1998);
+        
+        Familiar f1 = new Familiar("Enzo","Avellaneda","Masculino","31231755","Sumalao","382556",14,8,1981,"Hermano","41015072");
+        Familiar f2 = new Familiar("Maria","Rodriguez","Femenino","10123456","Sumalao","123456",2,10,1993,"Prima","12345678");
         
         //Gestion de los moviles que cuenta la empresa (hacemos de cuenta que tiene 3 vehiculos a disposicion)
         Movil m1 = new Movil("2016","Mercedes-Benz","AB778UE","Ambulancia 1"); //TODAS SERIAN AMBULANCIAS
@@ -76,7 +71,12 @@ public class Laboratorio2018 {
         sistema.setAdminis(ad2);
         sistema.setAdminis(ad3);
         
-        MenuPrincipal menu1 = new MenuPrincipal(sistema);
+        Afiliado afiliado = new Afiliado();
+        
+        //afiliado.setFamiliares(f1);
+        afiliado.setFamiliares(f2);
+        
+        MenuPrincipal menu1 = new MenuPrincipal(sistema,afiliado);
         menu1.setVisible(true);
         
          

@@ -5,6 +5,7 @@
  */
 package Interfaz;
 
+import laboratorio2018.Afiliado;
 import laboratorio2018.Sistema;
 
 
@@ -15,11 +16,13 @@ import laboratorio2018.Sistema;
  */
 public class AfiliadoFamiliar extends javax.swing.JFrame {
     private Sistema sistema;
+    private Afiliado afiliado;
     public AfiliadoFamiliar(){
         initComponents();
     }
-    public AfiliadoFamiliar(Sistema c) {
+    public AfiliadoFamiliar(Sistema c,Afiliado a) {
         sistema=c;
+        afiliado=a;
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
@@ -94,21 +97,21 @@ public class AfiliadoFamiliar extends javax.swing.JFrame {
 
     private void jButtonAltaAfiliadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAltaAfiliadoActionPerformed
         // TODO add your handling code here:
-        AltaAfiliado alta = new AltaAfiliado(sistema);
+        AltaAfiliado alta = new AltaAfiliado(sistema,afiliado);
         alta.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonAltaAfiliadoActionPerformed
 
     private void jButtonAltaFamiliarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAltaFamiliarActionPerformed
         // TODO add your handling code here:
-        AltaFamiliar altfa = new AltaFamiliar(sistema);
+        AltaFamiliar altfa = new AltaFamiliar(sistema,afiliado);
         altfa.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonAltaFamiliarActionPerformed
 
     private void jButtonVolverGestionAfiliadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverGestionAfiliadosActionPerformed
         
-        GestionAfiliados a = new GestionAfiliados(sistema);
+        GestionAfiliados a = new GestionAfiliados(sistema,afiliado);
         a.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonVolverGestionAfiliadosActionPerformed

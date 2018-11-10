@@ -15,10 +15,11 @@ import Exceptions.VerificarRepetidosException;
 public class AltaAfiliado extends javax.swing.JFrame {
 
     private Sistema sistema;
-    //private Afiliado afiliado;
+    private Afiliado afiliado;
 
-    public AltaAfiliado(Sistema c) {
+    public AltaAfiliado(Sistema c,Afiliado a) {
         sistema = c;
+        afiliado=a;
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
@@ -200,7 +201,7 @@ public class AltaAfiliado extends javax.swing.JFrame {
 
     private void jButtonVolverGestionaAfiliadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverGestionaAfiliadosActionPerformed
 
-        AfiliadoFamiliar af = new AfiliadoFamiliar(sistema);
+        AfiliadoFamiliar af = new AfiliadoFamiliar(sistema,afiliado);
         af.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonVolverGestionaAfiliadosActionPerformed
@@ -224,14 +225,14 @@ public class AltaAfiliado extends javax.swing.JFrame {
             dia = Integer.parseInt(diaNac.getText());
             mes = Integer.parseInt(MesNac.getText());
             anio = Integer.parseInt(anioNac.getText());
-            System.out.println("nom: "+nom+" \nape: "+ape+" \nsexo: "+sex+" \ndoc: "+doc+" \ndire: "+dire+" \ntele: "+tele+" \ndia: "+dia+" \nmes: "+mes+" \nanio: "+anio);
+           // System.out.println("nom: "+nom+" \nape: "+ape+" \nsexo: "+sex+" \ndoc: "+doc+" \ndire: "+dire+" \ntele: "+tele+" \ndia: "+dia+" \nmes: "+mes+" \nanio: "+anio);
             sistema.verificarDatos(doc, nom, ape, dire,tele);
             sistema.buscarRepetido(doc);
             Afiliado afi = new Afiliado(nom,ape,sex,doc,dire,tele,dia,mes,anio);
             sistema.setAfiliados(afi);
             this.limpliarTextos();
             JOptionPane.showMessageDialog(null, "Afiliado guardado", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
-            MenuPrincipal m = new MenuPrincipal(sistema);
+            MenuPrincipal m = new MenuPrincipal(sistema,afiliado);
             m.setVisible(true);
             dispose();
             

@@ -1,12 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Interfaz;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import javax.swing.JOptionPane;
 import laboratorio2018.Afiliado;
 import laboratorio2018.Sistema;
@@ -20,32 +14,33 @@ public class ListadoFamiliares extends javax.swing.JFrame {
 
     private ArrayList<Familiar> familiares = new ArrayList<Familiar>();
     private Sistema sistema;
+    private Afiliado afiliado;
 
-    public ListadoFamiliares(Sistema c, String dniclave) {
+    public ListadoFamiliares(Sistema c, Afiliado b, String d) {
         sistema = c;
-        String dni = dniclave;
+        afiliado = b;
+        String dni = d;
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
         setTitle("LISTADO DE FAMILIARES DEL AFILIADO");
 
-        Familiar familiar = null;
-        for (Familiar a : sistema.getFamiliares()) {
-            if (!sistema.getAfiliados().isEmpty()) {
-                if (a.getClaveFamiliar().equals(dni)) {
-                    familiar = a;
-                }
+        for (Familiar f : afiliado.getFamiliares()) {
+            if (f.getClaveFamiliar().equals(dni)) {
+                familiares.add(f);
             }
+        }
+        if (familiares.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "NO SE ENCONTRARON FAMILIARES", "ERROR", JOptionPane.INFORMATION_MESSAGE);
+            //GestionAfiliados ga = new GestionAfiliados(sistema, afiliado);
+            //ga.setVisible(true);
 
         }
-        if (familiar != null) {
-            Iterator iterador = sistema.getFamiliares().listIterator(); //el objeto iterador te ayuda a recorrer una coleccion.
-            while (iterador.hasNext()) {
-                jTextAreaListadoFamiliares.append(iterador.next() + "\n\n"); //el objeto jtlistadofamiliares es un JTextArea y el método append agrega el contenido de persona al area de texto
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "NO SE ENCONTRARON FAMILIARES", "LISTA VACIA", JOptionPane.INFORMATION_MESSAGE);
+        for (Familiar fa : familiares) {
+
+            jTextAreaListadoFamiliares.append(fa + "\n");
         }
+
     }
 
     public ListadoFamiliares() {
@@ -106,7 +101,7 @@ public class ListadoFamiliares extends javax.swing.JFrame {
 
     private void jButtonVolverGestionAfiliadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverGestionAfiliadoActionPerformed
         // TODO add your handling code here:
-        GestionAfiliados ges = new GestionAfiliados(sistema);
+        GestionAfiliados ges = new GestionAfiliados(sistema, afiliado);
         ges.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonVolverGestionAfiliadoActionPerformed
@@ -125,16 +120,24 @@ public class ListadoFamiliares extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ListadoFamiliares.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListadoFamiliares.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ListadoFamiliares.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListadoFamiliares.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ListadoFamiliares.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListadoFamiliares.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ListadoFamiliares.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListadoFamiliares.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 

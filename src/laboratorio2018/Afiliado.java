@@ -20,11 +20,9 @@ public class Afiliado extends Persona { //el afiliado es un paciente
         fechaDeNaciemiento.set(ano,mes-1,dia);
         edad = this.calcularEdad();
     }
-    /*public Afiliado(String nombre,String apellido,String sexo,String dni,String direccion,String telefono,int dia, int mes, int ano){
-        super(nombre,apellido,sexo,dni,direccion,telefono);
-        fechaDeNaciemiento.set(ano,mes-1,dia);
-        edad = this.calcularEdad();
-    }*/
+    public Afiliado(){
+        
+    }
 
     public Afiliado(Doctor doctor, Diagnostico diagnostico, int edad, String nombre, String apellido, String sexo, String dni, String direccion,String telefono) {
         super(nombre, apellido, sexo, dni, direccion,telefono);

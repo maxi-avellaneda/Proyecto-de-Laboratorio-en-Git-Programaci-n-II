@@ -1,6 +1,7 @@
 
 package Interfaz;
 
+import laboratorio2018.Afiliado;
 import laboratorio2018.Sistema;
 
 /**
@@ -10,6 +11,8 @@ import laboratorio2018.Sistema;
 public class MenuPrincipal extends javax.swing.JFrame {
 
     private Sistema sistema;
+    private Afiliado afiliado;
+    
     public MenuPrincipal() {
         initComponents();
     }
@@ -17,6 +20,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
     public MenuPrincipal(Sistema c){
         initComponents();
         sistema=c;
+        setLocationRelativeTo(null);
+        setResizable(false);
+        setTitle("MENU PRINCIPAL");
+    }
+    public MenuPrincipal(Sistema c,Afiliado a) {
+        initComponents();
+        sistema=c;
+        afiliado=a;
         setLocationRelativeTo(null);
         setResizable(false);
         setTitle("MENU PRINCIPAL");
@@ -38,6 +49,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jButtonMenuGestiones = new javax.swing.JButton();
         jButtonGestionAsistencia = new javax.swing.JButton();
         jButtonSalirMenuPrincipal = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jButtonGestionPagos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,6 +88,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jLabel5.setText("INGRESAR A:");
+
+        jButtonGestionPagos.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonGestionPagos.setText("GESTIONAR PAGOS");
+        jButtonGestionPagos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonGestionPagosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -88,12 +111,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
                         .addGap(80, 80, 80)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButtonGestionAsistencia, javax.swing.GroupLayout.DEFAULT_SIZE, 389, Short.MAX_VALUE)
-                            .addComponent(jButtonMenuGestiones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jButtonMenuGestiones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonGestionPagos, javax.swing.GroupLayout.DEFAULT_SIZE, 389, Short.MAX_VALUE))))
                 .addContainerGap(128, Short.MAX_VALUE))
             .addComponent(jButtonSalirMenuPrincipal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
@@ -112,7 +137,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonGestionAsistencia, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                .addGap(0, 0, 0)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonGestionPagos, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButtonSalirMenuPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -121,7 +150,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void jButtonMenuGestionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMenuGestionesActionPerformed
         // TODO add your handling code here:
-        MenuGestiones mg = new MenuGestiones(sistema);
+        MenuGestiones mg = new MenuGestiones(sistema,afiliado);
         mg.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonMenuGestionesActionPerformed
@@ -135,6 +164,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_jButtonGestionAsistenciaActionPerformed
+
+    private void jButtonGestionPagosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGestionPagosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonGestionPagosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -173,11 +206,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonGestionAsistencia;
+    private javax.swing.JButton jButtonGestionPagos;
     private javax.swing.JButton jButtonMenuGestiones;
     private javax.swing.JButton jButtonSalirMenuPrincipal;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     // End of variables declaration//GEN-END:variables
 }

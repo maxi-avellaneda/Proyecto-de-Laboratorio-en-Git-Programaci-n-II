@@ -1,13 +1,12 @@
-
 package Interfaz;
 
 import Exceptions.AfiliadoNoEncontradoException;
 import Exceptions.VerficarCampoVacioException;
 import Exceptions.VerificarDniException;
-import Exceptions.VerificarRepetidosException;
-import java.util.Iterator;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import laboratorio2018.Afiliado;
+import laboratorio2018.Familiar;
 import laboratorio2018.Sistema;
 
 /**
@@ -17,13 +16,28 @@ import laboratorio2018.Sistema;
 public class BuscarFamiliares extends javax.swing.JFrame {
 
     private Sistema sistema;
-     public BuscarFamiliares(Sistema c) {
+    private Afiliado afiliado;
+    public Afiliado afi = null;
+      private ArrayList<Familiar> familiares = new ArrayList<Familiar>();
+
+    public BuscarFamiliares(Sistema c) {
         sistema = c;
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
         setTitle("BAJA DE FAMILIAR");
     }
+
+    public BuscarFamiliares(Sistema c, Afiliado a) {
+        sistema = c;
+        afiliado = a;
+        //System.out.println("Familiares: "+afiliado.getFamiliares());
+        initComponents();
+        setLocationRelativeTo(null);
+        setResizable(false);
+        setTitle("BAJA DE FAMILIAR");
+    }
+
     public BuscarFamiliares() {
         initComponents();
     }
@@ -112,34 +126,31 @@ public class BuscarFamiliares extends javax.swing.JFrame {
 
     private void jButtonVolverGestionAfiliadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverGestionAfiliadosActionPerformed
 
-        GestionAfiliados gs = new GestionAfiliados(sistema);
+        GestionAfiliados gs = new GestionAfiliados(sistema,afiliado);
         gs.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonVolverGestionAfiliadosActionPerformed
 
     private void jButtonBuscarFamiliarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarFamiliarActionPerformed
         try {
+            
             String dni = buscarDni.getText();
             verificarDatos(dni);
             sistema.buscarAfiliado(dni);
-            Afiliado afiliado = null;
             for (Afiliado a : sistema.getAfiliados()) {
-                if (a.getDni().equals(dni)) {
-                    afiliado = a;
+                if (a.getDni().equals(dni)) {        
+                    ListadoFamiliares l = new ListadoFamiliares(sistema, afiliado,dni);
+                    l.setVisible(true);
+                    dispose();
                 }
-            }
-            if(afiliado != null) {
-                ListadoFamiliares l = new ListadoFamiliares(sistema,dni);
-                l.setVisible(true);
-            }
+            }   
         } catch (VerificarDniException vdni) {
             JOptionPane.showMessageDialog(null, "Dni Invalido", "Error!", JOptionPane.OK_OPTION);
         } catch (AfiliadoNoEncontradoException pnee) {
             JOptionPane.showMessageDialog(null, "No se encontro al afiliado", "Aviso!", JOptionPane.WARNING_MESSAGE);
-        }catch(VerficarCampoVacioException cav){
-           JOptionPane.showMessageDialog(null, "Campo Vacio, ingrese de nuevo", "Atencion!", JOptionPane.QUESTION_MESSAGE);
-       }
-        finally {
+        } catch (VerficarCampoVacioException cav) {
+            JOptionPane.showMessageDialog(null, "Campo Vacio, ingrese de nuevo", "Atencion!", JOptionPane.QUESTION_MESSAGE);
+        } finally {
             buscarDni.setText(null);
         }
     }//GEN-LAST:event_jButtonBuscarFamiliarActionPerformed
@@ -158,6 +169,8 @@ public class BuscarFamiliares extends javax.swing.JFrame {
             throw new VerificarDniException();
         }
     }
+    
+
     /**
      * @param args the command line arguments
      */

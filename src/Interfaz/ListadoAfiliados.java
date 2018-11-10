@@ -15,9 +15,11 @@ public class ListadoAfiliados extends javax.swing.JFrame {
 
     private ArrayList<Afiliado> afiliados = new ArrayList<Afiliado>();
     private Sistema sistema;
+    private Afiliado afiliado;
     
-    public ListadoAfiliados(Sistema c){
+    public ListadoAfiliados(Sistema c,Afiliado a){
         sistema=c;
+        afiliado=a;
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
@@ -99,11 +101,8 @@ public class ListadoAfiliados extends javax.swing.JFrame {
 
     private void jButtonVolverGestionAfiliadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverGestionAfiliadoActionPerformed
         // TODO add your handling code here:
-        GestionAfiliados ges = new GestionAfiliados(sistema);
+        GestionAfiliados ges = new GestionAfiliados(sistema,afiliado);
         ges.setVisible(true);
-        setLocationRelativeTo(null);
-        setResizable(false);
-        setTitle("MENU GESTION AFILIADOS");
         dispose();
     }//GEN-LAST:event_jButtonVolverGestionAfiliadoActionPerformed
 

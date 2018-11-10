@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Interfaz;
 
 import Exceptions.VerficarCampoVacioException;
@@ -20,9 +16,11 @@ import laboratorio2018.Afiliado;
 public class AltaFamiliar extends javax.swing.JFrame {
 
     private Sistema sistema;
+    private Afiliado afiliado;
 
-    public AltaFamiliar(Sistema c) {
+    public AltaFamiliar(Sistema c,Afiliado a) {
         sistema = c;
+        afiliado=a;
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
@@ -127,7 +125,7 @@ public class AltaFamiliar extends javax.swing.JFrame {
             }
         });
 
-        jLabel10.setText("Clave Familiar:");
+        jLabel10.setText("Clave Afiliado:");
 
         claveFamiliar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -267,9 +265,11 @@ public class AltaFamiliar extends javax.swing.JFrame {
             sistema.buscarRepetido(doc);
             Familiar fam = new Familiar(nom, ape, sex, doc, dire, tele, dia, mes, anio, rela,dniFami);
             sistema.setFamiliares(fam);
+            afiliado.setFamiliares(fam);
+            System.out.println(afiliado.getFamiliares());
             this.limpliarTextos();
             JOptionPane.showMessageDialog(null, "Familiar guardado", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
-            MenuPrincipal m = new MenuPrincipal(sistema);
+            MenuPrincipal m = new MenuPrincipal(sistema,afiliado);
             m.setVisible(true);
             dispose();
 
@@ -295,10 +295,8 @@ public class AltaFamiliar extends javax.swing.JFrame {
 
     private void jButtonVolverGestionaAfiliadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverGestionaAfiliadosActionPerformed
         // TODO add your handling code here:
-        GestionAfiliados g = new GestionAfiliados(sistema);
+        GestionAfiliados g = new GestionAfiliados(sistema,afiliado);
         g.setVisible(true);
-        setLocationRelativeTo(null);
-        setResizable(false);
         dispose();
     }//GEN-LAST:event_jButtonVolverGestionaAfiliadosActionPerformed
 

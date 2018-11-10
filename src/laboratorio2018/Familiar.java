@@ -69,8 +69,9 @@ public class Familiar extends Persona{
         if(anioNac>anioAc){System.out.println("FECHA DE NACIMIENTO MAL INGRESADA");}
         return edad;
     }
+    @Override
     public String toString(){
-        String familiar = "Familiar: "+getNombre() +" " +getApellido() +"\nSexo: "+getSexo()+"\nDNI N° :"+getDni()+"\nDireccion: "+getDireccion()+"\nFecha de Nacimiento: "+getFechaDeNaciemiento()+"\nEdad: "+calcularEdad()+"\nRelacion:"+getRelacion();
+        String familiar = "Familiar: "+getNombre() +" " +getApellido() +"\nSexo: "+getSexo()+"\nDNI N° :"+getDni()+"\nDireccion: "+getDireccion()+"\nFecha de Nacimiento: "+getFechaDeNaciemiento()+"\nEdad: "+calcularEdad()+"\nRelacion: "+getRelacion()+"\n";
         return familiar;
     }
 

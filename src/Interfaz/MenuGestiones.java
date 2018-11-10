@@ -5,6 +5,7 @@
  */
 package Interfaz;
 
+import laboratorio2018.Afiliado;
 import laboratorio2018.Sistema;
 
 /**
@@ -14,11 +15,21 @@ import laboratorio2018.Sistema;
 public class MenuGestiones extends javax.swing.JFrame {
 
     private Sistema sistema; 
+    private Afiliado afiliado;
+    
     public MenuGestiones() {
         initComponents();
     }
     public MenuGestiones(Sistema c) {
         sistema=c;
+        initComponents();
+        setLocationRelativeTo(null);
+        setResizable(false);
+        setTitle("MENU DE GESTIONES");
+    }
+    public MenuGestiones(Sistema c,Afiliado a) {
+        sistema=c;
+        afiliado=a;
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
@@ -104,7 +115,7 @@ public class MenuGestiones extends javax.swing.JFrame {
 
     private void jButtonSalirMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirMenuPrincipalActionPerformed
         // TODO add your handling code here:
-         MenuPrincipal m = new MenuPrincipal(sistema);
+         MenuPrincipal m = new MenuPrincipal(sistema,afiliado);
         m.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonSalirMenuPrincipalActionPerformed
@@ -116,7 +127,7 @@ public class MenuGestiones extends javax.swing.JFrame {
 
     private void jButtonGestionAfiliadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGestionAfiliadosActionPerformed
         // TODO add your handling code here:
-        GestionAfiliados ga = new GestionAfiliados(sistema);
+        GestionAfiliados ga = new GestionAfiliados(sistema,afiliado);
         ga.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonGestionAfiliadosActionPerformed
