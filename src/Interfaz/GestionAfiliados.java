@@ -1,5 +1,7 @@
 
-package laboratorio2018;
+package Interfaz;
+
+import laboratorio2018.Sistema;
 
 /**
  *
@@ -37,6 +39,8 @@ public class GestionAfiliados extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jButtonListAfiliados = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
+        jButtonListaFamiliares = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
         jButtonModificarAfiliados = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -45,7 +49,7 @@ public class GestionAfiliados extends javax.swing.JFrame {
         jLabel1.setText("GESTION DE AFILIADOS O FAMILIARES");
 
         jButtonAltaAfiliado.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jButtonAltaAfiliado.setText("ALTA AFILIADO");
+        jButtonAltaAfiliado.setText("ALTA AFILIADO-FAMILIAR");
         jButtonAltaAfiliado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAltaAfiliadoActionPerformed(evt);
@@ -67,7 +71,7 @@ public class GestionAfiliados extends javax.swing.JFrame {
         jLabel6.setText("  DAR DE: ");
 
         jButtonBajaAfiliado.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jButtonBajaAfiliado.setText("BAJA AFILIADO");
+        jButtonBajaAfiliado.setText("BAJA AFILIADO-FAMILIAR");
         jButtonBajaAfiliado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonBajaAfiliadoActionPerformed(evt);
@@ -86,10 +90,21 @@ public class GestionAfiliados extends javax.swing.JFrame {
         });
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel8.setText("   IR A:");
+        jLabel8.setText("   VER:");
+
+        jButtonListaFamiliares.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jButtonListaFamiliares.setText("LISTADO DE FAMILIARES");
+        jButtonListaFamiliares.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonListaFamiliaresActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel9.setText("   IR A");
 
         jButtonModificarAfiliados.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jButtonModificarAfiliados.setText("MODIFICAR AFILIADO");
+        jButtonModificarAfiliados.setText("MODIFICAR DATOS");
         jButtonModificarAfiliados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonModificarAfiliadosActionPerformed(evt);
@@ -105,21 +120,19 @@ public class GestionAfiliados extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonAltaAfiliado, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonListAfiliados, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonBajaAfiliado, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonModificarAfiliados, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonAltaAfiliado, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonBajaAfiliado, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonListAfiliados, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonListaFamiliares, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonModificarAfiliados, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(171, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -130,23 +143,27 @@ public class GestionAfiliados extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonAltaAfiliado, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonBajaAfiliado, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonListAfiliados, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonModificarAfiliados, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonListaFamiliares, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonModificarAfiliados, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(jButtonVolverMenuPrincipal1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -155,15 +172,15 @@ public class GestionAfiliados extends javax.swing.JFrame {
 
     private void jButtonVolverMenuPrincipal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverMenuPrincipal1ActionPerformed
         // TODO add your handling code here:
-        MenuPrincipal m = new MenuPrincipal(sistema);
-        m.setVisible(true);
+        MenuGestiones mg = new MenuGestiones(sistema);
+        mg.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonVolverMenuPrincipal1ActionPerformed
 
     private void jButtonAltaAfiliadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAltaAfiliadoActionPerformed
         // TODO add your handling code here:
-        AltaAfiliado alta = new AltaAfiliado(sistema);
-        alta.setVisible(true);
+        AfiliadoFamiliar afifa = new AfiliadoFamiliar(sistema);
+        afifa.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonAltaAfiliadoActionPerformed
 
@@ -181,6 +198,13 @@ public class GestionAfiliados extends javax.swing.JFrame {
         dispose();
         
     }//GEN-LAST:event_jButtonListAfiliadosActionPerformed
+
+    private void jButtonListaFamiliaresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListaFamiliaresActionPerformed
+        // TODO add your handling code here:
+        BuscarFamiliares bf = new BuscarFamiliares(sistema);
+        bf.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButtonListaFamiliaresActionPerformed
 
     private void jButtonModificarAfiliadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModificarAfiliadosActionPerformed
         // TODO add your handling code here:
@@ -225,6 +249,7 @@ public class GestionAfiliados extends javax.swing.JFrame {
     private javax.swing.JButton jButtonAltaAfiliado;
     private javax.swing.JButton jButtonBajaAfiliado;
     private javax.swing.JButton jButtonListAfiliados;
+    private javax.swing.JButton jButtonListaFamiliares;
     private javax.swing.JButton jButtonModificarAfiliados;
     private javax.swing.JButton jButtonVolverMenuPrincipal1;
     private javax.swing.JLabel jLabel1;
@@ -232,5 +257,6 @@ public class GestionAfiliados extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
 }

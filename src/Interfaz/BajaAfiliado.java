@@ -1,6 +1,10 @@
-package laboratorio2018;
+package Interfaz;
 
 import javax.swing.JOptionPane;
+import laboratorio2018.Afiliado;
+import Exceptions.AfiliadoNoEncontradoException;
+import laboratorio2018.Sistema;
+import Exceptions.VerificarDniException;
 
 /**
  *

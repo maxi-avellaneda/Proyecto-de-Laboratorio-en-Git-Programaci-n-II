@@ -1,5 +1,9 @@
 package laboratorio2018;
 
+import Exceptions.VerificarRepetidosException;
+import Exceptions.AfiliadoNoEncontradoException;
+import Exceptions.VerficarCampoVacioException;
+import Exceptions.VerificarDniException;
 import java.util.ArrayList;
 
 public class Sistema { // seria la asistencia medica

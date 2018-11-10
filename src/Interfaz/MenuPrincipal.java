@@ -1,5 +1,7 @@
 
-package laboratorio2018;
+package Interfaz;
+
+import laboratorio2018.Sistema;
 
 /**
  *
@@ -33,7 +35,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jButtonGestionAfiliados = new javax.swing.JButton();
+        jButtonMenuGestiones = new javax.swing.JButton();
         jButtonGestionAsistencia = new javax.swing.JButton();
         jButtonSalirMenuPrincipal = new javax.swing.JButton();
 
@@ -49,16 +51,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jLabel4.setText("INGRESAR A:");
 
-        jButtonGestionAfiliados.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButtonGestionAfiliados.setText("GESTION DE AFILIADOS-FAMILAR/ES");
-        jButtonGestionAfiliados.addActionListener(new java.awt.event.ActionListener() {
+        jButtonMenuGestiones.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonMenuGestiones.setText("GESTIONES DEL SISTEMA");
+        jButtonMenuGestiones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonGestionAfiliadosActionPerformed(evt);
+                jButtonMenuGestionesActionPerformed(evt);
             }
         });
 
         jButtonGestionAsistencia.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButtonGestionAsistencia.setText("GESTIONAR UNA ASISTENCIA MEDICA");
+        jButtonGestionAsistencia.setText("ASISTENCIAS MÉDICAS");
         jButtonGestionAsistencia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonGestionAsistenciaActionPerformed(evt);
@@ -91,7 +93,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButtonGestionAsistencia, javax.swing.GroupLayout.DEFAULT_SIZE, 389, Short.MAX_VALUE)
-                            .addComponent(jButtonGestionAfiliados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jButtonMenuGestiones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(128, Short.MAX_VALUE))
             .addComponent(jButtonSalirMenuPrincipal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
@@ -104,8 +106,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonGestionAfiliados, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE))
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
+                    .addComponent(jButtonMenuGestiones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonGestionAsistencia, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -117,12 +119,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonGestionAfiliadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGestionAfiliadosActionPerformed
+    private void jButtonMenuGestionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMenuGestionesActionPerformed
         // TODO add your handling code here:
-        GestionAfiliados ga = new GestionAfiliados(sistema);
-        ga.setVisible(true);
+        MenuGestiones mg = new MenuGestiones(sistema);
+        mg.setVisible(true);
         dispose();
-    }//GEN-LAST:event_jButtonGestionAfiliadosActionPerformed
+    }//GEN-LAST:event_jButtonMenuGestionesActionPerformed
 
     private void jButtonSalirMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirMenuPrincipalActionPerformed
         // TODO add your handling code here:
@@ -170,8 +172,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonGestionAfiliados;
     private javax.swing.JButton jButtonGestionAsistencia;
+    private javax.swing.JButton jButtonMenuGestiones;
     private javax.swing.JButton jButtonSalirMenuPrincipal;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

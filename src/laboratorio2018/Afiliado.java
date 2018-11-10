@@ -13,6 +13,7 @@ public class Afiliado extends Persona { //el afiliado es un paciente
     private Diagnostico diagnostico;
     private int edad;
     private ArrayList<Familiar> familiares =  new ArrayList<Familiar>();
+    private AbonoAfiliados abono;
 
     public Afiliado(String nombre,String apellido,String sexo,String dni,String direccion,String telefono,int dia, int mes,int ano){
         super(nombre,apellido,sexo,dni,direccion,telefono);
@@ -106,6 +107,14 @@ public class Afiliado extends Persona { //el afiliado es un paciente
 
     public void setDiagnostico(Diagnostico diagnostico) {
         this.diagnostico = diagnostico;
+    }
+
+    public ArrayList<Familiar> getFamiliares() {
+        return familiares;
+    }
+
+    public void setFamiliares(Familiar f) {
+        familiares.add(f);
     }
 
             

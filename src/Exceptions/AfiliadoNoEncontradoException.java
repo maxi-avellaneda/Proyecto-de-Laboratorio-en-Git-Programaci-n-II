@@ -1,5 +1,5 @@
 
-package laboratorio2018;
+package Exceptions;
 
 
 public class AfiliadoNoEncontradoException extends Exception{

@@ -28,24 +28,21 @@
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <Component id="jLabel5" min="-2" pref="90" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel5" alignment="1" min="-2" pref="90" max="-2" attributes="0"/>
+                          <Component id="jLabel6" alignment="1" min="-2" pref="90" max="-2" attributes="0"/>
+                          <Component id="jLabel7" alignment="1" min="-2" pref="94" max="-2" attributes="0"/>
+                          <Component id="jLabel8" alignment="1" min="-2" pref="94" max="-2" attributes="0"/>
+                          <Component id="jLabel9" alignment="1" min="-2" pref="94" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButtonAltaAfiliado" min="-2" pref="346" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="jLabel7" min="-2" pref="94" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="jButtonListAfiliados" min="-2" pref="346" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="jLabel6" min="-2" pref="90" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButtonBajaAfiliado" min="-2" pref="346" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="jLabel8" min="-2" pref="94" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButtonModificarAfiliados" min="-2" pref="346" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jButtonAltaAfiliado" min="-2" pref="346" max="-2" attributes="0"/>
+                          <Component id="jButtonBajaAfiliado" alignment="0" min="-2" pref="346" max="-2" attributes="0"/>
+                          <Component id="jButtonListAfiliados" alignment="0" min="-2" pref="346" max="-2" attributes="0"/>
+                          <Component id="jButtonListaFamiliares" alignment="0" min="-2" pref="346" max="-2" attributes="0"/>
+                          <Component id="jButtonModificarAfiliados" min="-2" pref="346" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
               <EmptySpace pref="171" max="32767" attributes="0"/>
@@ -61,27 +58,32 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" pref="77" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButtonAltaAfiliado" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                   <Component id="jLabel5" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButtonBajaAfiliado" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                   <Component id="jLabel6" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButtonListAfiliados" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                   <Component id="jLabel7" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButtonModificarAfiliados" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                  <Component id="jButtonListaFamiliares" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                   <Component id="jLabel8" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="31" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel9" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                  <Component id="jButtonModificarAfiliados" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="35" max="32767" attributes="0"/>
               <Component id="jButtonVolverMenuPrincipal1" min="-2" pref="47" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -101,7 +103,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="16" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="ALTA AFILIADO"/>
+        <Property name="text" type="java.lang.String" value="ALTA AFILIADO-FAMILIAR"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAltaAfiliadoActionPerformed"/>
@@ -139,7 +141,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="16" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="BAJA AFILIADO"/>
+        <Property name="text" type="java.lang.String" value="BAJA AFILIADO-FAMILIAR"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonBajaAfiliadoActionPerformed"/>
@@ -169,7 +171,26 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="16" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="   IR A:"/>
+        <Property name="text" type="java.lang.String" value="   VER:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonListaFamiliares">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="16" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="LISTADO DE FAMILIARES"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonListaFamiliaresActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel9">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="16" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="   IR A"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonModificarAfiliados">
@@ -177,7 +198,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="16" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="MODIFICAR AFILIADO"/>
+        <Property name="text" type="java.lang.String" value="MODIFICAR DATOS"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonModificarAfiliadosActionPerformed"/>

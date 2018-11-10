@@ -6,10 +6,26 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 
-class Familiar extends Persona{
+public class Familiar extends Persona{
     
     private String relacion;
     private Calendar fechaDeNaciemiento = Calendar.getInstance();
+    private Afiliado afiliado;
+
+    public Familiar(String relacion, Afiliado afiliado) {
+        this.relacion = relacion;
+        this.afiliado = afiliado;
+    }
+
+    public Familiar(String nombre, String apellido, String sexo, String dni, String direccion, String telefono,String relacion, Afiliado afiliado) {
+        super(nombre, apellido, sexo, dni, direccion, telefono);
+        this.relacion = relacion;
+        this.afiliado = afiliado;
+    }
+
+    public Familiar(String nom, String ape, String sex, String doc, String dire, String tele, int dia, int mes, int anio, String rela) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     public int calcularEdad(){
         int edad=0;
@@ -20,6 +36,7 @@ class Familiar extends Persona{
         int anoNac = fechaDeNaciemiento.get(Calendar.YEAR);
         int mesNac = fechaDeNaciemiento.get(Calendar.MONTH);
         int diaNac = fechaDeNaciemiento.get(Calendar.DAY_OF_MONTH);
+        
         if (anoNac <= anoAc){
             if (mesNac <= mesAc){
                 if (diaNac <= diaAc)

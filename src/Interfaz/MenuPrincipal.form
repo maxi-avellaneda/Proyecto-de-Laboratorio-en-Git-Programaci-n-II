@@ -39,7 +39,7 @@
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jLabel1" min="-2" pref="379" max="-2" attributes="0"/>
                           <Component id="jButtonGestionAsistencia" pref="389" max="32767" attributes="0"/>
-                          <Component id="jButtonGestionAfiliados" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jButtonMenuGestiones" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -57,8 +57,8 @@
               <Component id="jLabel2" min="-2" pref="53" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jLabel4" max="32767" attributes="0"/>
-                  <Component id="jButtonGestionAfiliados" pref="91" max="32767" attributes="0"/>
+                  <Component id="jLabel4" pref="91" max="32767" attributes="0"/>
+                  <Component id="jButtonMenuGestiones" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -98,15 +98,15 @@
         <Property name="text" type="java.lang.String" value="INGRESAR A:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButtonGestionAfiliados">
+    <Component class="javax.swing.JButton" name="jButtonMenuGestiones">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="GESTION DE AFILIADOS-FAMILAR/ES"/>
+        <Property name="text" type="java.lang.String" value="GESTIONES DEL SISTEMA"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonGestionAfiliadosActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonMenuGestionesActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonGestionAsistencia">
@@ -114,7 +114,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="GESTIONAR UNA ASISTENCIA MEDICA"/>
+        <Property name="text" type="java.lang.String" value="ASISTENCIAS M&#xc9;DICAS"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonGestionAsistenciaActionPerformed"/>
