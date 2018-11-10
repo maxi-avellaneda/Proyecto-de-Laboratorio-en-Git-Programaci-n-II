@@ -16,7 +16,7 @@ public class Laboratorio2018 {
     public static void main(String[] args) {
         
         //GESTION DE DATOS DE AFILIADOS y SUS FAMILIARES
-        Afiliado afi1 = new Afiliado("Roberto","Gomez","Masculino","10111236","av Mexico","22113",8,5,1950);
+        Afiliado afi1 = new Afiliado("Maximiliano","Avellaneda","Masculino","41015072","Sumalao","298222",8,5,1998);
         Afiliado afi2 = new Afiliado("Marcos","Herrra","Masculino","20888999","Mota Botello","102030",10,8,1965);
         Afiliado afi3 = new Afiliado("Florencia","Andrada","Femenina","41028963","Belgrano","405060",25,10,1998);
         

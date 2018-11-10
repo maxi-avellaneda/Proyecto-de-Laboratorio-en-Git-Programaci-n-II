@@ -3,6 +3,7 @@ package Interfaz;
 import javax.swing.JOptionPane;
 import laboratorio2018.Afiliado;
 import Exceptions.AfiliadoNoEncontradoException;
+import Exceptions.VerficarCampoVacioException;
 import laboratorio2018.Sistema;
 import Exceptions.VerificarDniException;
 
@@ -13,7 +14,6 @@ import Exceptions.VerificarDniException;
 public class BajaAfiliado extends javax.swing.JFrame {
 
     private Sistema sistema;
-    private Afiliado afiliado;
 
     public BajaAfiliado(Sistema c) {
         sistema = c;
@@ -121,8 +121,7 @@ public class BajaAfiliado extends javax.swing.JFrame {
             Afiliado afiliado = null;
             for (Afiliado a : sistema.getAfiliados()) {
                 if (a.getDni().equals(dni)) {
-                    //JOptionPane.showMessageDialog(null, "Paciente ya esta dado de baja", "Aviso", JOptionPane.INFORMATION_MESSAGE);
-                    //sistema.getAfiliados().remove(a);
+                    //JOptionPane.showMessageDialog(null, "Afiliado ya esta dado de baja", "Aviso", JOptionPane.INFORMATION_MESSAGE);
                     afiliado = a;
                 }
             }
@@ -130,17 +129,24 @@ public class BajaAfiliado extends javax.swing.JFrame {
                 sistema.getAfiliados().remove(afiliado);
 
             }
-            MenuPrincipal menu = new MenuPrincipal(sistema);
+            JOptionPane.showMessageDialog(null, "Afiliado dado de baja correctamente", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
+            MenuPrincipal m = new MenuPrincipal(sistema);
+            m.setVisible(true);
+            dispose();
 
         } catch (VerificarDniException vdni) {
             JOptionPane.showMessageDialog(null, "Dni Invalido", "Error!", JOptionPane.OK_OPTION);
         } catch (AfiliadoNoEncontradoException pnee) {
             JOptionPane.showMessageDialog(null, "Paciente no registrado", "Aviso!", JOptionPane.WARNING_MESSAGE);
-        } finally {
+        }
+        
+        finally {
+            
             dniBaja.setText(null);
         }
     }//GEN-LAST:event_jButtonDarBajaAfiliadoActionPerformed
 
+    
     /**
      * @param args the command line arguments
      */

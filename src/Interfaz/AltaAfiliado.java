@@ -199,11 +199,9 @@ public class AltaAfiliado extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonVolverGestionaAfiliadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverGestionaAfiliadosActionPerformed
-        // TODO add your handling code here:
-        GestionAfiliados g = new GestionAfiliados(sistema);
-        g.setVisible(true);
-        setLocationRelativeTo(null);
-        setResizable(false);
+
+        AfiliadoFamiliar af = new AfiliadoFamiliar(sistema);
+        af.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonVolverGestionaAfiliadosActionPerformed
 
@@ -235,8 +233,6 @@ public class AltaAfiliado extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Afiliado guardado", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
             MenuPrincipal m = new MenuPrincipal(sistema);
             m.setVisible(true);
-            m.setLocationRelativeTo(null);
-            m.setResizable(false);
             dispose();
             
             

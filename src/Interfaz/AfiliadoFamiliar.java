@@ -36,7 +36,7 @@ public class AfiliadoFamiliar extends javax.swing.JFrame {
 
         jButtonAltaAfiliado = new javax.swing.JButton();
         jButtonAltaFamiliar = new javax.swing.JButton();
-        jButtonSalirGestionAfiliados = new javax.swing.JButton();
+        jButtonVolverGestionAfiliados = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,11 +56,11 @@ public class AfiliadoFamiliar extends javax.swing.JFrame {
             }
         });
 
-        jButtonSalirGestionAfiliados.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
-        jButtonSalirGestionAfiliados.setText("VOLVER");
-        jButtonSalirGestionAfiliados.addActionListener(new java.awt.event.ActionListener() {
+        jButtonVolverGestionAfiliados.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        jButtonVolverGestionAfiliados.setText("VOLVER");
+        jButtonVolverGestionAfiliados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSalirGestionAfiliadosActionPerformed(evt);
+                jButtonVolverGestionAfiliadosActionPerformed(evt);
             }
         });
 
@@ -70,7 +70,7 @@ public class AfiliadoFamiliar extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButtonSalirGestionAfiliados, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jButtonVolverGestionAfiliados, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(142, 142, 142)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -86,7 +86,7 @@ public class AfiliadoFamiliar extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonAltaFamiliar, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
                 .addGap(84, 84, 84)
-                .addComponent(jButtonSalirGestionAfiliados, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jButtonVolverGestionAfiliados, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -106,12 +106,12 @@ public class AfiliadoFamiliar extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButtonAltaFamiliarActionPerformed
 
-    private void jButtonSalirGestionAfiliadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirGestionAfiliadosActionPerformed
-        // TODO add your handling code here:
-        MenuPrincipal m = new MenuPrincipal(sistema);
-        m.setVisible(true);
+    private void jButtonVolverGestionAfiliadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverGestionAfiliadosActionPerformed
+        
+        GestionAfiliados a = new GestionAfiliados(sistema);
+        a.setVisible(true);
         dispose();
-    }//GEN-LAST:event_jButtonSalirGestionAfiliadosActionPerformed
+    }//GEN-LAST:event_jButtonVolverGestionAfiliadosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -151,6 +151,6 @@ public class AfiliadoFamiliar extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAltaAfiliado;
     private javax.swing.JButton jButtonAltaFamiliar;
-    private javax.swing.JButton jButtonSalirGestionAfiliados;
+    private javax.swing.JButton jButtonVolverGestionAfiliados;
     // End of variables declaration//GEN-END:variables
 }

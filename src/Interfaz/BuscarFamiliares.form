@@ -38,7 +38,7 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jButtonBuscarFamiliar" min="-2" pref="150" max="-2" attributes="0"/>
-                  <Component id="dniBuscar" min="-2" pref="320" max="-2" attributes="0"/>
+                  <Component id="buscarDni" min="-2" pref="320" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
           </Group>
@@ -51,7 +51,7 @@
               <Component id="jLabel2" min="-2" pref="39" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="dniBuscar" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
+                  <Component id="buscarDni" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
                   <Component id="jLabel1" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
@@ -63,9 +63,9 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JTextField" name="dniBuscar">
+    <Component class="javax.swing.JTextField" name="buscarDni">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dniBuscarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buscarDniActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">

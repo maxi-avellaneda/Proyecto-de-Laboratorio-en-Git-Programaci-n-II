@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public class Sistema { // seria la asistencia medica
 
     private ArrayList<Afiliado> afiliados = new ArrayList<Afiliado>();
+    private ArrayList<Familiar> familiares = new ArrayList<Familiar>();
     private ArrayList<Doctor> doctores = new ArrayList<Doctor>();
     private ArrayList<Diagnostico> diagnosticos = new ArrayList<Diagnostico>();
     private ArrayList<Enfermero> enfermeros = new ArrayList<Enfermero>();
@@ -23,6 +24,13 @@ public class Sistema { // seria la asistencia medica
     public void setAfiliados(Afiliado a) {
         afiliados.add(a);
     }
+    public void setFamiliares(Familiar f) {
+        familiares.add(f);
+    }
+    public ArrayList<Familiar> getFamiliares() {
+        return familiares;
+    }
+    
 
     public ArrayList<Enfermero> getEnfermeros() {
         return enfermeros;
@@ -89,6 +97,7 @@ public class Sistema { // seria la asistencia medica
         }
 
     }
+    
 
     public void verificarDni(String dni) throws VerificarDniException {
 
