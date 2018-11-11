@@ -5,17 +5,26 @@
  */
 package Interfaz;
 
+import laboratorio2018.Afiliado;
+import laboratorio2018.Sistema;
+
 /**
  *
  * @author Rodrigo
  */
 public class GestionEmpleados extends javax.swing.JFrame {
 
-    /**
-     * Creates new form GestionEmpleados
-     */
-    public GestionEmpleados() {
+    private Sistema sistema;
+    private Afiliado afiliado;
+    public GestionEmpleados(){
         initComponents();
+    }
+    public GestionEmpleados(Sistema c) {
+        sistema=c;
+        initComponents();
+        setLocationRelativeTo(null);
+        setResizable(false);
+        setTitle("MENU GESTION EMPLEADOS");
     }
 
     /**
@@ -27,21 +36,121 @@ public class GestionEmpleados extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jButtonIngresarEmpleado = new javax.swing.JButton();
+        jButtonVolverGestiones = new javax.swing.JButton();
+        jButtonEliminarEmpleado = new javax.swing.JButton();
+        jButtonListaEmpleados = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel1.setText(" ");
+
+        jButtonIngresarEmpleado.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jButtonIngresarEmpleado.setText("INGRESAR EMPLEADO");
+        jButtonIngresarEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonIngresarEmpleadoActionPerformed(evt);
+            }
+        });
+
+        jButtonVolverGestiones.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonVolverGestiones.setText("Volver");
+        jButtonVolverGestiones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVolverGestionesActionPerformed(evt);
+            }
+        });
+
+        jButtonEliminarEmpleado.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jButtonEliminarEmpleado.setText("ELIMINAR EMPLEADO");
+        jButtonEliminarEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEliminarEmpleadoActionPerformed(evt);
+            }
+        });
+
+        jButtonListaEmpleados.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jButtonListaEmpleados.setText("LISTADO DE EMPLEADOS");
+        jButtonListaEmpleados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonListaEmpleadosActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel2.setText("              GESTIÓN DE EMPLEADOS");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(165, 165, 165)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jButtonIngresarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonEliminarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonListaEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(169, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButtonVolverGestiones, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addComponent(jButtonIngresarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButtonEliminarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButtonListaEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(78, 78, 78)
+                .addComponent(jButtonVolverGestiones, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonIngresarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIngresarEmpleadoActionPerformed
+        // TODO add your handling code here:
+        AgregarEmpleado ae = new AgregarEmpleado(sistema);
+        ae.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButtonIngresarEmpleadoActionPerformed
+
+    private void jButtonVolverGestionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverGestionesActionPerformed
+        // TODO add your handling code here:
+        MenuGestiones mg = new MenuGestiones(sistema,afiliado);
+        mg.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButtonVolverGestionesActionPerformed
+
+    private void jButtonEliminarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarEmpleadoActionPerformed
+        // TODO add your handling code here:
+        EliminarEmpleado ee = new EliminarEmpleado(sistema);
+        ee.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButtonEliminarEmpleadoActionPerformed
+
+    private void jButtonListaEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListaEmpleadosActionPerformed
+        // TODO add your handling code here:
+        ListadoEmpleados lista1 = new ListadoEmpleados(sistema);
+        lista1.setVisible(true);
+        dispose();
+
+    }//GEN-LAST:event_jButtonListaEmpleadosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +188,11 @@ public class GestionEmpleados extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonEliminarEmpleado;
+    private javax.swing.JButton jButtonIngresarEmpleado;
+    private javax.swing.JButton jButtonListaEmpleados;
+    private javax.swing.JButton jButtonVolverGestiones;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

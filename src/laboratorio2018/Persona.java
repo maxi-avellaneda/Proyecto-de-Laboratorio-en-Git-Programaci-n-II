@@ -1,6 +1,10 @@
 
 package laboratorio2018;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 
 public abstract class Persona {
     private String nombre;
@@ -9,19 +13,20 @@ public abstract class Persona {
     private String dni;
     private String direccion;
     private String telefono;
-    
-    public Persona(){};
-    
-    public Persona(String nombre,String apellido,String sexo,String dni,String direccion,String telefono){
+
+    public Persona(String nombre, String apellido, String sexo, String dni, String direccion, String telefono) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.sexo = sexo;
         this.dni = dni;
         this.direccion = direccion;
-        this.telefono=telefono;
+        this.telefono = telefono;
     }
+    
+    public Persona(){}
 
  
+    
     public String getNombre() {
         return nombre;
     }

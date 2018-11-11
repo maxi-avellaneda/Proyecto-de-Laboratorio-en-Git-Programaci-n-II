@@ -31,7 +31,7 @@ public class ListadoAfiliados extends javax.swing.JFrame {
                 jTextAreaListadoAfiliado.append(iterador.next() + "\n\n"); //el objeto at es un JTextArea y el método append agrega el contenido de persona al area de texto
             }
         }else{
-            JOptionPane.showMessageDialog(null, "ERROR", "NO SE ENCONTRARON AFILIADOS", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "NO SE ENCONTRARON AFILIADOS", "ERROR", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 

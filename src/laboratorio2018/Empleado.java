@@ -1,40 +1,37 @@
- 
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package laboratorio2018;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 
-public class Afiliado extends Persona { //el afiliado es un paciente
+/**
+ *
+ * @author Rodrigo
+ */
+public class Empleado extends Persona{
     
-    private Doctor doctor;
-    private Diagnostico diagnostico;
-    private ArrayList<Familiar> familiares =  new ArrayList<Familiar>();
-    private AbonoAfiliados abono;
-    private int edad;
+    private String profesion;
+    private Integer legajo;
     private Calendar fechaDeNaciemiento = Calendar.getInstance();
-  
-    public Afiliado(){}
-    
-    public Afiliado(String nombre,String apellido,String sexo,String dni,String direccion,String telefono,int dia, int mes,int ano){
+    private int edad;
+
+    public Empleado(String profesion,Integer legajo,String nombre,String apellido,String sexo,String dni,String direccion,String telefono,int dia, int mes,int ano){
         super(nombre,apellido,sexo,dni,direccion,telefono);
         fechaDeNaciemiento.set(ano,mes-1,dia);
         edad = this.calcularEdad();
     }
-    
-    public Afiliado(Doctor doctor, Diagnostico diagnostico, int edad, String nombre, String apellido, String sexo, String dni, String direccion,String telefono) {
-        super(nombre, apellido, sexo, dni, direccion,telefono);
-        this.doctor = doctor;
-        this.diagnostico = diagnostico;
+    public Empleado(String profesion, Integer legajo, int edad, String nombre, String apellido, String sexo, String dni, String direccion, String telefono) {
+        super(nombre, apellido, sexo, dni, direccion, telefono);
+        this.profesion = profesion;
+        this.legajo = legajo;
         this.edad = edad;
     }
 
-    
-
-    
-    
-    
     
     public int calcularEdad(){
         int edad=0;
@@ -88,37 +85,37 @@ public class Afiliado extends Persona { //el afiliado es un paciente
     public void setFechaDeNaciemiento(int dia, int mes, int ano){
         fechaDeNaciemiento.set(ano,mes-1,dia);
     }
-
-    @Override
+    
     public String toString(){
-        String afiliado = "Afiliado: "+getNombre() +" " +getApellido() +"\nSexo: "+getSexo()+"\nDNI N° :"+getDni()+"\nDireccion: "+getDireccion()+"\nFecha de Nacimiento: "+getFechaDeNaciemiento()+"\nEdad: "+calcularEdad();
-        return afiliado;
+        String empleado =getProfesion()+": "+getNombre() +" " +getApellido() +"\nSexo: "+getSexo()+"\nDNI N° :"+getDni()+"\nDireccion: "+getDireccion()+"\nFecha de Nacimiento: "+getFechaDeNaciemiento()+"\nEdad: "+calcularEdad()+"\nLegajo: "+getLegajo();
+        return empleado;
+    }
+    /**
+     * @return the profesion
+     */
+    public String getProfesion() {
+        return profesion;
     }
 
-    public Doctor getDoctor() {
-        return doctor;
+    /**
+     * @param profesion the profesion to set
+     */
+    public void setProfesion(String profesion) {
+        this.profesion = profesion;
     }
 
-    public void setDoctor(Doctor doctor) {
-        this.doctor = doctor;
+    /**
+     * @return the legajo
+     */
+    public Integer getLegajo() {
+        return legajo;
     }
 
-   
-    public Diagnostico getDiagnostico() {
-        return diagnostico;
+    /**
+     * @param legajo the legajo to set
+     */
+    public void setLegajo(Integer legajo) {
+        this.legajo = legajo;
     }
-
-    public void setDiagnostico(Diagnostico diagnostico) {
-        this.diagnostico = diagnostico;
-    }
-
-    public ArrayList<Familiar> getFamiliares() {
-        return familiares;
-    }
-
-    public void setFamiliares(Familiar f) {
-        familiares.add(f);
-    }
-
-            
+    
 }

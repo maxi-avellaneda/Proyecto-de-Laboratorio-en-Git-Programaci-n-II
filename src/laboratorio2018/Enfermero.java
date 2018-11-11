@@ -6,31 +6,16 @@
 package laboratorio2018;
 
 
-public class Enfermero extends Persona {
-    private String sector;
+public class Enfermero extends Empleado {
 
-
-    public Enfermero(String sector) {
-        this.sector = sector;
+    public Enfermero(String profesion, Integer legajo, int edad, String nombre, String apellido, String sexo, String dni, String direccion, String telefono) {
+        super(profesion, legajo, edad, nombre, apellido, sexo, dni, direccion, telefono);
     }
 
-    public Enfermero(String nombre, String apellido, String sexo, String dni, String direccion,String telefono,String sector) {
-        super(nombre, apellido, sexo, dni, direccion,telefono);
-        this.sector = sector;
-    }
-
-    public String getSector() {
-        return sector;
-    }
-
-
-    public void setSector(String sector) {
-        this.sector = sector;
-    }
-    
+        
     @Override
     public String toString(){
-        String enfermero = "Enfermero: "+getNombre() +" " +getApellido() +"\nSexo: "+getSexo()+"\nDNI N° :"+getDni()+"\nDireccion: "+getDireccion()+"Sector: "+getSector()/*+"\nFecha de Nacimiento: "+getFechaDeNaciemiento()+"\nEdad: "+calcularEdad()*/;
+        String enfermero = "Enfermero: "+getNombre() +" " +getApellido() +"\nSexo: "+getSexo()+"\nDNI N° :"+getDni()+"\nDireccion: "+getDireccion()/*+"\nFecha de Nacimiento: "+getFechaDeNaciemiento()+"\nEdad: "+calcularEdad()*/;
         return enfermero;
     }
 

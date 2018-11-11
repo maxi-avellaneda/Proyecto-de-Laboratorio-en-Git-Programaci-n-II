@@ -16,6 +16,7 @@ public class Sistema { // seria la asistencia medica
     private ArrayList<Chofer> choferes = new ArrayList<Chofer>();
     private ArrayList<Administrativo> adminis = new ArrayList<Administrativo>();//no es necesario
     private ArrayList<Movil> moviles = new ArrayList<Movil>();
+    private ArrayList<Empleado> empleados = new ArrayList<Empleado>();
 
     public ArrayList<Afiliado> getAfiliados() {
         return afiliados;
@@ -24,6 +25,7 @@ public class Sistema { // seria la asistencia medica
     public void setAfiliados(Afiliado a) {
         afiliados.add(a);
     }
+    
     public void setFamiliares(Familiar f) {
         familiares.add(f);
     }
@@ -130,6 +132,17 @@ public class Sistema { // seria la asistencia medica
                 throw new VerificarRepetidosException();
             }
         }
+    }
+
+ 
+    
+    public ArrayList<Empleado> getEmpleados() {
+        return empleados;
+    }
+
+    
+    public void setEmpleados(Empleado emp) {
+        empleados.add(emp);
     }
 
 }
