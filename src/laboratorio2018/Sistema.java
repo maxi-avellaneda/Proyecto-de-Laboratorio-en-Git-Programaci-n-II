@@ -2,6 +2,8 @@ package laboratorio2018;
 
 import Exceptions.VerificarRepetidosException;
 import Exceptions.AfiliadoNoEncontradoException;
+import Exceptions.EmpleadoNoEncontradoException;
+import Exceptions.FamiliarNoEncontradoException;
 import Exceptions.VerficarCampoVacioException;
 import Exceptions.VerificarDniException;
 import java.util.ArrayList;
@@ -113,7 +115,7 @@ public class Sistema { // seria la asistencia medica
         }
     }
 
-    public void buscarAfiliado(String dni) throws AfiliadoNoEncontradoException {
+    public void buscarAfiliado(String dni) throws AfiliadoNoEncontradoException {//busca a los afiliados
         int bandera = 0;
         for (Afiliado afi : this.getAfiliados()) {
             if (afi.getDni().equals(dni)) {
@@ -126,9 +128,50 @@ public class Sistema { // seria la asistencia medica
         }
     }
 
-    public void buscarRepetido(String dni) throws VerificarRepetidosException {
+    public void buscarRepetido(String dni) throws VerificarRepetidosException {//si se repite algun afiliado
         for (Afiliado afi : this.getAfiliados()) {
             if (afi.getDni().equals(dni)) {
+                throw new VerificarRepetidosException();
+            }
+        }
+    }
+        
+        public void buscarEmpleado(String dni) throws EmpleadoNoEncontradoException {//busca a los empleados
+        int bandera = 0;
+        for (Afiliado afi : this.getAfiliados()) {
+            if (afi.getDni().equals(dni)) {
+                bandera = 1;
+                break;
+            }
+        }
+        if (bandera == 0) {
+            throw new EmpleadoNoEncontradoException();
+        }
+    }
+
+    public void buscarRepetido1(String dni) throws VerificarRepetidosException {//si se repite algun empleado
+        for (Empleado emp : this.getEmpleados()) {
+            if (emp.getDni().equals(dni)) {
+                throw new VerificarRepetidosException();
+            }
+        }
+    }
+    public void buscarFamiliar(String dni) throws FamiliarNoEncontradoException {//busca a los familiares de los afiliados
+        int bandera = 0;
+        for (Familiar fam : this.getFamiliares()) {
+            if (fam.getDni().equals(dni)) {
+                bandera = 1;
+                break;
+            }
+        }
+        if (bandera == 0) {
+            throw new FamiliarNoEncontradoException();
+        }
+    }
+
+    public void buscarRepetido2(String dni) throws VerificarRepetidosException {//si se repite algun familiar
+        for (Familiar fam : this.getFamiliares()) {
+            if (fam.getDni().equals(dni)) {
                 throw new VerificarRepetidosException();
             }
         }

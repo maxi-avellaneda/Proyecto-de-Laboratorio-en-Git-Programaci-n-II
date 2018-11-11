@@ -20,6 +20,7 @@ public class Empleado extends Persona{
     private Calendar fechaDeNaciemiento = Calendar.getInstance();
     private int edad;
 
+    
     public Empleado(String profesion,Integer legajo,String nombre,String apellido,String sexo,String dni,String direccion,String telefono,int dia, int mes,int ano){
         super(nombre,apellido,sexo,dni,direccion,telefono);
         fechaDeNaciemiento.set(ano,mes-1,dia);

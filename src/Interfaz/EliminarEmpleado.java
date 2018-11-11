@@ -5,7 +5,11 @@
  */
 package Interfaz;
 
+import Exceptions.EmpleadoNoEncontradoException;
+import Exceptions.VerificarDniException;
+import javax.swing.JOptionPane;
 import laboratorio2018.Afiliado;
+import laboratorio2018.Empleado;
 import laboratorio2018.Sistema;
 
 /**
@@ -36,21 +40,123 @@ public class EliminarEmpleado extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        dniEliminar = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jButtonVolverGestionEmpleados = new javax.swing.JButton();
+        jButtonDarBajaAfiliadoEliminarEmpleado = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel1.setText("INGRESE DNI DEL EMPLEADO:");
+
+        dniEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dniEliminarActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jLabel2.setText("ELIMINAR EMPLEADO");
+
+        jButtonVolverGestionEmpleados.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jButtonVolverGestionEmpleados.setText("Volver");
+        jButtonVolverGestionEmpleados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVolverGestionEmpleadosActionPerformed(evt);
+            }
+        });
+
+        jButtonDarBajaAfiliadoEliminarEmpleado.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonDarBajaAfiliadoEliminarEmpleado.setText("ELIMINAR");
+        jButtonDarBajaAfiliadoEliminarEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDarBajaAfiliadoEliminarEmpleadoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButtonVolverGestionEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(dniEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonDarBajaAfiliadoEliminarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(236, 236, 236)
+                        .addComponent(jLabel2)))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(105, 105, 105)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dniEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41)
+                .addComponent(jButtonDarBajaAfiliadoEliminarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonVolverGestionEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void dniEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dniEliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dniEliminarActionPerformed
+
+    private void jButtonVolverGestionEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverGestionEmpleadosActionPerformed
+
+        GestionEmpleados ge = new GestionEmpleados(sistema);
+        ge.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButtonVolverGestionEmpleadosActionPerformed
+
+    private void jButtonDarBajaAfiliadoEliminarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDarBajaAfiliadoEliminarEmpleadoActionPerformed
+        try {
+            String dni = dniEliminar.getText();
+            sistema.verificarDni(dni);
+            sistema.buscarEmpleado(dni);
+            Empleado empleado = null;
+            for (Empleado emp : sistema.getEmpleados()) {
+                if (emp.getDni().equals(dni)) {
+                    empleado = emp;
+                }
+            }
+            if(afiliado != null) {
+                sistema.getEmpleados().remove(empleado);
+
+            }
+            JOptionPane.showMessageDialog(null, "Empleado eliminado correctamente", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
+            MenuPrincipal m = new MenuPrincipal(sistema,afiliado);
+            m.setVisible(true);
+            dispose();
+
+        } catch (VerificarDniException vdni) {
+            JOptionPane.showMessageDialog(null, "Dni Invalido", "Error!", JOptionPane.OK_OPTION);
+        } catch (EmpleadoNoEncontradoException pnee) {
+            JOptionPane.showMessageDialog(null, "Empleado no registrado", "Aviso!", JOptionPane.WARNING_MESSAGE);
+        }
+
+        finally {
+
+            dniEliminar.setText(null);
+        }
+    }//GEN-LAST:event_jButtonDarBajaAfiliadoEliminarEmpleadoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -88,5 +194,10 @@ public class EliminarEmpleado extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField dniEliminar;
+    private javax.swing.JButton jButtonDarBajaAfiliadoEliminarEmpleado;
+    private javax.swing.JButton jButtonVolverGestionEmpleados;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

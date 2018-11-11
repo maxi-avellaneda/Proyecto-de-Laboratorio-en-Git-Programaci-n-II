@@ -62,9 +62,9 @@ public class AgregarEmpleado extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        Profesion = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         Legajo = new javax.swing.JTextField();
+        Profesion = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -127,6 +127,13 @@ public class AgregarEmpleado extends javax.swing.JFrame {
 
         jLabel10.setText("  Teléfono:");
 
+        Profesion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar...", "Administrativo", "Chofer", "Doctor", "Enfermero" }));
+        Profesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ProfesionActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -151,7 +158,7 @@ public class AgregarEmpleado extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Profesion))
+                        .addComponent(Profesion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(documento)
                     .addComponent(direccion)
                     .addComponent(nombre)
@@ -194,7 +201,7 @@ public class AgregarEmpleado extends javax.swing.JFrame {
                     .addComponent(jRadioButtonMasculino, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jRadioButtonFemenino, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Profesion, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Profesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(documento, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
@@ -235,9 +242,8 @@ public class AgregarEmpleado extends javax.swing.JFrame {
     private void jButtonGuardarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarEmpleadoActionPerformed
         // TODO add your handling code here:
         try {
-            String nom, ape,dire,sex="",doc,tele,prof;
+            String nom, ape,dire,sex="",doc,tele,prof="";
             int dia,mes,anio,leg;
-            prof = Profesion.getText();
             nom = nombre.getText();
             ape = apellido.getText();
             if (jRadioButtonFemenino.isSelected()) {
@@ -257,12 +263,26 @@ public class AgregarEmpleado extends javax.swing.JFrame {
             sistema.verificarDatos(doc, nom, ape, dire,tele);
             sistema.buscarRepetido(doc);
             Empleado emp = new Empleado(prof,leg,nom,ape,sex,doc,dire,tele,dia,mes,anio);
+            if (this.Profesion.getSelectedItem().equals("Administrativo")){                
+                emp.setProfesion(prof);
+                prof="Administrativo";
+            } else if(this.Profesion.getSelectedItem().equals("Chofer")) {
+                emp.setProfesion(prof);
+                prof="Chofer";
+                }else if(this.Profesion.getSelectedItem().equals("Doctor")){
+                    emp.setProfesion(prof);
+                    prof="Doctor";
+                    }else{
+                    emp.setProfesion(prof);
+                    prof="Enfermero";
+                }
+            
             sistema.setEmpleados(emp);
             this.limpliarTextos();
             JOptionPane.showMessageDialog(null, "Empleado Guardado", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
-            MenuPrincipal m = new MenuPrincipal(sistema,afiliado);
-            m.setVisible(true);
-            dispose();
+            GestionEmpleados ge = new GestionEmpleados(sistema);
+           ge.setVisible(true);
+          dispose();
 
         }catch(VerificarDniException vdni){
             JOptionPane.showMessageDialog(null, "Dni Invalido", "Error!", JOptionPane.OK_OPTION);
@@ -287,6 +307,10 @@ public class AgregarEmpleado extends javax.swing.JFrame {
     private void diaNacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diaNacActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_diaNacActionPerformed
+
+    private void ProfesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProfesionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ProfesionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -326,7 +350,7 @@ public class AgregarEmpleado extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Legajo;
     private javax.swing.JTextField MesNac;
-    private javax.swing.JTextField Profesion;
+    private javax.swing.JComboBox<String> Profesion;
     private javax.swing.JTextField anioNac;
     private javax.swing.JTextField apellido;
     private javax.swing.JTextField diaNac;
