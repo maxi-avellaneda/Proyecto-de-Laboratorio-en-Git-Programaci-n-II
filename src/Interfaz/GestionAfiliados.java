@@ -196,8 +196,8 @@ public class GestionAfiliados extends javax.swing.JFrame {
 
     private void jButtonBajaAfiliadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBajaAfiliadoActionPerformed
         // TODO add your handling code here:
-        BajaAfiliado b = new BajaAfiliado(sistema,afiliado);
-        b.setVisible(true);
+        MenuBajas mb = new MenuBajas(sistema,afiliado);
+        mb.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonBajaAfiliadoActionPerformed
 
