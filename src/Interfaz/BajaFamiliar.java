@@ -9,6 +9,7 @@ import Exceptions.FamiliarNoEncontradoException;
 import Exceptions.VerificarDniException;
 import javax.swing.JOptionPane;
 import laboratorio2018.Afiliado;
+import laboratorio2018.Empleado;
 import laboratorio2018.Familiar;
 import laboratorio2018.Sistema;
 
@@ -20,10 +21,12 @@ public class BajaFamiliar extends javax.swing.JFrame {
     
     private Sistema sistema;
     private Afiliado afiliado;
+    private Empleado empleado;
 
-    public BajaFamiliar(Sistema c,Afiliado a) {
+    public BajaFamiliar(Sistema c,Afiliado a,Empleado e) {
         sistema = c;
         afiliado=a;
+        empleado=e;
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
@@ -120,7 +123,7 @@ public class BajaFamiliar extends javax.swing.JFrame {
 
     private void jButtonVolverGestionAfiliadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverGestionAfiliadosActionPerformed
 
-        GestionAfiliados gs = new GestionAfiliados(sistema,afiliado);
+        GestionAfiliados gs = new GestionAfiliados(sistema,afiliado,empleado);
         gs.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonVolverGestionAfiliadosActionPerformed
@@ -142,7 +145,7 @@ public class BajaFamiliar extends javax.swing.JFrame {
 
             }
             JOptionPane.showMessageDialog(null, "Familiar dado de baja correctamente", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
-            MenuPrincipal m = new MenuPrincipal(sistema,afiliado);
+            MenuPrincipal m = new MenuPrincipal(sistema,afiliado,empleado);
             m.setVisible(true);
             dispose();
 

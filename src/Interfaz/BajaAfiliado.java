@@ -6,6 +6,7 @@ import Exceptions.AfiliadoNoEncontradoException;
 import Exceptions.VerficarCampoVacioException;
 import laboratorio2018.Sistema;
 import Exceptions.VerificarDniException;
+import laboratorio2018.Empleado;
 
 /**
  *
@@ -15,10 +16,12 @@ public class BajaAfiliado extends javax.swing.JFrame {
 
     private Sistema sistema;
     private Afiliado afiliado;
+    private Empleado empleado;
 
-    public BajaAfiliado(Sistema c,Afiliado a) {
+    public BajaAfiliado(Sistema c,Afiliado a,Empleado e) {
         sistema = c;
         afiliado=a;
+        empleado=e;
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
@@ -110,7 +113,7 @@ public class BajaAfiliado extends javax.swing.JFrame {
 
     private void jButtonVolverGestionAfiliadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverGestionAfiliadosActionPerformed
 
-        GestionAfiliados gs = new GestionAfiliados(sistema,afiliado);
+        GestionAfiliados gs = new GestionAfiliados(sistema,afiliado,empleado);
         gs.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonVolverGestionAfiliadosActionPerformed
@@ -132,7 +135,7 @@ public class BajaAfiliado extends javax.swing.JFrame {
 
             }
             JOptionPane.showMessageDialog(null, "Afiliado dado de baja correctamente", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
-            MenuPrincipal m = new MenuPrincipal(sistema,afiliado);
+            MenuPrincipal m = new MenuPrincipal(sistema,afiliado,empleado);
             m.setVisible(true);
             dispose();
 

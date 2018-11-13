@@ -3,6 +3,7 @@ package Interfaz;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import laboratorio2018.Afiliado;
+import laboratorio2018.Empleado;
 import laboratorio2018.Sistema;
 import laboratorio2018.Familiar;
 
@@ -15,11 +16,13 @@ public class ListadoFamiliares extends javax.swing.JFrame {
     private ArrayList<Familiar> familiares = new ArrayList<Familiar>();
     private Sistema sistema;
     private Afiliado afiliado;
+    private Empleado empleado;
 
-    public ListadoFamiliares(Sistema c, Afiliado b, String d) {
+    public ListadoFamiliares(Sistema c, Afiliado b, String d,Empleado e) {
         sistema = c;
         afiliado = b;
         String dni = d;
+        empleado=e;
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
@@ -101,7 +104,7 @@ public class ListadoFamiliares extends javax.swing.JFrame {
 
     private void jButtonVolverGestionAfiliadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverGestionAfiliadoActionPerformed
         // TODO add your handling code here:
-        GestionAfiliados ges = new GestionAfiliados(sistema, afiliado);
+        GestionAfiliados ges = new GestionAfiliados(sistema, afiliado,empleado);
         ges.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonVolverGestionAfiliadoActionPerformed

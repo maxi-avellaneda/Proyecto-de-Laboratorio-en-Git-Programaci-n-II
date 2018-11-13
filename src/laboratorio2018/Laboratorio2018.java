@@ -9,7 +9,7 @@ public class Laboratorio2018 {
         
         //GESTION DE DATOS DE AFILIADOS y SUS FAMILIARES
         Afiliado afi1 = new Afiliado("Maximiliano","Avellaneda","Masculino","41015072","Sumalao","298222",8,5,1998);
-        Afiliado afi2 = new Afiliado("Marcos","Herrra","Masculino","20888999","Mota Botello","102030",10,8,1965);
+        Afiliado afi2 = new Afiliado("Rodrigo","Cordoba","Masculino","20888999","Pozo el Mistol","102030",10,8,1997);
         Afiliado afi3 = new Afiliado("Florencia","Andrada","Femenina","41028963","Belgrano","405060",25,10,1998);
         
         Familiar f1 = new Familiar("Enzo","Avellaneda","Masculino","31231755","Sumalao","382556",14,8,1981,"Hermano","41015072");
@@ -76,7 +76,34 @@ public class Laboratorio2018 {
         afiliado.setFamiliares(f1);
         afiliado.setFamiliares(f2);
         
-        MenuPrincipal menu1 = new MenuPrincipal(sistema,afiliado);
+       /* Empleado emple1 = new Doctor("Paola","Jacobo","Femenina","20147158","Av Ocampos","777888",1,2,1980,"Doctor","1125");
+        Empleado emple2 = new Doctor("Nain","Maldonado","Masculino","20123456","Maipu","123456",2,3,1977,"Doctor","1138");
+        Empleado emple3 = new Doctor("Roberto","Maza","Masculino","31213546","Chacabuco","651475",4,5,1960,"Doctor","1100");
+        Empleado emple4 = new Enfermero("Fabian","Moya","Masculino","30123456","Santa Rosa","854698",4,6,1985,"Enfermero","123");
+        Empleado emple5 = new Enfermero("Silvio","Moya","Masculino","250123456","Sumalao","212425",14,8,1956,"Enfermero","124");
+        Empleado emple6 = new Enfermero("Adriana","Romero","Femenino","14111774","Sumalao","121314",22,12,1974,"Enfermero","125");
+        Empleado emple7 = new Chofer("Jeronimo","Rivas","Masculino","193456","San Isidro","854588",18,2,1983,"Chofer","12");
+        Empleado emple8 = new Chofer("Eduardo","Monje","Masculino","13222333","Fray Mamerto","147547",13,11,1980,"Chofer","13");
+        Empleado emple9 = new Chofer("Armando","Avellaneda","Masculino","9123456","Sumalao","969669",1,29,1957,"Chofer","14");
+        Empleado emple10 = new Administrativo("Natalia","Florez","Femenino","38123456","San Martin","654321",23,5,1968,"Administrativo","1");
+        Empleado emple11 = new Administrativo("Mercedes","Castro","Femenino","37123456","Mate de Luna","222244",5,6,1975,"Administrativo","2");
+        Empleado emple12 = new Administrativo("Elizabeth","Perna","Femenino","34555888","Rivadavia","363532",4,10,1970,"Administrativo","3");
+        */
+       Empleado empleado = new Empleado();
+       empleado.setDoctores(doc1);
+       empleado.setDoctores(doc2);
+       empleado.setDoctores(doc3);
+       empleado.setEnfermeros(enf1);
+       empleado.setEnfermeros(enf2);
+       empleado.setEnfermeros(enf3);
+       empleado.setChoferes(ch1);
+       empleado.setChoferes(ch2);
+       empleado.setChoferes(ch3);
+       empleado.setAdminis(ad1);
+       empleado.setAdminis(ad2);
+       empleado.setAdminis(ad3);
+        
+        MenuPrincipal menu1 = new MenuPrincipal(sistema,afiliado,empleado);
         menu1.setVisible(true);
         
          

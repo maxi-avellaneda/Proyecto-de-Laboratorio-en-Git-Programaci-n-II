@@ -6,6 +6,7 @@
 package Interfaz;
 
 import laboratorio2018.Afiliado;
+import laboratorio2018.Empleado;
 import laboratorio2018.Sistema;
 
 /**
@@ -17,6 +18,7 @@ public class MenuBajas extends javax.swing.JFrame {
     
     private Sistema sistema;
     private Afiliado afiliado;
+    private Empleado empleado;
     public MenuBajas(){
         initComponents();
     }
@@ -28,9 +30,10 @@ public class MenuBajas extends javax.swing.JFrame {
         setTitle("MENU GESTION AFILIADOS");
     }
 
-    public MenuBajas(Sistema c,Afiliado a) {
+    public MenuBajas(Sistema c,Afiliado a,Empleado e) {
         sistema=c;
         afiliado=a;
+        empleado=e;
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
@@ -132,21 +135,21 @@ public class MenuBajas extends javax.swing.JFrame {
 
     private void jButtonBajaAfiliadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBajaAfiliadoActionPerformed
         // TODO add your handling code here:
-        BajaAfiliado b = new BajaAfiliado(sistema,afiliado);
+        BajaAfiliado b = new BajaAfiliado(sistema,afiliado,empleado);
         b.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonBajaAfiliadoActionPerformed
 
     private void jButtonVolverMenuAfiliadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverMenuAfiliadoActionPerformed
         // TODO add your handling code here:
-        GestionAfiliados gs = new GestionAfiliados(sistema,afiliado);
+        GestionAfiliados gs = new GestionAfiliados(sistema,afiliado,empleado);
         gs.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonVolverMenuAfiliadoActionPerformed
 
     private void jButtonBajaFamiliarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBajaFamiliarActionPerformed
         // TODO add your handling code here:
-        BajaFamiliar bf = new BajaFamiliar(sistema,afiliado);
+        BajaFamiliar bf = new BajaFamiliar(sistema,afiliado,empleado);
         bf.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonBajaFamiliarActionPerformed

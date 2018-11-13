@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
 import laboratorio2018.Afiliado;
+import laboratorio2018.Empleado;
 import laboratorio2018.Sistema;
 
 /**
@@ -16,10 +17,12 @@ public class ListadoAfiliados extends javax.swing.JFrame {
     private ArrayList<Afiliado> afiliados = new ArrayList<Afiliado>();
     private Sistema sistema;
     private Afiliado afiliado;
+    private Empleado empleado;
     
-    public ListadoAfiliados(Sistema c,Afiliado a){
+    public ListadoAfiliados(Sistema c,Afiliado a,Empleado e){
         sistema=c;
         afiliado=a;
+        empleado=e;
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
@@ -101,7 +104,7 @@ public class ListadoAfiliados extends javax.swing.JFrame {
 
     private void jButtonVolverGestionAfiliadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverGestionAfiliadoActionPerformed
         // TODO add your handling code here:
-        GestionAfiliados ges = new GestionAfiliados(sistema,afiliado);
+        GestionAfiliados ges = new GestionAfiliados(sistema,afiliado,empleado);
         ges.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonVolverGestionAfiliadoActionPerformed

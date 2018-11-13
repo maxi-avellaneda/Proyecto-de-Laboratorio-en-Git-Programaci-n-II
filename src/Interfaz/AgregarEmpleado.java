@@ -25,6 +25,7 @@ public class AgregarEmpleado extends javax.swing.JFrame {
 
     private Sistema sistema;
     private Afiliado afiliado;
+    private Empleado empleado;
     //private Doctor doctor;
     private Enfermero enf;
     private Chofer chofer;
@@ -34,8 +35,9 @@ public class AgregarEmpleado extends javax.swing.JFrame {
         initComponents();
     }
 
-    public AgregarEmpleado(Sistema c) {
+    public AgregarEmpleado(Sistema c,Empleado e) {
         sistema = c;
+        empleado=e;
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
@@ -297,7 +299,7 @@ public class AgregarEmpleado extends javax.swing.JFrame {
             }
             this.limpliarTextos();
             JOptionPane.showMessageDialog(null, "Empleado Guardado", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
-            GestionEmpleados ge = new GestionEmpleados(sistema);
+            GestionEmpleados ge = new GestionEmpleados(sistema,empleado);
             ge.setVisible(true);
             dispose();
 
@@ -316,7 +318,7 @@ public class AgregarEmpleado extends javax.swing.JFrame {
 
     private void jButtonVolverGestionaEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverGestionaEmpleadosActionPerformed
 
-        GestionEmpleados ge = new GestionEmpleados(sistema);
+        GestionEmpleados ge = new GestionEmpleados(sistema,empleado);
         ge.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonVolverGestionaEmpleadosActionPerformed

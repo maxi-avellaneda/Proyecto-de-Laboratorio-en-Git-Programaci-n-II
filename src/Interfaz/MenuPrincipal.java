@@ -2,6 +2,7 @@
 package Interfaz;
 
 import laboratorio2018.Afiliado;
+import laboratorio2018.Empleado;
 import laboratorio2018.Sistema;
 
 /**
@@ -12,6 +13,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private Sistema sistema;
     private Afiliado afiliado;
+    private Empleado empleado;
     
     public MenuPrincipal() {
         initComponents();
@@ -24,10 +26,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         setResizable(false);
         setTitle("MENU PRINCIPAL");
     }
-    public MenuPrincipal(Sistema c,Afiliado a) {
+    public MenuPrincipal(Sistema c,Afiliado a,Empleado e) {
         initComponents();
         sistema=c;
         afiliado=a;
+        empleado=e;
         setLocationRelativeTo(null);
         setResizable(false);
         setTitle("MENU PRINCIPAL");
@@ -150,7 +153,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void jButtonMenuGestionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMenuGestionesActionPerformed
         // TODO add your handling code here:
-        MenuGestiones mg = new MenuGestiones(sistema,afiliado);
+        MenuGestiones mg = new MenuGestiones(sistema,afiliado,empleado);
         mg.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonMenuGestionesActionPerformed

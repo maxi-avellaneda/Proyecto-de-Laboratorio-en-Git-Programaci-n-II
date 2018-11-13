@@ -20,12 +20,14 @@ public class EliminarEmpleado extends javax.swing.JFrame {
 
     private Sistema sistema;
     private Afiliado afiliado;
+    private Empleado empleado;
     
     public EliminarEmpleado(){
         initComponents();
     }
-    public EliminarEmpleado(Sistema c) {
+    public EliminarEmpleado(Sistema c,Empleado e) {
         sistema=c;
+        empleado=e;
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
@@ -118,7 +120,7 @@ public class EliminarEmpleado extends javax.swing.JFrame {
 
     private void jButtonVolverGestionEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverGestionEmpleadosActionPerformed
 
-        GestionEmpleados ge = new GestionEmpleados(sistema);
+        GestionEmpleados ge = new GestionEmpleados(sistema,empleado);
         ge.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonVolverGestionEmpleadosActionPerformed
@@ -139,7 +141,7 @@ public class EliminarEmpleado extends javax.swing.JFrame {
 
             }
             JOptionPane.showMessageDialog(null, "Empleado eliminado correctamente", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
-            MenuPrincipal m = new MenuPrincipal(sistema,afiliado);
+            MenuPrincipal m = new MenuPrincipal(sistema,afiliado,empleado);
             m.setVisible(true);
             dispose();
 

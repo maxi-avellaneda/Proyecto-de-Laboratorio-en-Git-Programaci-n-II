@@ -7,6 +7,7 @@ package laboratorio2018;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 /**
@@ -19,8 +20,12 @@ public class Empleado extends Persona{
     private String legajo;
     private Calendar fechaDeNaciemiento = Calendar.getInstance();
     private int edad;
+    private ArrayList<Doctor> doctores = new ArrayList<Doctor>();
+    private ArrayList<Enfermero> enfermeros = new ArrayList<Enfermero>();
+    private ArrayList<Chofer> choferes = new ArrayList<Chofer>();
+    private ArrayList<Administrativo> adminis = new ArrayList<Administrativo>();
 
-    
+    public Empleado(){}
     public Empleado(String profesion,Integer legajo,String nombre,String apellido,String sexo,String dni,String direccion,String telefono,int dia, int mes,int ano){
         super(nombre,apellido,sexo,dni,direccion,telefono);
         fechaDeNaciemiento.set(ano,mes-1,dia);
@@ -128,5 +133,36 @@ public class Empleado extends Persona{
     public void setLegajo(String legajo) {
         this.legajo = legajo;
     }
+    public ArrayList<Enfermero> getEnfermeros() {
+        return enfermeros;
+    }
+
+    public void setEnfermeros(Enfermero e) {
+
+        enfermeros.add(e);
+    }
     
+    public ArrayList<Doctor> getDoctores() {
+        return doctores;
+    }
+
+    public void setDoctores(Doctor d) {
+        doctores.add(d);
+    }
+
+    public void setChoferes(Chofer c) {
+        choferes.add(c);
+    }
+
+    public ArrayList<Chofer> getChoferes() {
+        return choferes;
+    }
+
+    public void setAdminis(Administrativo ad) {
+        adminis.add(ad);
+    }
+
+    public ArrayList<Administrativo> getAdminis() {
+        return adminis;
+    }
 }

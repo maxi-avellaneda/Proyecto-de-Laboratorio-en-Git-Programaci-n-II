@@ -6,6 +6,7 @@
 package Interfaz;
 
 import laboratorio2018.Afiliado;
+import laboratorio2018.Empleado;
 import laboratorio2018.Sistema;
 
 
@@ -17,12 +18,15 @@ import laboratorio2018.Sistema;
 public class AfiliadoFamiliar extends javax.swing.JFrame {
     private Sistema sistema;
     private Afiliado afiliado;
+    private Empleado empleado;
+    
     public AfiliadoFamiliar(){
         initComponents();
     }
-    public AfiliadoFamiliar(Sistema c,Afiliado a) {
+    public AfiliadoFamiliar(Sistema c,Afiliado a,Empleado e) {
         sistema=c;
         afiliado=a;
+        empleado=e;
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
@@ -97,21 +101,21 @@ public class AfiliadoFamiliar extends javax.swing.JFrame {
 
     private void jButtonAltaAfiliadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAltaAfiliadoActionPerformed
         // TODO add your handling code here:
-        AltaAfiliado alta = new AltaAfiliado(sistema,afiliado);
+        AltaAfiliado alta = new AltaAfiliado(sistema,afiliado,empleado);
         alta.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonAltaAfiliadoActionPerformed
 
     private void jButtonAltaFamiliarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAltaFamiliarActionPerformed
         // TODO add your handling code here:
-        AltaFamiliar altfa = new AltaFamiliar(sistema,afiliado);
+        AltaFamiliar altfa = new AltaFamiliar(sistema,afiliado,empleado);
         altfa.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonAltaFamiliarActionPerformed
 
     private void jButtonVolverGestionAfiliadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverGestionAfiliadosActionPerformed
         
-        GestionAfiliados a = new GestionAfiliados(sistema,afiliado);
+        GestionAfiliados a = new GestionAfiliados(sistema,afiliado,empleado);
         a.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonVolverGestionAfiliadosActionPerformed

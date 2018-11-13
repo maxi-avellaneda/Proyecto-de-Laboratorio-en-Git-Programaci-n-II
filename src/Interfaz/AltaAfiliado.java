@@ -7,6 +7,7 @@ import laboratorio2018.Sistema;
 import Exceptions.VerficarCampoVacioException;
 import Exceptions.VerificarDniException;
 import Exceptions.VerificarRepetidosException;
+import laboratorio2018.Empleado;
 
 /**
  *
@@ -16,10 +17,12 @@ public class AltaAfiliado extends javax.swing.JFrame {
 
     private Sistema sistema;
     private Afiliado afiliado;
+    private Empleado empleado;
 
-    public AltaAfiliado(Sistema c,Afiliado a) {
+    public AltaAfiliado(Sistema c,Afiliado a,Empleado e) {
         sistema = c;
         afiliado=a;
+        empleado=e;
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
@@ -202,7 +205,7 @@ public class AltaAfiliado extends javax.swing.JFrame {
 
     private void jButtonVolverGestionaAfiliadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverGestionaAfiliadosActionPerformed
 
-        AfiliadoFamiliar af = new AfiliadoFamiliar(sistema,afiliado);
+        AfiliadoFamiliar af = new AfiliadoFamiliar(sistema,afiliado,empleado);
         af.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonVolverGestionaAfiliadosActionPerformed
@@ -233,7 +236,7 @@ public class AltaAfiliado extends javax.swing.JFrame {
             sistema.setAfiliados(afi);
             this.limpliarTextos();
             JOptionPane.showMessageDialog(null, "Afiliado guardado", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
-            MenuPrincipal m = new MenuPrincipal(sistema,afiliado);
+            MenuPrincipal m = new MenuPrincipal(sistema,afiliado,empleado);
             m.setVisible(true);
             dispose();
             

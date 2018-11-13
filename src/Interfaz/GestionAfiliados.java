@@ -2,6 +2,7 @@
 package Interfaz;
 
 import laboratorio2018.Afiliado;
+import laboratorio2018.Empleado;
 import laboratorio2018.Sistema;
 
 /**
@@ -12,6 +13,7 @@ public class GestionAfiliados extends javax.swing.JFrame {
 
     private Sistema sistema;
     private Afiliado afiliado;
+    private Empleado empleado;
     public GestionAfiliados(){
         initComponents();
     }
@@ -23,9 +25,10 @@ public class GestionAfiliados extends javax.swing.JFrame {
         setTitle("MENU GESTION AFILIADOS");
     }
 
-    public GestionAfiliados(Sistema c,Afiliado a) {
+    public GestionAfiliados(Sistema c,Afiliado a,Empleado e) {
         sistema=c;
         afiliado=a;
+        empleado=e;
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
@@ -182,28 +185,28 @@ public class GestionAfiliados extends javax.swing.JFrame {
 
     private void jButtonVolverMenuPrincipal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverMenuPrincipal1ActionPerformed
         // TODO add your handling code here:
-        MenuGestiones mg = new MenuGestiones(sistema,afiliado);
+        MenuGestiones mg = new MenuGestiones(sistema,afiliado,empleado);
         mg.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonVolverMenuPrincipal1ActionPerformed
 
     private void jButtonAltaAfiliadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAltaAfiliadoActionPerformed
         // TODO add your handling code here:
-        AfiliadoFamiliar afifa = new AfiliadoFamiliar(sistema,afiliado);
+        AfiliadoFamiliar afifa = new AfiliadoFamiliar(sistema,afiliado,empleado);
         afifa.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonAltaAfiliadoActionPerformed
 
     private void jButtonBajaAfiliadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBajaAfiliadoActionPerformed
         // TODO add your handling code here:
-        MenuBajas mb = new MenuBajas(sistema,afiliado);
+        MenuBajas mb = new MenuBajas(sistema,afiliado,empleado);
         mb.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonBajaAfiliadoActionPerformed
 
     private void jButtonListAfiliadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListAfiliadosActionPerformed
         // TODO add your handling code here:
-        ListadoAfiliados lista = new ListadoAfiliados(sistema,afiliado);
+        ListadoAfiliados lista = new ListadoAfiliados(sistema,afiliado,empleado);
         lista.setVisible(true);
         dispose();
         
@@ -211,7 +214,7 @@ public class GestionAfiliados extends javax.swing.JFrame {
 
     private void jButtonListaFamiliaresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListaFamiliaresActionPerformed
         // TODO add your handling code here:
-        BuscarFamiliares bf = new BuscarFamiliares(sistema,afiliado);
+        BuscarFamiliares bf = new BuscarFamiliares(sistema,afiliado,empleado);
         bf.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonListaFamiliaresActionPerformed

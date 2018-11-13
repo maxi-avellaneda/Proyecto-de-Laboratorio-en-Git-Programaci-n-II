@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 import laboratorio2018.Familiar;
 import laboratorio2018.Sistema;
 import laboratorio2018.Afiliado;
+import laboratorio2018.Empleado;
 
 /**
  *
@@ -17,10 +18,12 @@ public class AltaFamiliar extends javax.swing.JFrame {
 
     private Sistema sistema;
     private Afiliado afiliado;
+    private Empleado empleado;
 
-    public AltaFamiliar(Sistema c,Afiliado a) {
+    public AltaFamiliar(Sistema c,Afiliado a,Empleado e) {
         sistema = c;
         afiliado=a;
+        empleado=e;
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
@@ -269,7 +272,7 @@ public class AltaFamiliar extends javax.swing.JFrame {
             System.out.println(afiliado.getFamiliares());
             this.limpliarTextos();
             JOptionPane.showMessageDialog(null, "Familiar guardado", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
-            MenuPrincipal m = new MenuPrincipal(sistema,afiliado);
+            MenuPrincipal m = new MenuPrincipal(sistema,afiliado,empleado);
             m.setVisible(true);
             dispose();
 
@@ -295,7 +298,7 @@ public class AltaFamiliar extends javax.swing.JFrame {
 
     private void jButtonVolverGestionaAfiliadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverGestionaAfiliadosActionPerformed
         // TODO add your handling code here:
-        GestionAfiliados g = new GestionAfiliados(sistema,afiliado);
+        GestionAfiliados g = new GestionAfiliados(sistema,afiliado,empleado);
         g.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonVolverGestionaAfiliadosActionPerformed

@@ -6,6 +6,7 @@ import Exceptions.VerificarDniException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import laboratorio2018.Afiliado;
+import laboratorio2018.Empleado;
 import laboratorio2018.Familiar;
 import laboratorio2018.Sistema;
 
@@ -17,20 +18,23 @@ public class BuscarFamiliares extends javax.swing.JFrame {
 
     private Sistema sistema;
     private Afiliado afiliado;
+    private Empleado empleado;
     public Afiliado afi = null;
       private ArrayList<Familiar> familiares = new ArrayList<Familiar>();
 
     public BuscarFamiliares(Sistema c) {
         sistema = c;
+        
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
         setTitle("BAJA DE FAMILIAR");
     }
 
-    public BuscarFamiliares(Sistema c, Afiliado a) {
+    public BuscarFamiliares(Sistema c, Afiliado a,Empleado e) {
         sistema = c;
         afiliado = a;
+        empleado=e;
         //System.out.println("Familiares: "+afiliado.getFamiliares());
         initComponents();
         setLocationRelativeTo(null);
@@ -126,7 +130,7 @@ public class BuscarFamiliares extends javax.swing.JFrame {
 
     private void jButtonVolverGestionAfiliadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverGestionAfiliadosActionPerformed
 
-        GestionAfiliados gs = new GestionAfiliados(sistema,afiliado);
+        GestionAfiliados gs = new GestionAfiliados(sistema,afiliado,empleado);
         gs.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonVolverGestionAfiliadosActionPerformed
@@ -139,7 +143,7 @@ public class BuscarFamiliares extends javax.swing.JFrame {
             sistema.buscarAfiliado(dni);
             for (Afiliado a : sistema.getAfiliados()) {
                 if (a.getDni().equals(dni)) {        
-                    ListadoFamiliares l = new ListadoFamiliares(sistema, afiliado,dni);
+                    ListadoFamiliares l = new ListadoFamiliares(sistema, afiliado,dni,empleado);
                     l.setVisible(true);
                     dispose();
                 }

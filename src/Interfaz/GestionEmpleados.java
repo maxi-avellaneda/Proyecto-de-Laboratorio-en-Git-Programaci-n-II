@@ -6,6 +6,7 @@
 package Interfaz;
 
 import laboratorio2018.Afiliado;
+import laboratorio2018.Empleado;
 import laboratorio2018.Sistema;
 
 /**
@@ -16,11 +17,14 @@ public class GestionEmpleados extends javax.swing.JFrame {
 
     private Sistema sistema;
     private Afiliado afiliado;
+    private Empleado empleado;
+    
     public GestionEmpleados(){
         initComponents();
     }
-    public GestionEmpleados(Sistema c) {
+    public GestionEmpleados(Sistema c,Empleado e) {
         sistema=c;
+        empleado=e;
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
@@ -125,28 +129,28 @@ public class GestionEmpleados extends javax.swing.JFrame {
 
     private void jButtonIngresarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIngresarEmpleadoActionPerformed
         // TODO add your handling code here:
-        AgregarEmpleado aeg = new AgregarEmpleado(sistema);
+        AgregarEmpleado aeg = new AgregarEmpleado(sistema,empleado);
         aeg.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonIngresarEmpleadoActionPerformed
 
     private void jButtonVolverGestionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverGestionesActionPerformed
         // TODO add your handling code here:
-        MenuGestiones mg = new MenuGestiones(sistema,afiliado);
+        MenuGestiones mg = new MenuGestiones(sistema,afiliado,empleado);
         mg.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonVolverGestionesActionPerformed
 
     private void jButtonEliminarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarEmpleadoActionPerformed
         // TODO add your handling code here:
-        EliminarEmpleado ee = new EliminarEmpleado(sistema);
+        EliminarEmpleado ee = new EliminarEmpleado(sistema,empleado);
         ee.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonEliminarEmpleadoActionPerformed
 
     private void jButtonListaEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListaEmpleadosActionPerformed
         // TODO add your handling code here:
-        ListadoEmpleados lista1 = new ListadoEmpleados(sistema);
+        ListadoEmpleados lista1 = new ListadoEmpleados(sistema,empleado);
         lista1.setVisible(true);
         dispose();
 

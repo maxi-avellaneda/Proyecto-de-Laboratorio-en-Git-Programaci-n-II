@@ -8,6 +8,7 @@ package Interfaz;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
 import laboratorio2018.Afiliado;
+import laboratorio2018.Empleado;
 import laboratorio2018.Sistema;
 
 /**
@@ -18,11 +19,14 @@ public class ListadoEmpleados extends javax.swing.JFrame {
 
     private Sistema sistema;
     private Afiliado afiliado;
+    private Empleado empleado;
+    
     public ListadoEmpleados(){
         initComponents();
     }
-    public ListadoEmpleados(Sistema c) {
+    public ListadoEmpleados(Sistema c,Empleado e) {
         sistema=c;
+        empleado=e;
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
@@ -113,7 +117,7 @@ public class ListadoEmpleados extends javax.swing.JFrame {
 
     private void jButtonVolverGestionEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverGestionEmpleadosActionPerformed
         // TODO add your handling code here:
-        GestionEmpleados ge = new GestionEmpleados(sistema);
+        GestionEmpleados ge = new GestionEmpleados(sistema,empleado);
         ge.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonVolverGestionEmpleadosActionPerformed

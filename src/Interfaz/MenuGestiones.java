@@ -6,6 +6,7 @@
 package Interfaz;
 
 import laboratorio2018.Afiliado;
+import laboratorio2018.Empleado;
 import laboratorio2018.Sistema;
 
 /**
@@ -16,7 +17,7 @@ public class MenuGestiones extends javax.swing.JFrame {
 
     private Sistema sistema; 
     private Afiliado afiliado;
-    
+    private Empleado empleado;
     public MenuGestiones() {
         initComponents();
     }
@@ -27,9 +28,10 @@ public class MenuGestiones extends javax.swing.JFrame {
         setResizable(false);
         setTitle("MENU DE GESTIONES");
     }
-    public MenuGestiones(Sistema c,Afiliado a) {
+    public MenuGestiones(Sistema c,Afiliado a,Empleado e) {
         sistema=c;
         afiliado=a;
+        empleado=e;
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
@@ -115,14 +117,14 @@ public class MenuGestiones extends javax.swing.JFrame {
 
     private void jButtonSalirMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirMenuPrincipalActionPerformed
         // TODO add your handling code here:
-         MenuPrincipal m = new MenuPrincipal(sistema,afiliado);
+         MenuPrincipal m = new MenuPrincipal(sistema,afiliado,empleado);
         m.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonSalirMenuPrincipalActionPerformed
 
     private void jButtonGestionEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGestionEmpleadosActionPerformed
         // TODO add your handling code here:
-        GestionEmpleados ge = new GestionEmpleados(sistema);
+        GestionEmpleados ge = new GestionEmpleados(sistema,empleado);
         ge.setVisible(true);
         dispose();
         
@@ -130,7 +132,7 @@ public class MenuGestiones extends javax.swing.JFrame {
 
     private void jButtonGestionAfiliadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGestionAfiliadosActionPerformed
         // TODO add your handling code here:
-        GestionAfiliados ga = new GestionAfiliados(sistema,afiliado);
+        GestionAfiliados ga = new GestionAfiliados(sistema,afiliado,empleado);
         ga.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonGestionAfiliadosActionPerformed
