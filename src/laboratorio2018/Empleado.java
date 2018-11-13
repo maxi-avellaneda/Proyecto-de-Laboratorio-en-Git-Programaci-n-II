@@ -16,7 +16,7 @@ import java.util.Calendar;
 public class Empleado extends Persona{
     
     private String profesion;
-    private Integer legajo;
+    private String legajo;
     private Calendar fechaDeNaciemiento = Calendar.getInstance();
     private int edad;
 
@@ -26,11 +26,20 @@ public class Empleado extends Persona{
         fechaDeNaciemiento.set(ano,mes-1,dia);
         edad = this.calcularEdad();
     }
-    public Empleado(String profesion, Integer legajo, int edad, String nombre, String apellido, String sexo, String dni, String direccion, String telefono) {
+    public Empleado(String profesion, String legajo, int edad, String nombre, String apellido, String sexo, String dni, String direccion, String telefono) {
         super(nombre, apellido, sexo, dni, direccion, telefono);
         this.profesion = profesion;
         this.legajo = legajo;
         this.edad = edad;
+    }
+    
+    public Empleado(String nombre, String apellido, String sexo, String dni, String direccion, String telefono,int dia, int mes,int ano,String profesion,String legajo){
+        super(nombre,apellido,sexo,dni,direccion,telefono);
+        this.profesion=profesion;
+        this.legajo=legajo;
+        fechaDeNaciemiento.set(ano,mes-1,dia);
+        edad = this.calcularEdad();
+        
     }
 
     
@@ -87,6 +96,7 @@ public class Empleado extends Persona{
         fechaDeNaciemiento.set(ano,mes-1,dia);
     }
     
+    @Override
     public String toString(){
         String empleado =getProfesion()+": "+getNombre() +" " +getApellido() +"\nSexo: "+getSexo()+"\nDNI N° :"+getDni()+"\nDireccion: "+getDireccion()+"\nFecha de Nacimiento: "+getFechaDeNaciemiento()+"\nEdad: "+calcularEdad()+"\nLegajo: "+getLegajo();
         return empleado;
@@ -108,14 +118,14 @@ public class Empleado extends Persona{
     /**
      * @return the legajo
      */
-    public Integer getLegajo() {
+    public String getLegajo() {
         return legajo;
     }
 
     /**
      * @param legajo the legajo to set
      */
-    public void setLegajo(Integer legajo) {
+    public void setLegajo(String legajo) {
         this.legajo = legajo;
     }
     

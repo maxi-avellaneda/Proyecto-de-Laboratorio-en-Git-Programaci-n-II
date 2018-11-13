@@ -9,8 +9,12 @@ import Exceptions.VerficarCampoVacioException;
 import Exceptions.VerificarDniException;
 import Exceptions.VerificarRepetidosException;
 import javax.swing.JOptionPane;
+import laboratorio2018.Administrativo;
 import laboratorio2018.Afiliado;
+import laboratorio2018.Chofer;
+import laboratorio2018.Doctor;
 import laboratorio2018.Empleado;
+import laboratorio2018.Enfermero;
 import laboratorio2018.Sistema;
 
 /**
@@ -21,11 +25,17 @@ public class AgregarEmpleado extends javax.swing.JFrame {
 
     private Sistema sistema;
     private Afiliado afiliado;
-    public AgregarEmpleado(){
+    //private Doctor doctor;
+    private Enfermero enf;
+    private Chofer chofer;
+    private Administrativo ad;
+
+    public AgregarEmpleado() {
         initComponents();
     }
+
     public AgregarEmpleado(Sistema c) {
-        sistema=c;
+        sistema = c;
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
@@ -242,8 +252,8 @@ public class AgregarEmpleado extends javax.swing.JFrame {
     private void jButtonGuardarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarEmpleadoActionPerformed
         // TODO add your handling code here:
         try {
-            String nom, ape,dire,sex="",doc,tele,prof="";
-            int dia,mes,anio,leg;
+            String nom, ape, dire, sex = "", doc, tele, profe,leg;
+            int dia, mes, anio;
             nom = nombre.getText();
             ape = apellido.getText();
             if (jRadioButtonFemenino.isSelected()) {
@@ -255,40 +265,47 @@ public class AgregarEmpleado extends javax.swing.JFrame {
             doc = documento.getText();
             dire = direccion.getText();
             tele = telefono.getText();
-            leg = Integer.parseInt(Legajo.getText());
             dia = Integer.parseInt(diaNac.getText());
             mes = Integer.parseInt(MesNac.getText());
             anio = Integer.parseInt(anioNac.getText());
-            // System.out.println("nom: "+nom+" \nape: "+ape+" \nsexo: "+sex+" \ndoc: "+doc+" \ndire: "+dire+" \ntele: "+tele+" \ndia: "+dia+" \nmes: "+mes+" \nanio: "+anio);
-            sistema.verificarDatos(doc, nom, ape, dire,tele);
+            leg = Legajo.getText();
+            sistema.verificarDatos(doc, nom, ape, dire, tele);
             sistema.buscarRepetido(doc);
-            Empleado emp = new Empleado(prof,leg,nom,ape,sex,doc,dire,tele,dia,mes,anio);
-            if (this.Profesion.getSelectedItem().equals("Administrativo")){                
-                emp.setProfesion(prof);
-                prof="Administrativo";
-            } else if(this.Profesion.getSelectedItem().equals("Chofer")) {
-                emp.setProfesion(prof);
-                prof="Chofer";
-                }else if(this.Profesion.getSelectedItem().equals("Doctor")){
-                    emp.setProfesion(prof);
-                    prof="Doctor";
-                    }else{
-                    emp.setProfesion(prof);
-                    prof="Enfermero";
-                }
-            
-            sistema.setEmpleados(emp);
+            if (this.Profesion.getSelectedItem().equals("Doctor")) {
+                profe = "Doctor";
+                Doctor doct = new Doctor(nom,ape,sex,doc,dire,tele,dia,mes,anio,profe,leg);
+                sistema.setDoctores(doct);
+                sistema.setEmpleados(doct);
+                
+            } else if (this.Profesion.getSelectedItem().equals("Chofer")) {
+                profe = "Chofer";
+                Chofer cho = new Chofer(nom,ape,sex,doc,dire,tele,dia,mes,anio,profe,leg);
+                sistema.setChoferes(cho);
+                sistema.setEmpleados(cho);
+                
+            } else if (this.Profesion.getSelectedItem().equals("Administrativo")) {
+                profe = "Administrativo";
+                Administrativo adm = new Administrativo(nom,ape,sex,doc,dire,tele,dia,mes,anio,profe,leg);
+                sistema.setAdminis(ad);
+                sistema.setEmpleados(adm);
+                
+            } else if(this.Profesion.getSelectedItem().equals("Enfermero")){
+                profe = "Enfermero";
+                Enfermero enfe = new Enfermero(nom,ape,sex,doc,dire,tele,dia,mes,anio,profe,leg);
+                sistema.setEnfermeros(enfe);
+                sistema.setEmpleados(enfe);
+            }
             this.limpliarTextos();
             JOptionPane.showMessageDialog(null, "Empleado Guardado", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
             GestionEmpleados ge = new GestionEmpleados(sistema);
-           ge.setVisible(true);
-          dispose();
+            ge.setVisible(true);
+            dispose();
 
-        }catch(VerificarDniException vdni){
+        } catch (VerificarDniException vdni) {
             JOptionPane.showMessageDialog(null, "Dni Invalido", "Error!", JOptionPane.OK_OPTION);
-        }catch(VerficarCampoVacioException cav){
+        } catch (VerficarCampoVacioException cav) {
             JOptionPane.showMessageDialog(null, "Ingreso un campo vacio", "Atencion!", JOptionPane.QUESTION_MESSAGE);
-        }catch(VerificarRepetidosException vr){
+        } catch (VerificarRepetidosException vr) {
             JOptionPane.showMessageDialog(null, "El Empleado ya se encuentra registrado", "Atencion!", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_jButtonGuardarEmpleadoActionPerformed
@@ -374,10 +391,15 @@ public class AgregarEmpleado extends javax.swing.JFrame {
     private javax.swing.JTextField telefono;
     // End of variables declaration//GEN-END:variables
 
-    public void limpliarTextos(){
+    public void limpliarTextos() {
         nombre.setText(null);
-        apellido.setText(null);        
+        apellido.setText(null);
         documento.setText(null);
-        direccion.setText(null);        
+        direccion.setText(null);
+        telefono.setText(null);
+        Legajo.setText(null);
+        diaNac.setText(null);
+        MesNac.setText(null);
+        anioNac.setText(null);
     }
 }

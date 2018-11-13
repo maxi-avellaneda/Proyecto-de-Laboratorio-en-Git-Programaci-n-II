@@ -24,21 +24,21 @@ public class Laboratorio2018 {
        //Movil m6 = new Movil("2017","Toyota","AB998PE","Ambulancia 6");
         
         //GESTION DE EMPLEADOS DE LA EMPRESA (DOCTOR,ENFERMEROS,CHOFERES Y ADMINISTRATIVOS)
-        Doctor doc1 = new Doctor(1125,"Doctor",1,25,"Paola","Jacobo","Femenina","20147158","Av Ocampos","777888");
-        Doctor doc2 = new Doctor(1138,"Doctor",2,28,"Nain","Maldonado","Masculino","20123456","Maipu","123456");
-        Doctor doc3 = new Doctor(1100,"Doctor",3,30,"Roberto","Maza","Masculino","31213546","Chacabuco","651475");
+        Doctor doc1 = new Doctor("Paola","Jacobo","Femenina","20147158","Av Ocampos","777888",1,2,1980,"Doctor","1125");
+        Doctor doc2 = new Doctor("Nain","Maldonado","Masculino","20123456","Maipu","123456",2,3,1977,"Doctor","1138");
+        Doctor doc3 = new Doctor("Roberto","Maza","Masculino","31213546","Chacabuco","651475",4,5,1960,"Doctor","1100");
         
-        Enfermero enf1 = new Enfermero("Enfermero",4,24,"Fabian","Moya","Masculino","30123456","Santa Rosa","854698");
-        Enfermero enf2 = new Enfermero("Enfermero",5,25,"Silvio","Moya","Masculino","250123456","Sumalao","212425");
-        Enfermero enf3 = new Enfermero("Enfermero",6,24,"Adriana","Romero","Femenino","14111774","Sumalao","121314");
+        Enfermero enf1 = new Enfermero("Fabian","Moya","Masculino","30123456","Santa Rosa","854698",4,6,1985,"Enfermero","123");
+        Enfermero enf2 = new Enfermero("Silvio","Moya","Masculino","250123456","Sumalao","212425",14,8,1956,"Enfermero","124");
+        Enfermero enf3 = new Enfermero("Adriana","Romero","Femenino","14111774","Sumalao","121314",22,12,1974,"Enfermero","125");
         
-        Chofer ch1 = new Chofer(m1,"Chofer",7,30,"Jeronimo","Rivas","Masculino","193456","San Isidro","854588");
-        Chofer ch2 = new Chofer(m2,"Chofer",8,32,"Eduardo","Monje","Masculino","13222333","Fray Mamerto","147547");
-        Chofer ch3 = new Chofer(m2,"Chofer",9,26,"Armando","Avellaneda","Masculino","9123456","Sumalao","969669");
+        Chofer ch1 = new Chofer("Jeronimo","Rivas","Masculino","193456","San Isidro","854588",18,2,1983,"Chofer","12");
+        Chofer ch2 = new Chofer("Eduardo","Monje","Masculino","13222333","Fray Mamerto","147547",13,11,1980,"Chofer","13");
+        Chofer ch3 = new Chofer("Armando","Avellaneda","Masculino","9123456","Sumalao","969669",1,29,1957,"Chofer","14");
         
-        Administrativo ad1 = new Administrativo("Administrativo",10,30,"Natalia","Florez","Femenino","38123456","San Martin","654321");
-        Administrativo ad2 = new Administrativo("Administrativo",11,28,"Mercedes","Castro","Femenino","37123456","Mate de Luna","222244");
-        Administrativo ad3 = new Administrativo("Administrativo",12,28,"Elizabeth","Perna","Femenino","34555888","Rivadavia","363532");
+        Administrativo ad1 = new Administrativo("Natalia","Florez","Femenino","38123456","San Martin","654321",23,5,1968,"Administrativo","1");
+        Administrativo ad2 = new Administrativo("Mercedes","Castro","Femenino","37123456","Mate de Luna","222244",5,6,1975,"Administrativo","2");
+        Administrativo ad3 = new Administrativo("Elizabeth","Perna","Femenino","34555888","Rivadavia","363532",4,10,1970,"Administrativo","3");
         
         //Abono de Afiliados
         AbonoAfiliados abono1 = new AbonoAfiliados(afi1,2,9,2018,1000); abono1.fechaPagoAbono();
@@ -73,7 +73,7 @@ public class Laboratorio2018 {
         
         Afiliado afiliado = new Afiliado();
         
-        //afiliado.setFamiliares(f1);
+        afiliado.setFamiliares(f1);
         afiliado.setFamiliares(f2);
         
         MenuPrincipal menu1 = new MenuPrincipal(sistema,afiliado);

@@ -125,8 +125,8 @@ public class GestionEmpleados extends javax.swing.JFrame {
 
     private void jButtonIngresarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIngresarEmpleadoActionPerformed
         // TODO add your handling code here:
-        AgregarEmpleado ae = new AgregarEmpleado(sistema);
-        ae.setVisible(true);
+        AgregarEmpleado aeg = new AgregarEmpleado(sistema);
+        aeg.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonIngresarEmpleadoActionPerformed
 
