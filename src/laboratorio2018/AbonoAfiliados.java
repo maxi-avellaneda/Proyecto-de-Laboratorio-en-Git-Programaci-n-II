@@ -9,7 +9,6 @@ public class AbonoAfiliados {
     private Integer dia,mes,anio;
     private float abono;
     private String condicion;
-    
     Calendar calendario = new GregorianCalendar();
     
     public AbonoAfiliados(Afiliado afiliado,Integer dia,Integer mes,Integer anio,float abono){

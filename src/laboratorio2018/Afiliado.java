@@ -5,6 +5,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Iterator;
 
 public class Afiliado extends Persona { //el afiliado es un paciente
     
@@ -13,7 +14,9 @@ public class Afiliado extends Persona { //el afiliado es un paciente
     private ArrayList<Familiar> familiares =  new ArrayList<Familiar>();
     private AbonoAfiliados abono;
     private int edad;
+    private String estado;//esto servirá en 0 para moroso, 1 para cuando no está en mora
     private Calendar fechaDeNaciemiento = Calendar.getInstance();
+    private ArrayList<Asistencia> asistencias= new ArrayList<Asistencia>();
   
     public Afiliado(){}
     
@@ -30,11 +33,6 @@ public class Afiliado extends Persona { //el afiliado es un paciente
         this.edad = edad;
     }
 
-    
-
-    
-    
-    
     
     public int calcularEdad(){
         int edad=0;
@@ -91,7 +89,7 @@ public class Afiliado extends Persona { //el afiliado es un paciente
 
     @Override
     public String toString(){
-        String afiliado = "Afiliado: "+getNombre() +" " +getApellido() +"\nSexo: "+getSexo()+"\nDNI N° :"+getDni()+"\nDireccion: "+getDireccion()+"\nFecha de Nacimiento: "+getFechaDeNaciemiento()+"\nEdad: "+calcularEdad();
+        String afiliado = "Afiliado: "+getNombre() +" " +getApellido() +"\nSexo: "+getSexo()+"\nDNI N° :"+getDni()+"\nDireccion: "+getDireccion()+"\nFecha de Nacimiento: "+getFechaDeNaciemiento()+"\nEdad: "+calcularEdad()+"\nCantidad de asistencias solicitadas:"+cantidadAsistencias()+"\nCondicion de su pago: "+comprobarAbono();
         return afiliado;
     }
 
@@ -120,5 +118,36 @@ public class Afiliado extends Persona { //el afiliado es un paciente
         familiares.add(f);
     }
 
-            
+    public ArrayList<Asistencia> getAsistencias() {
+        return asistencias;
+    }
+
+    
+    public void setAsistencias(Asistencia as) {
+        asistencias.add(as);
+    }
+
+    public int cantidadAsistencias(){
+        int i=0;
+        if(!getAsistencias().isEmpty()) {
+            Iterator iterador = getAsistencias().listIterator(); //el objeto iterador te ayuda a recorrer una coleccion.
+            while (iterador.hasNext()) {
+                i++; //para saber la cantidad de asistencias
+            }
+        }
+        else{
+            return i=0;
+        }
+        return i;
+    }
+    public String comprobarAbono(){
+        if(abono.getCondicion().equals("Mora")){
+            estado="Mora";
+        }else{
+            estado="Sin Mora";
+        }
+        return estado;
+    }
+    
+    
 }
