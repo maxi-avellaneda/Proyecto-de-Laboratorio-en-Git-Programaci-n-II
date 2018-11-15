@@ -49,43 +49,6 @@ public class AprobarAsistencia extends javax.swing.JFrame {
     public AprobarAsistencia() {
         initComponents();
     }
-
-    public class BrindarAsistencia extends javax.swing.JFrame {
-        try {
-            String dni = buscarDni.getText();
-            sistema.buscarAfiliado(dni);
-            for (Afiliado a : sistema.getAfiliados()) {
-                if (a.getDni().equals(dni)) {
-                    if(a.comprobarAbono().equals("Sin Mora")){
-                        BrindarAsistencia ba
-                    }
-                }
-            }
-        } catch (VerificarDniException vdni) {
-            JOptionPane.showMessageDialog(null, "Dni Invalido", "Error!", JOptionPane.OK_OPTION);
-        } catch (AfiliadoNoEncontradoException pnee) {
-            JOptionPane.showMessageDialog(null, "No se encontro al afiliado", "Aviso!", JOptionPane.WARNING_MESSAGE);
-        } catch (VerficarCampoVacioException cav) {
-            JOptionPane.showMessageDialog(null, "Campo Vacio, ingrese de nuevo", "Atencion!", JOptionPane.QUESTION_MESSAGE);
-        } finally {
-            buscarDni.setText(null);
-        }
-    }                                                     
-
-    public void verificarDatos(String dni) throws VerificarDniException, VerficarCampoVacioException {
-
-        if (dni.equals("")) {
-            throw new VerficarCampoVacioException();
-        }
-        if (dni.length() == 8 || dni.length() == 7) {
-            int numero = Integer.parseInt(dni);
-            if (numero < 1000000) {
-                throw new VerificarDniException();
-            }
-        } else {
-            throw new VerificarDniException();
-        }
-    }
     
     
     /**
@@ -177,8 +140,8 @@ public class AprobarAsistencia extends javax.swing.JFrame {
 
     private void jButtonVolverGestionAfiliadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverGestionAfiliadosActionPerformed
 
-        GestionAfiliados gs = new GestionAfiliados(sistema,afiliado,empleado);
-        gs.setVisible(true);
+        MenuAsistencias mn= new MenuAsistencias();
+        mn.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonVolverGestionAfiliadosActionPerformed
 
@@ -188,22 +151,32 @@ public class AprobarAsistencia extends javax.swing.JFrame {
             sistema.buscarAfiliado(dni);
             for (Afiliado a : sistema.getAfiliados()) {
                 if (a.getDni().equals(dni)) {
-                    if(a.comprobarAbono().equals("Sin Mora")){
                         BrindarAsistencia ba = new BrindarAsistencia();
-                    }
+                        ba.setVisible(true);
+                        dispose();
                 }
             }
-        } catch (VerificarDniException vdni) {
-            JOptionPane.showMessageDialog(null, "Dni Invalido", "Error!", JOptionPane.OK_OPTION);
         } catch (AfiliadoNoEncontradoException pnee) {
             JOptionPane.showMessageDialog(null, "No se encontro al afiliado", "Aviso!", JOptionPane.WARNING_MESSAGE);
-        } catch (VerficarCampoVacioException cav) {
-            JOptionPane.showMessageDialog(null, "Campo Vacio, ingrese de nuevo", "Atencion!", JOptionPane.QUESTION_MESSAGE);
         } finally {
             buscarDni.setText(null);
         }
     }//GEN-LAST:event_jButtonBuscarAfiAsistenciaActionPerformed
 
+     public void verificarDatos(String dni) throws VerificarDniException, VerficarCampoVacioException {
+
+        if (dni.equals("")) {
+            throw new VerficarCampoVacioException();
+        }
+        if (dni.length() == 8 || dni.length() == 7) {
+            int numero = Integer.parseInt(dni);
+            if (numero < 1000000) {
+                throw new VerificarDniException();
+            }
+        } else {
+            throw new VerificarDniException();
+        }
+    }
     /**
      * @param args the command line arguments
      */

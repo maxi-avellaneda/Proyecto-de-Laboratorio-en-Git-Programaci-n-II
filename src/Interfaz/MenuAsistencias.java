@@ -5,15 +5,44 @@
  */
 package Interfaz;
 
+import java.util.ArrayList;
+import laboratorio2018.Afiliado;
+import laboratorio2018.Empleado;
+import laboratorio2018.Familiar;
+import laboratorio2018.Sistema;
+
 /**
  *
  * @author Rodrigo
  */
 public class MenuAsistencias extends javax.swing.JFrame {
 
-    /**
-     * Creates new form MenuAsistencias
-     */
+    private Sistema sistema;
+    private Afiliado afiliado;
+    private Empleado empleado;
+    public Afiliado afi = null;
+      private ArrayList<Familiar> familiares = new ArrayList<Familiar>();
+
+    public MenuAsistencias(Sistema c) {
+        sistema = c;
+        
+        initComponents();
+        setLocationRelativeTo(null);
+        setResizable(false);
+        setTitle("BAJA DE FAMILIAR");
+    }
+
+    public MenuAsistencias(Sistema c, Afiliado a,Empleado e) {
+        sistema = c;
+        afiliado = a;
+        empleado=e;
+        //System.out.println("Familiares: "+afiliado.getFamiliares());
+        initComponents();
+        setLocationRelativeTo(null);
+        setResizable(false);
+        setTitle("BAJA DE FAMILIAR");
+    }
+
     public MenuAsistencias() {
         initComponents();
     }
@@ -105,16 +134,12 @@ public class MenuAsistencias extends javax.swing.JFrame {
 
     private void jButtonVerAsistenciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerAsistenciasActionPerformed
         // TODO add your handling code here:
-        GestionEmpleados ge = new GestionEmpleados(sistema,empleado);
-        ge.setVisible(true);
-        dispose();
-
     }//GEN-LAST:event_jButtonVerAsistenciasActionPerformed
 
     private void jButtonBrindarAsistenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBrindarAsistenciaActionPerformed
         // TODO add your handling code here:
-        GestionAfiliados ga = new GestionAfiliados(sistema,afiliado,empleado);
-        ga.setVisible(true);
+        AprobarAsistencia aa = new AprobarAsistencia(sistema,afiliado,empleado);
+        aa.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonBrindarAsistenciaActionPerformed
 
