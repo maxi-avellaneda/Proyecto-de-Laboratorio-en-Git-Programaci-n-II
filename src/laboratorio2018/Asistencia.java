@@ -6,6 +6,7 @@
 package laboratorio2018;
 
 import java.util.Calendar;
+import java.util.Iterator;
 
 /**
  *
@@ -13,22 +14,45 @@ import java.util.Calendar;
  */
 public class Asistencia {
     
+    private int doctor;
+    private int enfermero;
+    private int chofer;
+    private int movil;
+    private int administrativo;
     private Calendar fecha = Calendar.getInstance();
     private int dia;
     private int mes;
     private int anio;
     private Afiliado afi;
+    private Sistema sis;
+    private String nomDoc;
+    private String nomEnf;
+    private String nomCho;
+    private String nomAdm;
     
-    public Asistencia(){
-        
+    public Asistencia(int doctor, int enfermero, int chofer, int movil, int administrativo, int dia, int mes, int anio){
+        this.doctor = doctor;
+        this.enfermero = enfermero;
+        this.chofer = chofer;
+        this.movil = movil;
+        this.administrativo = administrativo;
+        this.dia = dia;
+        this.mes = mes;
+        this.anio = anio;
     }
 
-    public Asistencia(int dia, int mes, int anio, Afiliado afi) {
+    public Asistencia(int doctor, int enfermero, int chofer, int movil, int administrativo, int dia, int mes, int anio, Afiliado afi) {
+        this.doctor = doctor;
+        this.enfermero = enfermero;
+        this.chofer = chofer;
+        this.movil = movil;
+        this.administrativo = administrativo;
         this.dia = dia;
         this.mes = mes;
         this.anio = anio;
         this.afi = afi;
     }
+
 
     public int getFecha() {
         Calendar fechaActual = Calendar.getInstance();
@@ -79,6 +103,66 @@ public class Asistencia {
 
     public void setAfi(Afiliado afi) {
         this.afi = afi;
+    }
+
+    public String getDoctor() {
+        for (Doctor d : sis.getDoctores()){
+            if(d.getLegajo().equals(doctor)){
+                nomDoc=d.getNombre();
+            }
+        }
+        return nomDoc;
+    }
+
+    public void setDoctor(int doctor) {
+        this.doctor = doctor;
+    }
+
+    public String getEnfermero() {
+        for (Enfermero e : sis.getEnfermeros()){
+            if(e.getLegajo().equals(enfermero)){
+                nomEnf=e.getNombre();
+            }
+        }
+        return nomEnf;
+    }
+
+    public void setEnfermero(int enfermero) {
+        this.enfermero = enfermero;
+    }
+
+    public String getChofer() {
+        for (Chofer c : sis.getChoferes()){
+            if(c.getLegajo().equals(chofer)){
+                nomCho=c.getNombre();
+            }
+        }
+        return nomCho;
+    }
+
+    public void setChofer(int chofer) {
+        this.chofer = chofer;
+    }
+
+    public int getMovil() {
+        return movil;
+    }
+    
+    public void setMovil(int movil) {
+        this.movil = movil;
+    }
+
+    public String getAdministrativo() {
+        for (Administrativo a : sis.getAdminis()){
+            if(a.getLegajo().equals(administrativo)){
+                nomAdm=a.getNombre();
+            }
+        }
+        return nomAdm;
+    }
+
+    public void setAdministrativo(int administrativo) {
+        this.administrativo = administrativo;
     }
 
     

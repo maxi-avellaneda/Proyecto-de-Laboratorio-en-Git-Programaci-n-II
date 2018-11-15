@@ -164,10 +164,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonSalirMenuPrincipalActionPerformed
 
     private void jButtonGestionAsistenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGestionAsistenciaActionPerformed
+<<<<<<< HEAD
         MenuAsistencias menu = new MenuAsistencias(sistema,afiliado,empleado);
         menu.setVisible(true);
         dispose();
         
+=======
+        MenuAsistencias mn= new MenuAsistencias();
+        mn.setVisible(true);
+        dispose();
+>>>>>>> 850cd290e44c0fc94ef4c89b726ed5f19444446e
     }//GEN-LAST:event_jButtonGestionAsistenciaActionPerformed
 
     private void jButtonGestionPagosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGestionPagosActionPerformed

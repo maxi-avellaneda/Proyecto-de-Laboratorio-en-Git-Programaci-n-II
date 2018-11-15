@@ -89,7 +89,11 @@ public class Afiliado extends Persona { //el afiliado es un paciente
 
     @Override
     public String toString(){
+<<<<<<< HEAD
         String afiliado = "Afiliado: "+getNombre() +" " +getApellido() +"\nSexo: "+getSexo()+"\nDNI N° :"+getDni()+"\nDireccion: "+getDireccion()+"\nFecha de Nacimiento: "+getFechaDeNaciemiento()+"\nEdad: "+calcularEdad()+"\nCantidad de asistencias solicitadas:"+cantidadAsistencias()/*+"\nCondicion de su pago: "+comprobarAbono()*/;
+=======
+        String afiliado = "Afiliado: "+getNombre() +" " +getApellido() +"\nSexo: "+getSexo()+"\nDNI N° :"+getDni()+"\nDireccion: "+getDireccion()+"\nFecha de Nacimiento: "+getFechaDeNaciemiento()+"\nEdad: "+calcularEdad();
+>>>>>>> 850cd290e44c0fc94ef4c89b726ed5f19444446e
         return afiliado;
     }
 
@@ -127,6 +131,7 @@ public class Afiliado extends Persona { //el afiliado es un paciente
         asistencias.add(as);
     }
 
+<<<<<<< HEAD
     public int cantidadAsistencias(){
         int i=0;
         if(!getAsistencias().isEmpty()) {
@@ -148,6 +153,8 @@ public class Afiliado extends Persona { //el afiliado es un paciente
         }
         return estado;
     }*/
+=======
+>>>>>>> 850cd290e44c0fc94ef4c89b726ed5f19444446e
     
     
 }

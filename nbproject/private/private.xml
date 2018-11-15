@@ -3,10 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/maxix/Documents/GitHub/Proyecto-de-Laboratorio-en-Git-Programaci-n-II/src/laboratorio2018/Laboratorio2018.java</file>
             <file>file:/C:/Users/maxix/Documents/GitHub/Proyecto-de-Laboratorio-en-Git-Programaci-n-II/src/Interfaz/MenuPrincipal.java</file>
             <file>file:/C:/Users/maxix/Documents/GitHub/Proyecto-de-Laboratorio-en-Git-Programaci-n-II/src/Interfaz/MenuBajas.java</file>
             <file>file:/C:/Users/maxix/Documents/GitHub/Proyecto-de-Laboratorio-en-Git-Programaci-n-II/src/Interfaz/MenuBajaEmpleado.java</file>
+=======
+            <file>file:/C:/Users/Rodrigo/Documents/NetBeansProjects/Proyecto-de-Laboratorio-en-Git-Programaci-n-II/src/laboratorio2018/Afiliado.java</file>
+            <file>file:/C:/Users/Rodrigo/Documents/NetBeansProjects/Proyecto-de-Laboratorio-en-Git-Programaci-n-II/src/Interfaz/MenuPrincipal.java</file>
+            <file>file:/C:/Users/Rodrigo/Documents/NetBeansProjects/Proyecto-de-Laboratorio-en-Git-Programaci-n-II/src/laboratorio2018/Laboratorio2018.java</file>
+>>>>>>> 850cd290e44c0fc94ef4c89b726ed5f19444446e
         </group>
     </open-files>
 </project-private>
