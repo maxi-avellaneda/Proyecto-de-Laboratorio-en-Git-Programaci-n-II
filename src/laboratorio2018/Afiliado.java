@@ -89,7 +89,7 @@ public class Afiliado extends Persona { //el afiliado es un paciente
 
     @Override
     public String toString(){
-        String afiliado = "Afiliado: "+getNombre() +" " +getApellido() +"\nSexo: "+getSexo()+"\nDNI N° :"+getDni()+"\nDireccion: "+getDireccion()+"\nFecha de Nacimiento: "+getFechaDeNaciemiento()+"\nEdad: "+calcularEdad()+"\nCantidad de asistencias solicitadas:"+cantidadAsistencias()+"\nCondicion de su pago: "+comprobarAbono();
+        String afiliado = "Afiliado: "+getNombre() +" " +getApellido() +"\nSexo: "+getSexo()+"\nDNI N° :"+getDni()+"\nDireccion: "+getDireccion()+"\nFecha de Nacimiento: "+getFechaDeNaciemiento()+"\nEdad: "+calcularEdad()+"\nCantidad de asistencias solicitadas:"+cantidadAsistencias()/*+"\nCondicion de su pago: "+comprobarAbono()*/;
         return afiliado;
     }
 
@@ -140,14 +140,14 @@ public class Afiliado extends Persona { //el afiliado es un paciente
         }
         return i;
     }
-    public String comprobarAbono(){
+    /*public String comprobarAbono(){
         if(abono.getCondicion().equals("Mora")){
             estado="Mora";
         }else{
             estado="Sin Mora";
         }
         return estado;
-    }
+    }*/
     
     
 }

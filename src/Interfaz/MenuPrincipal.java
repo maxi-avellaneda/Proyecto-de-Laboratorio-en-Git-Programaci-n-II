@@ -164,7 +164,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonSalirMenuPrincipalActionPerformed
 
     private void jButtonGestionAsistenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGestionAsistenciaActionPerformed
-        // TODO add your handling code here:
+        MenuAsistencias menu = new MenuAsistencias(sistema,afiliado,empleado);
+        menu.setVisible(true);
+        dispose();
         
     }//GEN-LAST:event_jButtonGestionAsistenciaActionPerformed
 
