@@ -1,6 +1,7 @@
 
 package Interfaz;
 
+import laboratorio2018.Afiliado;
 import laboratorio2018.Empleado;
 import laboratorio2018.Sistema;
 
@@ -12,13 +13,15 @@ public class MenuBajaEmpleado extends javax.swing.JFrame {
 
     private Sistema sistema;
     private Empleado empleado;
+    private Afiliado afiliado;
     
     public MenuBajaEmpleado() {
         initComponents();
     }
 
-    public MenuBajaEmpleado(Sistema c,Empleado e){
+    public MenuBajaEmpleado(Sistema c,Afiliado a, Empleado e){
         sistema=c;
+        afiliado=a;
         empleado=e;
         initComponents();
         setLocationRelativeTo(null);
@@ -161,7 +164,7 @@ public class MenuBajaEmpleado extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonBajaDoctorActionPerformed
 
     private void jButtonVolverGestionEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverGestionEmpleadosActionPerformed
-        GestionEmpleados gest = new GestionEmpleados(sistema,empleado);
+        GestionEmpleados gest = new GestionEmpleados(sistema,afiliado,empleado);
         gest.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonVolverGestionEmpleadosActionPerformed
