@@ -14,7 +14,7 @@ public class Afiliado extends Persona { //el afiliado es un paciente
     private ArrayList<Familiar> familiares =  new ArrayList<Familiar>();
     private AbonoAfiliados abono;
     private int edad;
-    private String estado;//esto servirá en 0 para moroso, 1 para cuando no está en mora
+    //private String estado;//esto servirá en 0 para moroso, 1 para cuando no está en mora
     private Calendar fechaDeNaciemiento = Calendar.getInstance();
     private ArrayList<Asistencia> asistencias= new ArrayList<Asistencia>();
     //private ArrayList<AbonoAfiliados> abonos = new ArrayList<AbonoAfiliados>();
@@ -77,15 +77,7 @@ public class Afiliado extends Persona { //el afiliado es un paciente
         if(anioNac>anioAc){System.out.println("FECHA DE NACIMIENTO MAL INGRESADA");}
         return edad;
     }
-    
-    /*public ArrayList<AbonoAfiliados> getAbonos() {
-        return abonos;
-    }
-
-    public void setAbonos(AbonoAfiliados a) {
-        abonos.add(a);
-    }*/
-    
+   
      public String getFechaDeNaciemiento() {
         DateFormat formato1 = new SimpleDateFormat("dd/MM/yyyy");
         String fecha = formato1.format(fechaDeNaciemiento.getTime());
@@ -145,27 +137,16 @@ public class Afiliado extends Persona { //el afiliado es un paciente
             }
         }
         else{
-            return i=0;
+            return i;
         }
         return i;
     }
-    /*public String comprobarAbono(){
-        if(abono.getCondicion().equals("Mora")){
-            estado="Mora";
-        }else{
-            estado="Sin Mora";
-        }
-        return estado;
-    }*/
-
+  
     public AbonoAfiliados getAbono() {
         return abono;
     }
 
     public void setAbono(AbonoAfiliados abono) {
         this.abono = abono;
-    }
-    
-    
-    
+    }  
 }

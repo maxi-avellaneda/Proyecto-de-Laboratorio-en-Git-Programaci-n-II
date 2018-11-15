@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package laboratorio2018;
 
 import java.text.DateFormat;
@@ -16,11 +12,16 @@ import java.util.Iterator;
  */
 public class Asistencia {
     
-    private int doctor;
-    private int enfermero;
-    private int chofer;
-    private String movil;
-    private int administrativo;
+    //private int doctor;
+   // private int enfermero;
+    //private int chofer;
+    //private String movil;
+    //private int administrativo;
+    private Movil movil;
+    private Empleado empleado;
+    private Diagnostico diagnostico;
+    private Doctor doctor;
+    private Enfermero enfermero;
     private Calendar fecha = Calendar.getInstance();
     private int dia;
     private int mes;
@@ -32,7 +33,7 @@ public class Asistencia {
     private String nomCho;
     private String nomAdm;
     
-    public Asistencia(int doctor, int enfermero, int chofer, String movil, int administrativo, int dia, int mes, int anio){
+    /*public Asistencia(int doctor, int enfermero, int chofer, String movil, int administrativo, int dia, int mes, int anio){
         this.doctor = doctor;
         this.enfermero = enfermero;
         this.chofer = chofer;
@@ -41,9 +42,9 @@ public class Asistencia {
         this.dia = dia;
         this.mes = mes;
         this.anio = anio;
-    }
+    }*/
 
-    public Asistencia(int doctor, int enfermero, int chofer, String movil, int administrativo, int dia, int mes, int anio, Afiliado afi) {
+   /* public Asistencia(int doctor, int enfermero, int chofer, String movil, int administrativo, int dia, int mes, int anio, Afiliado afi) {
         this.doctor = doctor;
         this.enfermero = enfermero;
         this.chofer = chofer;
@@ -53,8 +54,24 @@ public class Asistencia {
         this.mes = mes;
         this.anio = anio;
         this.afi = afi;
-    }
+    }*/
 
+    public Asistencia(Doctor doc/*,Movil m*/,int dia,int mes,int anio,Diagnostico d){
+        doctor=doc;
+        //movil=m;
+        diagnostico=d;
+        this.dia=dia;
+        this.mes=mes;
+        this.anio=anio;
+    }
+    public Asistencia(Enfermero enf/*,Movil m*/,int dia,int mes,int anio,Diagnostico d){
+        enfermero=enf;
+        //movil=m;
+        diagnostico=d;
+        this.dia=dia;
+        this.mes=mes;
+        this.anio=anio;
+    }
 
     public int getAnio() {
         Calendar fechaActual = Calendar.getInstance();
@@ -82,6 +99,7 @@ public class Asistencia {
         return mesAc;
     }
     
+    @Override
     public String toString(){
         String datos= "Fecha de la peticion:"+getDia()+"/"+getMes()+"/"+getFecha();
         return datos;
@@ -101,7 +119,7 @@ public class Asistencia {
         this.afi = afi;
     }
 
-    public String getDoctor() {
+    /*public String getDoctor() {
         for (Doctor d : sis.getDoctores()){
             if(d.getLegajo().equals(doctor)){
                 nomDoc=d.getNombre();
@@ -159,7 +177,7 @@ public class Asistencia {
 
     public void setAdministrativo(int administrativo) {
         this.administrativo = administrativo;
-    }
+    }*/
 
     public String getFecha(){
         

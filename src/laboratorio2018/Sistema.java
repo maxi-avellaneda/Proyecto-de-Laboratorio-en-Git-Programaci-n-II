@@ -20,6 +20,7 @@ public class Sistema { // seria la asistencia medica
     private ArrayList<Movil> moviles = new ArrayList<Movil>();
     private ArrayList<Empleado> empleados = new ArrayList<Empleado>();
     private ArrayList<AbonoAfiliados> abonos = new ArrayList<AbonoAfiliados>();
+    private ArrayList<Asistencia> asistencias= new ArrayList<Asistencia>();
 
     public ArrayList<Afiliado> getAfiliados() {
         return afiliados;
@@ -92,6 +93,15 @@ public class Sistema { // seria la asistencia medica
 
     public void setAbonos(AbonoAfiliados a) {
         abonos.add(a);
+    }
+    
+    public ArrayList<Asistencia> getAsistencias() {
+        return asistencias;
+    }
+
+    
+    public void setAsistencias(Asistencia as) {
+        asistencias.add(as);
     }
 
     public void verificarDatos(String dni, String nombre, String apellido, String domicilio, String telefono) throws VerificarDniException, VerficarCampoVacioException {

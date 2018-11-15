@@ -3,6 +3,7 @@ package laboratorio2018;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 
@@ -13,6 +14,7 @@ public class Familiar extends Persona{
     private Calendar fechaDeNaciemiento = Calendar.getInstance();
     private int edad;
     private Afiliado afiliado;
+    private ArrayList<Asistencia> asistencias= new ArrayList<Asistencia>();
 
     public Familiar(String relacion, Afiliado afiliado) {
         this.relacion = relacion;
@@ -106,5 +108,12 @@ public class Familiar extends Persona{
         this.claveFamiliar = claveFamiliar;
     }
 
+    public ArrayList<Asistencia> getAsistencias() {
+        return asistencias;
+    }
+
     
+    public void setAsistencias(Asistencia as) {
+        asistencias.add(as);
+    }
 }

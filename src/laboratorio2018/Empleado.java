@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package laboratorio2018;
 
 import java.text.DateFormat;
@@ -24,30 +19,20 @@ public class Empleado extends Persona{
     private ArrayList<Enfermero> enfermeros = new ArrayList<Enfermero>();
     private ArrayList<Chofer> choferes = new ArrayList<Chofer>();
     private ArrayList<Administrativo> adminis = new ArrayList<Administrativo>();
+    private String estado;
 
     public Empleado(){}
-    public Empleado(String profesion,Integer legajo,String nombre,String apellido,String sexo,String dni,String direccion,String telefono,int dia, int mes,int ano){
-        super(nombre,apellido,sexo,dni,direccion,telefono);
-        fechaDeNaciemiento.set(ano,mes-1,dia);
-        edad = this.calcularEdad();
-    }
-    public Empleado(String profesion, String legajo, int edad, String nombre, String apellido, String sexo, String dni, String direccion, String telefono) {
-        super(nombre, apellido, sexo, dni, direccion, telefono);
-        this.profesion = profesion;
-        this.legajo = legajo;
-        this.edad = edad;
-    }
-    
-    public Empleado(String nombre, String apellido, String sexo, String dni, String direccion, String telefono,int dia, int mes,int ano,String profesion,String legajo){
+
+    public Empleado(String nombre, String apellido, String sexo, String dni, String direccion, String telefono,int dia, int mes,int ano,String profesion,String legajo,String estado){
         super(nombre,apellido,sexo,dni,direccion,telefono);
         this.profesion=profesion;
         this.legajo=legajo;
+        this.estado=estado;
         fechaDeNaciemiento.set(ano,mes-1,dia);
         edad = this.calcularEdad();
         
     }
 
-    
     public int calcularEdad(){
         int edad=0;
         Calendar fechaActual = Calendar.getInstance();
@@ -165,4 +150,13 @@ public class Empleado extends Persona{
     public ArrayList<Administrativo> getAdminis() {
         return adminis;
     }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+    
 }

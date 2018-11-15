@@ -6,14 +6,16 @@ public class Movil {
     private String marca;
     private String patente;
     private String num;
+    private String estado;
     
     public Movil(){}
     
-    public Movil(String modelo,String marca,String patente,String num){
+    public Movil(String modelo,String marca,String patente,String num,String estado){
         this.marca=marca;
         this.modelo=modelo;
         this.patente=patente;
         this.num=num;
+        this.estado=estado;
     }
 
     public String getModelo() {

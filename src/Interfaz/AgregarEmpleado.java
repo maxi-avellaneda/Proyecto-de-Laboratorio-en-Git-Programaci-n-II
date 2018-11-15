@@ -255,7 +255,7 @@ public class AgregarEmpleado extends javax.swing.JFrame {
     private void jButtonGuardarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarEmpleadoActionPerformed
         // TODO add your handling code here:
         try {
-            String nom, ape, dire, sex = "", doc, tele, profe,leg;
+            String nom, ape, dire, sex = "", doc, tele, profe,leg,estado="Libre";
             int dia, mes, anio;
             nom = nombre.getText();
             ape = apellido.getText();
@@ -276,28 +276,28 @@ public class AgregarEmpleado extends javax.swing.JFrame {
             sistema.buscarRepetido(doc);
             if (this.Profesion.getSelectedItem().equals("Doctor")) {
                 profe = "Doctor";
-                Doctor doct = new Doctor(nom,ape,sex,doc,dire,tele,dia,mes,anio,profe,leg);
+                Doctor doct = new Doctor(nom,ape,sex,doc,dire,tele,dia,mes,anio,profe,leg,estado);
                 sistema.setDoctores(doct);
                 sistema.setEmpleados(doct);
                 empleado.setDoctores(doct);
                 
             } else if (this.Profesion.getSelectedItem().equals("Chofer")) {
                 profe = "Chofer";
-                Chofer cho = new Chofer(nom,ape,sex,doc,dire,tele,dia,mes,anio,profe,leg);
+                Chofer cho = new Chofer(nom,ape,sex,doc,dire,tele,dia,mes,anio,profe,leg,estado);
                 sistema.setChoferes(cho);
                 sistema.setEmpleados(cho);
                 empleado.setChoferes(cho);
                 
             } else if (this.Profesion.getSelectedItem().equals("Administrativo")) {
                 profe = "Administrativo";
-                Administrativo adm = new Administrativo(nom,ape,sex,doc,dire,tele,dia,mes,anio,profe,leg);
+                Administrativo adm = new Administrativo(nom,ape,sex,doc,dire,tele,dia,mes,anio,profe,leg,estado);
                 sistema.setAdminis(ad);
                 sistema.setEmpleados(adm);
                 empleado.setAdminis(ad);
                 
             } else if(this.Profesion.getSelectedItem().equals("Enfermero")){
                 profe = "Enfermero";
-                Enfermero enfe = new Enfermero(nom,ape,sex,doc,dire,tele,dia,mes,anio,profe,leg);
+                Enfermero enfe = new Enfermero(nom,ape,sex,doc,dire,tele,dia,mes,anio,profe,leg,estado);
                 sistema.setEnfermeros(enfe);
                 sistema.setEmpleados(enfe);
                 empleado.setEnfermeros(enfe);

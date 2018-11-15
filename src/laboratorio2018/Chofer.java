@@ -6,13 +6,8 @@ public class Chofer extends Empleado{
     
     private Movil movil;
 
-    public Chofer(Movil movil, String profesion, String legajo, int edad, String nombre, String apellido, String sexo, String dni, String direccion, String telefono) {
-        super(profesion, legajo, edad, nombre, apellido, sexo, dni, direccion, telefono);
-        this.movil = movil;
-    }
-    
-    public Chofer(String nombre, String apellido, String sexo, String dni, String direccion, String telefono,int dia, int mes,int ano,String profesion,String legajo){
-        super(nombre,apellido,sexo,dni,direccion,telefono,dia,mes,ano,profesion,legajo);
+    public Chofer(String nombre, String apellido, String sexo, String dni, String direccion, String telefono,int dia, int mes,int ano,String profesion,String legajo,String estado){
+        super(nombre,apellido,sexo,dni,direccion,telefono,dia,mes,ano,profesion,legajo,estado);
         //this.movil=movil;
     }
 
@@ -26,7 +21,8 @@ public class Chofer extends Empleado{
 
     @Override
     public String toString(){
-        String chofer = "Chofer: "+getNombre() +" " +getApellido() +"\nSexo: "+getSexo()+"\nDNI N° :"+getDni()+"\nDireccion: "+getDireccion()+"\nLegajo: "+getLegajo();
+        String chofer = "Chofer: "+getNombre() +" " +getApellido() +"\nSexo: "+getSexo()+"\nDNI N° :"+getDni()
+                +"\nDireccion: "+getDireccion()+"\nLegajo: "+getLegajo()+"\nEstado: "+getEstado();
         return chofer;
     }
     

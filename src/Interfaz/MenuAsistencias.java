@@ -146,7 +146,7 @@ public class MenuAsistencias extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonBrindarAsistenciaActionPerformed
 
     private void jButtonDefinirDiagnosticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDefinirDiagnosticoActionPerformed
-        BuscarAsistencia ba = new BuscarAsistencia();
+        BuscarAsistencia ba = new BuscarAsistencia(sistema,afiliado,empleado);
         ba.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonDefinirDiagnosticoActionPerformed

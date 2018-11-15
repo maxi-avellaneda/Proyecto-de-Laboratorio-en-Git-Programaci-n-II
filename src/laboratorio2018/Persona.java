@@ -1,11 +1,6 @@
 
 package laboratorio2018;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-
-
 public abstract class Persona {
     private String nombre;
     private String apellido;

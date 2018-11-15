@@ -36,7 +36,7 @@ public class BuscarAsistencia extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
-        setTitle("BAJA DE FAMILIAR");
+        setTitle("BUSCAR ASISTENCIA");
     }
 
     

@@ -32,7 +32,7 @@ public class AprobarAsistencia extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
-        setTitle("BAJA DE FAMILIAR");
+        setTitle("APROBAR ASISTENCIA");
     }
 
     
@@ -172,13 +172,16 @@ public class AprobarAsistencia extends javax.swing.JFrame {
                     System.out.println("condicion: "+abo.fechaPagoAbono());
                     
                     if(abo.fechaPagoAbono().equals(con)){
-                        JOptionPane.showMessageDialog(null, "HABILITADO", "PUEDE PEDIR ASISTENCIA MEDICA!", JOptionPane.OK_OPTION);
-                        BrindarAsistencia br = new BrindarAsistencia(sistema,afiliado,empleado);
-                        br.setVisible(true);
+                        JOptionPane.showMessageDialog(null, "HABILITADO", "PUEDE PEDIR ASISTENCIA MEDICA", JOptionPane.INFORMATION_MESSAGE);
+                        AsignarEmpleados asig = new AsignarEmpleados(sistema,afiliado,empleado);
+                        asig.setVisible(true);
                         dispose();
+                        //BrindarAsistencia br = new BrindarAsistencia(sistema,afiliado,empleado);
+                        //br.setVisible(true);
+                        //dispose();
                     }else{
                         System.out.println("todavia no");
-                        JOptionPane.showMessageDialog(null, "MOROSO", "NO PUEDE PEDIR ASISTENCIA MEDICA!", JOptionPane.OK_OPTION);
+                        JOptionPane.showMessageDialog(null, "MOROSO", "NO PUEDE PEDIR ASISTENCIA MEDICA!", JOptionPane.INFORMATION_MESSAGE);
                         MenuPrincipal me = new MenuPrincipal(sistema,afiliado,empleado);
                         me.setVisible(true);
                         dispose();

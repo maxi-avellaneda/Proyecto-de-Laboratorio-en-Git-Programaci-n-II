@@ -54,7 +54,7 @@ public class LaboratorioTest {
      
      @Test 
     public void agregarEmpleado(){
-         Doctor doc = new Doctor("Paola","Jacobo","Femenina","20147158","Av Ocampos","777888",1,2,1980,"Doctor","1125");
+         Doctor doc = new Doctor("Paola","Jacobo","Femenina","20147158","Av Ocampos","777888",1,2,1980,"Doctor","1125","Libre");
          assertEquals(doc.toString(),"Doctor: Paola Jacobo\nSexo: Femenina\nDNI N° :20147158\nDireccion: Av Ocampos\nN° Legajo: 1125");
          
      }
