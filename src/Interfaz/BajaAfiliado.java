@@ -123,19 +123,19 @@ public class BajaAfiliado extends javax.swing.JFrame {
             String dni = dniBaja.getText();
             sistema.verificarDni(dni);
             sistema.buscarAfiliado(dni);
-            Afiliado afiliado = null;
+            Afiliado afiliadoo = null;
             for (Afiliado a : sistema.getAfiliados()) {
                 if (a.getDni().equals(dni)) {
                     //JOptionPane.showMessageDialog(null, "Afiliado ya esta dado de baja", "Aviso", JOptionPane.INFORMATION_MESSAGE);
-                    afiliado = a;
+                    afiliadoo = a;
                 }
             }
-            if(afiliado != null) {
-                sistema.getAfiliados().remove(afiliado);
+            if(afiliadoo != null) {
+                sistema.getAfiliados().remove(afiliadoo);
 
             }
             JOptionPane.showMessageDialog(null, "Afiliado dado de baja correctamente", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
-            MenuPrincipal m = new MenuPrincipal(sistema,afiliado,empleado);
+            MenuPrincipal m = new MenuPrincipal(sistema,afiliadoo,empleado);
             m.setVisible(true);
             dispose();
 

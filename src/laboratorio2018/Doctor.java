@@ -20,7 +20,7 @@ public class Doctor extends Empleado {
     
     @Override
     public String toString(){
-        String doctor = "Doctor: "+getNombre() +" " +getApellido() +"\nSexo: "+getSexo()+"\nDNI N° :"+getDni()+"\nDireccion: "+getDireccion()+"N° Legajo: "+getLegajo();
+        String doctor = "Doctor: "+getNombre() +" " +getApellido() +"\nSexo: "+getSexo()+"\nDNI N° :"+getDni()+"\nDireccion: "+getDireccion()+"\nN° Legajo: "+getLegajo();
         return doctor;
     }
     /*public String afiliadosAsignados(){

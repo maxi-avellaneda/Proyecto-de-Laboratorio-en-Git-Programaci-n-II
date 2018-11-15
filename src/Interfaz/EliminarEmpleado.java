@@ -130,19 +130,21 @@ public class EliminarEmpleado extends javax.swing.JFrame {
             String dni = dniEliminar.getText();
             sistema.verificarDni(dni);
             sistema.buscarEmpleado(dni);
-            Empleado empleado = null;
+            Empleado empleadoo = null;
             for (Empleado emp : sistema.getEmpleados()) {
                 if (emp.getDni().equals(dni)) {
-                    empleado = emp;
+                    empleadoo = emp;
                 }
             }
-            if(empleado != null) {
-                sistema.getEmpleados().remove(empleado);
+            if(empleadoo != null) {
+                sistema.getEmpleados().remove(empleadoo);
 
             }
             JOptionPane.showMessageDialog(null, "Empleado eliminado correctamente", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
-            MenuPrincipal m = new MenuPrincipal(sistema,afiliado,empleado);
-            m.setVisible(true);
+            /*MenuPrincipal m = new MenuPrincipal(sistema,afiliado,empleadoo);
+            m.setVisible(true);*/
+            GestionEmpleados ge = new GestionEmpleados(sistema,empleadoo);
+            ge.setVisible(true);
             dispose();
 
         } catch (VerificarDniException vdni) {

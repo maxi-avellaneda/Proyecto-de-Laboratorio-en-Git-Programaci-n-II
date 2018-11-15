@@ -278,24 +278,28 @@ public class AgregarEmpleado extends javax.swing.JFrame {
                 Doctor doct = new Doctor(nom,ape,sex,doc,dire,tele,dia,mes,anio,profe,leg);
                 sistema.setDoctores(doct);
                 sistema.setEmpleados(doct);
+                empleado.setDoctores(doct);
                 
             } else if (this.Profesion.getSelectedItem().equals("Chofer")) {
                 profe = "Chofer";
                 Chofer cho = new Chofer(nom,ape,sex,doc,dire,tele,dia,mes,anio,profe,leg);
                 sistema.setChoferes(cho);
                 sistema.setEmpleados(cho);
+                empleado.setChoferes(cho);
                 
             } else if (this.Profesion.getSelectedItem().equals("Administrativo")) {
                 profe = "Administrativo";
                 Administrativo adm = new Administrativo(nom,ape,sex,doc,dire,tele,dia,mes,anio,profe,leg);
                 sistema.setAdminis(ad);
                 sistema.setEmpleados(adm);
+                empleado.setAdminis(ad);
                 
             } else if(this.Profesion.getSelectedItem().equals("Enfermero")){
                 profe = "Enfermero";
                 Enfermero enfe = new Enfermero(nom,ape,sex,doc,dire,tele,dia,mes,anio,profe,leg);
                 sistema.setEnfermeros(enfe);
                 sistema.setEmpleados(enfe);
+                empleado.setEnfermeros(enfe);
             }
             this.limpliarTextos();
             JOptionPane.showMessageDialog(null, "Empleado Guardado", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
@@ -312,6 +316,17 @@ public class AgregarEmpleado extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonGuardarEmpleadoActionPerformed
 
+    public void limpliarTextos() {
+        nombre.setText(null);
+        apellido.setText(null);
+        documento.setText(null);
+        direccion.setText(null);
+        telefono.setText(null);
+        Legajo.setText(null);
+        diaNac.setText(null);
+        MesNac.setText(null);
+        anioNac.setText(null);
+    }
     private void jRadioButtonMasculinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMasculinoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButtonMasculinoActionPerformed
@@ -393,15 +408,5 @@ public class AgregarEmpleado extends javax.swing.JFrame {
     private javax.swing.JTextField telefono;
     // End of variables declaration//GEN-END:variables
 
-    public void limpliarTextos() {
-        nombre.setText(null);
-        apellido.setText(null);
-        documento.setText(null);
-        direccion.setText(null);
-        telefono.setText(null);
-        Legajo.setText(null);
-        diaNac.setText(null);
-        MesNac.setText(null);
-        anioNac.setText(null);
-    }
+    
 }
