@@ -209,12 +209,12 @@ public class BrindarAsistencia extends javax.swing.JFrame {
     }//GEN-LAST:event_diaAcActionPerformed
 
     private void jButtonGuardarAsistenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarAsistenciaActionPerformed
-        int doc, enf,cho,mov,adm;
-        int dia,mes,anio;
+        int doc, enf,cho,adm, dia,mes,anio;
+        String mov="";
         doc=Integer.parseInt(legajoDoctor.getText());
         enf = Integer.parseInt(legajoEnfermero.getText());
         cho = Integer.parseInt(legajoChofer.getText());
-        mov = Integer.parseInt(numeroMovil.getText());
+        mov = numeroMovil.getText();
         adm = Integer.parseInt(legajoAdministrativo.getText());
         dia = Integer.parseInt(diaAc.getText());
         mes = Integer.parseInt(mesAc.getText());
@@ -223,7 +223,7 @@ public class BrindarAsistencia extends javax.swing.JFrame {
         Asistencia as=new Asistencia(doc, enf,cho,mov,adm,dia,mes,anio);
         sistema.setAfiliados(afi);
         this.limpliarTextos();
-        JOptionPane.showMessageDialog(null, "Afiliado guardado", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Asistencia Otorgada", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
         MenuAsistencias mn= new MenuAsistencias(sistema,afiliado,empleado);
         mn.setVisible(true);
         dispose();

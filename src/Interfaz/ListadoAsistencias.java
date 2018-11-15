@@ -34,15 +34,18 @@ public class ListadoAsistencias extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
         setTitle("LISTADO DE AFILIADOS");
-        
-        if(!sistema.getAfiliados().isEmpty()) {
-            Iterator iterador = sistema.getAfiliados().listIterator(); //el objeto iterador te ayuda a recorrer una coleccion.
-            while (iterador.hasNext()) {
-                jTextAreaListadoAfiliado.append(iterador.next() + "\n\n"); //el objeto at es un JTextArea y el método append agrega el contenido de persona al area de texto
+        if(!sistema.getAfiliados().isEmpty()){
+            if(!afiliado.getAsistencias().isEmpty()) {
+                Iterator iterador = a.getAsistencias().listIterator(); //el objeto iterador te ayuda a recorrer una coleccion.
+                while (iterador.hasNext()) {
+                    jTextAreaListadoAsistencias.append(iterador.next() + "\n\n"); //el objeto at es un JTextArea y el método append agrega el contenido de persona al area de texto
+             }
+            }  else{
+                JOptionPane.showMessageDialog(null, "AUN NO SE BRINDARON ASISTENCIAS", "ERROR", JOptionPane.INFORMATION_MESSAGE);
             }
         }else{
-            JOptionPane.showMessageDialog(null, "NO SE ENCONTRARON AFILIADOS", "ERROR", JOptionPane.INFORMATION_MESSAGE);
-        }
+                JOptionPane.showMessageDialog(null, "NO SE ENCONTRARON AFILIADOS", "ERROR", JOptionPane.INFORMATION_MESSAGE);
+            }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -54,18 +57,18 @@ public class ListadoAsistencias extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextAreaListadoAfiliado = new javax.swing.JTextArea();
+        jTextAreaListadoAsistencias = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
         jButtonVolverGestionAfiliado = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextAreaListadoAfiliado.setColumns(20);
-        jTextAreaListadoAfiliado.setRows(5);
-        jScrollPane1.setViewportView(jTextAreaListadoAfiliado);
+        jTextAreaListadoAsistencias.setColumns(20);
+        jTextAreaListadoAsistencias.setRows(5);
+        jScrollPane1.setViewportView(jTextAreaListadoAsistencias);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setText("LISTADO DE AFILIADOS");
+        jLabel2.setText("LISTADO DE ASISTENCIAS");
 
         jButtonVolverGestionAfiliado.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonVolverGestionAfiliado.setText("Volver");
@@ -79,14 +82,14 @@ public class ListadoAsistencias extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(263, 263, 263)
-                .addComponent(jLabel2)
-                .addContainerGap(246, Short.MAX_VALUE))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jButtonVolverGestionAfiliado, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(245, 245, 245)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -103,8 +106,8 @@ public class ListadoAsistencias extends javax.swing.JFrame {
 
     private void jButtonVolverGestionAfiliadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverGestionAfiliadoActionPerformed
         // TODO add your handling code here:
-        GestionAfiliados ges = new GestionAfiliados(sistema,afiliado,empleado);
-        ges.setVisible(true);
+        MenuAsistencias menu = new MenuAsistencias(sistema,afiliado,empleado);
+        menu.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonVolverGestionAfiliadoActionPerformed
 
@@ -147,6 +150,6 @@ public class ListadoAsistencias extends javax.swing.JFrame {
     private javax.swing.JButton jButtonVolverGestionAfiliado;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextAreaListadoAfiliado;
+    private javax.swing.JTextArea jTextAreaListadoAsistencias;
     // End of variables declaration//GEN-END:variables
 }

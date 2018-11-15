@@ -45,6 +45,7 @@ public class MenuAsistencias extends javax.swing.JFrame {
         jButtonVerAsistencias = new javax.swing.JButton();
         jButtonBrindarAsistencia = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jButtonDefinirDiagnostico = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,6 +76,14 @@ public class MenuAsistencias extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 2, 15)); // NOI18N
         jLabel2.setText("MENÚ DE ASISTENCIAS");
 
+        jButtonDefinirDiagnostico.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonDefinirDiagnostico.setText("DEFINIR DIAGNOSTICO");
+        jButtonDefinirDiagnostico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDefinirDiagnosticoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -88,22 +97,25 @@ public class MenuAsistencias extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jButtonVerAsistencias, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonBrindarAsistencia, javax.swing.GroupLayout.DEFAULT_SIZE, 389, Short.MAX_VALUE))
+                            .addComponent(jButtonBrindarAsistencia, javax.swing.GroupLayout.DEFAULT_SIZE, 389, Short.MAX_VALUE)
+                            .addComponent(jButtonDefinirDiagnostico, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(142, 142, 142))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(246, 246, 246))))
+                        .addGap(252, 252, 252))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(51, 51, 51)
+                .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonBrindarAsistencia, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonVerAsistencias, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
-                .addGap(82, 82, 82)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonDefinirDiagnostico, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jButtonSalirMenuPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -119,6 +131,9 @@ public class MenuAsistencias extends javax.swing.JFrame {
 
     private void jButtonVerAsistenciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerAsistenciasActionPerformed
 
+        ListadoAsistencias la = new ListadoAsistencias(sistema,afiliado,empleado);
+        la.setVisible(true);
+        dispose();
         
 
     }//GEN-LAST:event_jButtonVerAsistenciasActionPerformed
@@ -129,6 +144,12 @@ public class MenuAsistencias extends javax.swing.JFrame {
         aa.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonBrindarAsistenciaActionPerformed
+
+    private void jButtonDefinirDiagnosticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDefinirDiagnosticoActionPerformed
+        BuscarAsistencia ba = new BuscarAsistencia();
+        ba.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButtonDefinirDiagnosticoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -167,6 +188,7 @@ public class MenuAsistencias extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonBrindarAsistencia;
+    private javax.swing.JButton jButtonDefinirDiagnostico;
     private javax.swing.JButton jButtonSalirMenuPrincipal;
     private javax.swing.JButton jButtonVerAsistencias;
     private javax.swing.JLabel jLabel2;

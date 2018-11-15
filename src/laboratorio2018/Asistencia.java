@@ -5,6 +5,8 @@
  */
 package laboratorio2018;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Iterator;
 
@@ -17,7 +19,7 @@ public class Asistencia {
     private int doctor;
     private int enfermero;
     private int chofer;
-    private int movil;
+    private String movil;
     private int administrativo;
     private Calendar fecha = Calendar.getInstance();
     private int dia;
@@ -30,7 +32,7 @@ public class Asistencia {
     private String nomCho;
     private String nomAdm;
     
-    public Asistencia(int doctor, int enfermero, int chofer, int movil, int administrativo, int dia, int mes, int anio){
+    public Asistencia(int doctor, int enfermero, int chofer, String movil, int administrativo, int dia, int mes, int anio){
         this.doctor = doctor;
         this.enfermero = enfermero;
         this.chofer = chofer;
@@ -41,7 +43,7 @@ public class Asistencia {
         this.anio = anio;
     }
 
-    public Asistencia(int doctor, int enfermero, int chofer, int movil, int administrativo, int dia, int mes, int anio, Afiliado afi) {
+    public Asistencia(int doctor, int enfermero, int chofer, String movil, int administrativo, int dia, int mes, int anio, Afiliado afi) {
         this.doctor = doctor;
         this.enfermero = enfermero;
         this.chofer = chofer;
@@ -54,14 +56,14 @@ public class Asistencia {
     }
 
 
-    public int getFecha() {
+    public int getAnio() {
         Calendar fechaActual = Calendar.getInstance();
         int anioAc = fechaActual.get(Calendar.YEAR);
         return anioAc;
     }
 
-    public void setFecha(Calendar fecha) {
-        this.fecha = fecha;
+    public void setAnio(int anio) {
+        this.anio=anio;
     }
 
     public int getDia() {
@@ -89,13 +91,7 @@ public class Asistencia {
         this.mes = mes;
     }
 
-    public int getAnio() {
-        return anio;
-    }
-
-    public void setAnio(int anio) {
-        this.anio = anio;
-    }
+    
 
     public Afiliado getAfi() {
         return afi;
@@ -144,11 +140,11 @@ public class Asistencia {
         this.chofer = chofer;
     }
 
-    public int getMovil() {
+    public String getMovil() {
         return movil;
     }
     
-    public void setMovil(int movil) {
+    public void setMovil(String movil) {
         this.movil = movil;
     }
 
@@ -165,6 +161,13 @@ public class Asistencia {
         this.administrativo = administrativo;
     }
 
-    
-    
-}
+    public String getFecha(){
+        
+        DateFormat formato1 = new SimpleDateFormat("dd/MM/yyyy");
+        String time = formato1.format(fecha.getTime());
+        return time;
+    }
+    public void setFecha(int dia,int mes,int anio){
+        fecha.set(dia,mes,anio);
+    }
+    }
