@@ -224,7 +224,7 @@ public class BrindarAsistencia extends javax.swing.JFrame {
         sistema.setAfiliados(afi);
         this.limpliarTextos();
         JOptionPane.showMessageDialog(null, "Afiliado guardado", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
-        MenuAsistencias mn= new MenuAsistencias();
+        MenuAsistencias mn= new MenuAsistencias(sistema,afiliado,empleado);
         mn.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonGuardarAsistenciaActionPerformed
@@ -239,7 +239,7 @@ public class BrindarAsistencia extends javax.swing.JFrame {
     
     private void jButtonVolverMenuAsistenciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverMenuAsistenciasActionPerformed
 
-        MenuAsistencias mn= new MenuAsistencias();
+        MenuAsistencias mn= new MenuAsistencias(sistema,afiliado,empleado);
         mn.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonVolverMenuAsistenciasActionPerformed

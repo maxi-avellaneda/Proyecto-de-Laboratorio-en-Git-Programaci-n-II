@@ -17,6 +17,7 @@ public class Afiliado extends Persona { //el afiliado es un paciente
     private String estado;//esto servirá en 0 para moroso, 1 para cuando no está en mora
     private Calendar fechaDeNaciemiento = Calendar.getInstance();
     private ArrayList<Asistencia> asistencias= new ArrayList<Asistencia>();
+    //private ArrayList<AbonoAfiliados> abonos = new ArrayList<AbonoAfiliados>();
   
     public Afiliado(){}
     
@@ -77,6 +78,14 @@ public class Afiliado extends Persona { //el afiliado es un paciente
         return edad;
     }
     
+    /*public ArrayList<AbonoAfiliados> getAbonos() {
+        return abonos;
+    }
+
+    public void setAbonos(AbonoAfiliados a) {
+        abonos.add(a);
+    }*/
+    
      public String getFechaDeNaciemiento() {
         DateFormat formato1 = new SimpleDateFormat("dd/MM/yyyy");
         String fecha = formato1.format(fechaDeNaciemiento.getTime());
@@ -89,11 +98,7 @@ public class Afiliado extends Persona { //el afiliado es un paciente
 
     @Override
     public String toString(){
-<<<<<<< HEAD
         String afiliado = "Afiliado: "+getNombre() +" " +getApellido() +"\nSexo: "+getSexo()+"\nDNI N° :"+getDni()+"\nDireccion: "+getDireccion()+"\nFecha de Nacimiento: "+getFechaDeNaciemiento()+"\nEdad: "+calcularEdad()+"\nCantidad de asistencias solicitadas:"+cantidadAsistencias()/*+"\nCondicion de su pago: "+comprobarAbono()*/;
-=======
-        String afiliado = "Afiliado: "+getNombre() +" " +getApellido() +"\nSexo: "+getSexo()+"\nDNI N° :"+getDni()+"\nDireccion: "+getDireccion()+"\nFecha de Nacimiento: "+getFechaDeNaciemiento()+"\nEdad: "+calcularEdad();
->>>>>>> 850cd290e44c0fc94ef4c89b726ed5f19444446e
         return afiliado;
     }
 
@@ -131,7 +136,6 @@ public class Afiliado extends Persona { //el afiliado es un paciente
         asistencias.add(as);
     }
 
-<<<<<<< HEAD
     public int cantidadAsistencias(){
         int i=0;
         if(!getAsistencias().isEmpty()) {
@@ -153,8 +157,15 @@ public class Afiliado extends Persona { //el afiliado es un paciente
         }
         return estado;
     }*/
-=======
->>>>>>> 850cd290e44c0fc94ef4c89b726ed5f19444446e
+
+    public AbonoAfiliados getAbono() {
+        return abono;
+    }
+
+    public void setAbono(AbonoAfiliados abono) {
+        this.abono = abono;
+    }
+    
     
     
 }

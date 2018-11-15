@@ -1,11 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Interfaz;
 
 import Exceptions.EmpleadoNoEncontradoException;
+import Exceptions.VerficarCampoVacioException;
 import Exceptions.VerificarDniException;
 import javax.swing.JOptionPane;
 import laboratorio2018.Afiliado;
@@ -21,20 +17,21 @@ public class EliminarEmpleado extends javax.swing.JFrame {
     private Sistema sistema;
     private Afiliado afiliado;
     private Empleado empleado;
-    
-    public EliminarEmpleado(){
+
+    public EliminarEmpleado() {
         initComponents();
     }
-    public EliminarEmpleado(Sistema c,Empleado e) {
-        sistema=c;
-        empleado=e;
+
+    public EliminarEmpleado(Sistema c, Afiliado a, Empleado e) {
+        sistema = c;
+        afiliado = a;
+        empleado = e;
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
         setTitle("MENU ELIMINAR EMPLEADO");
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -120,7 +117,7 @@ public class EliminarEmpleado extends javax.swing.JFrame {
 
     private void jButtonVolverGestionEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverGestionEmpleadosActionPerformed
 
-        GestionEmpleados ge = new GestionEmpleados(sistema,empleado);
+        GestionEmpleados ge = new GestionEmpleados(sistema, afiliado, empleado);
         ge.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonVolverGestionEmpleadosActionPerformed
@@ -128,36 +125,51 @@ public class EliminarEmpleado extends javax.swing.JFrame {
     private void jButtonDarBajaAfiliadoEliminarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDarBajaAfiliadoEliminarEmpleadoActionPerformed
         try {
             String dni = dniEliminar.getText();
-            sistema.verificarDni(dni);
-            sistema.buscarEmpleado(dni);
+            System.out.println("dni: " + dni);
+            verificarDatos(dni);
             Empleado empleadoo = null;
             for (Empleado emp : sistema.getEmpleados()) {
                 if (emp.getDni().equals(dni)) {
                     empleadoo = emp;
                 }
             }
-            if(empleadoo != null) {
+            if (empleadoo != null) {
                 sistema.getEmpleados().remove(empleadoo);
+                JOptionPane.showMessageDialog(null, "Empleado eliminado correctamente", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
 
+            } else {
+                JOptionPane.showMessageDialog(null, "EMPLEADO NO REGISTRADO", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
             }
-            JOptionPane.showMessageDialog(null, "Empleado eliminado correctamente", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
-            /*MenuPrincipal m = new MenuPrincipal(sistema,afiliado,empleadoo);
-            m.setVisible(true);*/
-            GestionEmpleados ge = new GestionEmpleados(sistema,empleadoo);
-            ge.setVisible(true);
-            dispose();
+
+            MenuPrincipal m = new MenuPrincipal(sistema, afiliado, empleadoo);
+            m.setVisible(true);
 
         } catch (VerificarDniException vdni) {
             JOptionPane.showMessageDialog(null, "Dni Invalido", "Error!", JOptionPane.OK_OPTION);
-        } catch (EmpleadoNoEncontradoException pnee) {
+        } /*catch (EmpleadoNoEncontradoException pnee) {
             JOptionPane.showMessageDialog(null, "Empleado no registrado", "Aviso!", JOptionPane.WARNING_MESSAGE);
-        }
-
-        finally {
+        }*/ catch (VerficarCampoVacioException cav) {
+            JOptionPane.showMessageDialog(null, "Campo Vacio, ingrese de nuevo", "Atencion!", JOptionPane.QUESTION_MESSAGE);
+        } finally {
 
             dniEliminar.setText(null);
         }
     }//GEN-LAST:event_jButtonDarBajaAfiliadoEliminarEmpleadoActionPerformed
+
+    public void verificarDatos(String dni) throws VerificarDniException, VerficarCampoVacioException {
+
+        if (dni.equals("")) {
+            throw new VerficarCampoVacioException();
+        }
+        if (dni.length() == 8 || dni.length() == 7) {
+            int numero = Integer.parseInt(dni);
+            if (numero < 1000000) {
+                throw new VerificarDniException();
+            }
+        } else {
+            throw new VerificarDniException();
+        }
+    }
 
     /**
      * @param args the command line arguments

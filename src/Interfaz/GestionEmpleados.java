@@ -22,8 +22,9 @@ public class GestionEmpleados extends javax.swing.JFrame {
     public GestionEmpleados(){
         initComponents();
     }
-    public GestionEmpleados(Sistema c,Empleado e) {
+    public GestionEmpleados(Sistema c,Afiliado a,Empleado e) {
         sistema=c;
+        afiliado=a;
         empleado=e;
         initComponents();
         setLocationRelativeTo(null);
@@ -125,7 +126,7 @@ public class GestionEmpleados extends javax.swing.JFrame {
 
     private void jButtonIngresarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIngresarEmpleadoActionPerformed
         // TODO add your handling code here:
-        AgregarEmpleado aeg = new AgregarEmpleado(sistema,empleado);
+        AgregarEmpleado aeg = new AgregarEmpleado(sistema,afiliado,empleado);
         aeg.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonIngresarEmpleadoActionPerformed
@@ -138,17 +139,17 @@ public class GestionEmpleados extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonVolverGestionesActionPerformed
 
     private void jButtonEliminarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarEmpleadoActionPerformed
-        // TODO add your handling code here:
-        EliminarEmpleado ee = new EliminarEmpleado(sistema,empleado);
-        ee.setVisible(true);
+        //MenuBajaEmpleado menuu = new MenuBajaEmpleado(sistema,afiliado,empleado);
+        //menuu.setVisible(true);
+        EliminarEmpleado e = new EliminarEmpleado(sistema,afiliado,empleado);
+        e.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonEliminarEmpleadoActionPerformed
 
     private void jButtonListaEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListaEmpleadosActionPerformed
-        // TODO add your handling code here:
-        /*ListadoEmpleados lista1 = new ListadoEmpleados(sistema,empleado);
+        ListadoEmpleados lista1 = new ListadoEmpleados(sistema,afiliado,empleado);
         lista1.setVisible(true);
-        dispose();*/
+        dispose();
 
     }//GEN-LAST:event_jButtonListaEmpleadosActionPerformed
 

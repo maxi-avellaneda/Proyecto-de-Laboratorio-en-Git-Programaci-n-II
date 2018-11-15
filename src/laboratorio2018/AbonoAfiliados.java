@@ -6,27 +6,29 @@ import java.util.*;
 
 public class AbonoAfiliados {
     
-    private Integer dia,mes,anio;
+    private Integer diapago,mespago,aniopago;
     private float abono;
     private String condicion;
     Calendar calendario = new GregorianCalendar();
+    //private ArrayList<Afiliado> afiliados = new ArrayList<Afiliado>();
+    private Afiliado afiliado;
     
-    public AbonoAfiliados(Afiliado afiliado,Integer dia,Integer mes,Integer anio,float abono){
-        this.anio=anio;
-        this.dia=dia;
-        this.mes=mes;
+    public AbonoAfiliados(Integer diapago,Integer mespago,Integer aniopago,float abono){
+        this.aniopago=aniopago;
+        this.diapago=diapago;
+        this.mespago=mespago;
         this.abono=abono;
     }
     public AbonoAfiliados(){}
     
     public String fechaPagoAbono(){
-        Integer diaP,mesP,anioP;
-        anioP = (calendario.get(Calendar.YEAR))- anio;
-        Math.abs(anioP);
-        mesP = (calendario.get(Calendar.MONTH)+1)- mes;
-        Math.abs(mesP);
-        diaP = (calendario.get(Calendar.DAY_OF_MONTH))- dia;
-        if(anioP==0 && mesP<=2 && diaP <= 0){
+        Integer diaPagar,mesPagar,anioPagar;
+        anioPagar = (calendario.get(Calendar.YEAR))- aniopago;
+        Math.abs(anioPagar);
+        mesPagar = (calendario.get(Calendar.MONTH)+1)- mespago;
+        Math.abs(mesPagar);
+        diaPagar = (calendario.get(Calendar.DAY_OF_MONTH))- diapago;
+        if(anioPagar==0 && mesPagar<=2 && diaPagar <= 0){
             condicion="SIN MORA";
             return condicion;
         }else{
@@ -34,37 +36,36 @@ public class AbonoAfiliados {
         } 
         return condicion; 
     }
-    
-    /*public void datos(Afiliado afiliado){
-        System.out.println(afiliado);
-        System.out.println("\nFECHA DE PAGO:\n");
-        System.out.println(dia+"/"+mes+"/"+anio);
-        System.out.println("Abono: "+abono);
-        System.out.println("CONDICION DEL AFILIADO: "+condicion+" HASTA EL DIA DE LA FECHA");
+    /*public ArrayList<Afiliado> getAfiliados() {
+        return afiliados;
+    }
+
+    public void setAfiliados(Afiliado a) {
+        afiliados.add(a);
     }*/
 
     public Integer getDia() {
-        return dia;
+        return diapago;
     }
 
     public void setDia(Integer dia) {
-        this.dia = dia;
+        this.diapago = dia;
     }
 
     public Integer getMes() {
-        return mes;
+        return mespago;
     }
 
     public void setMes(Integer mes) {
-        this.mes = mes;
+        this.mespago = mes;
     }
 
     public Integer getAnio() {
-        return anio;
+        return aniopago;
     }
 
     public void setAnio(Integer anio) {
-        this.anio = anio;
+        this.aniopago = anio;
     }
 
     public float getAbono() {
@@ -81,6 +82,14 @@ public class AbonoAfiliados {
 
     public void setCondicion(String condicion) {
         this.condicion = condicion;
+    }
+
+    public Afiliado getAfiliado() {
+        return afiliado;
+    }
+
+    public void setAfiliado(Afiliado afiliado) {
+        this.afiliado = afiliado;
     }
     
     

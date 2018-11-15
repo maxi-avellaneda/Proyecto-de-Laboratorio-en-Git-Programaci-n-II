@@ -19,6 +19,7 @@ public class Sistema { // seria la asistencia medica
     private ArrayList<Administrativo> adminis = new ArrayList<Administrativo>();//no es necesario
     private ArrayList<Movil> moviles = new ArrayList<Movil>();
     private ArrayList<Empleado> empleados = new ArrayList<Empleado>();
+    private ArrayList<AbonoAfiliados> abonos = new ArrayList<AbonoAfiliados>();
 
     public ArrayList<Afiliado> getAfiliados() {
         return afiliados;
@@ -83,6 +84,14 @@ public class Sistema { // seria la asistencia medica
 
     public void setDiagnosticos(Diagnostico d) {
         diagnosticos.add(d);
+    }
+    
+    public ArrayList<AbonoAfiliados> getAbonos() {
+        return abonos;
+    }
+
+    public void setAbonos(AbonoAfiliados a) {
+        abonos.add(a);
     }
 
     public void verificarDatos(String dni, String nombre, String apellido, String domicilio, String telefono) throws VerificarDniException, VerficarCampoVacioException {

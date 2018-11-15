@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Interfaz;
 
 import java.util.Iterator;
@@ -11,10 +7,6 @@ import laboratorio2018.Afiliado;
 import laboratorio2018.Empleado;
 import laboratorio2018.Sistema;
 
-/**
- *
- * @author Rodrigo
- */
 public class ListadoEmpleados extends javax.swing.JFrame {
 
     private Sistema sistema;
@@ -24,8 +16,10 @@ public class ListadoEmpleados extends javax.swing.JFrame {
     public ListadoEmpleados(){
         initComponents();
     }
-    public ListadoEmpleados(Sistema c,Empleado e) {
+    
+    public ListadoEmpleados(Sistema c,Afiliado a,Empleado e) {
         sistema=c;
+        afiliado=a;
         empleado=e;
         initComponents();
         setLocationRelativeTo(null);
@@ -41,31 +35,6 @@ public class ListadoEmpleados extends javax.swing.JFrame {
         else{
             JOptionPane.showMessageDialog(null, "NO SE ENCONTRARON EMPLEADOS", "ERROR", JOptionPane.INFORMATION_MESSAGE);
         }
-        
-        /*if(!sistema.getDoctores().isEmpty()&&!sistema.getChoferes().isEmpty()&&!sistema.getEnfermeros().isEmpty()&&!sistema.getAdminis().isEmpty()&&!sistema.getEmpleados().isEmpty()) {
-            Iterator iterador = sistema.getDoctores().listIterator();//el objeto iterador te ayuda a recorrer una coleccion.
-            while (iterador.hasNext()) {
-                jTextAreaListadoEmpleado.append(iterador.next() + "\n\n"); //el objeto at es un JTextArea y el método append agrega el contenido de persona al area de texto
-            }
-            Iterator iterador1 = sistema.getChoferes().listIterator();
-            while (iterador1.hasNext()) {
-                jTextAreaListadoEmpleado.append(iterador1.next() + "\n\n"); //el objeto at es un JTextArea y el método append agrega el contenido de persona al area de texto
-            }
-            Iterator iterador2 = sistema.getEnfermeros().listIterator(); 
-            while (iterador2.hasNext()) {
-                jTextAreaListadoEmpleado.append(iterador2.next() + "\n\n"); //el objeto at es un JTextArea y el método append agrega el contenido de persona al area de texto
-            }
-            Iterator iterador3 = sistema.getAdminis().listIterator(); 
-            while (iterador3.hasNext()) {
-                jTextAreaListadoEmpleado.append(iterador3.next() + "\n\n"); //el objeto at es un JTextArea y el método append agrega el contenido de persona al area de texto
-            }
-            Iterator iterador4 = sistema.getEmpleados().listIterator(); 
-            while (iterador4.hasNext()) {
-                jTextAreaListadoEmpleado.append(iterador4.next() + "\n\n"); //el objeto at es un JTextArea y el método append agrega el contenido de persona al area de texto
-            }
-        }else{
-            JOptionPane.showMessageDialog(null, "NO SE ENCONTRARON EMPLEADOS", "ERROR", JOptionPane.INFORMATION_MESSAGE);
-        }*/
     }
 
     
@@ -123,7 +92,7 @@ public class ListadoEmpleados extends javax.swing.JFrame {
 
     private void jButtonVolverGestionEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverGestionEmpleadosActionPerformed
         // TODO add your handling code here:
-        GestionEmpleados ge = new GestionEmpleados(sistema,empleado);
+        GestionEmpleados ge = new GestionEmpleados(sistema,afiliado,empleado);
         ge.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonVolverGestionEmpleadosActionPerformed

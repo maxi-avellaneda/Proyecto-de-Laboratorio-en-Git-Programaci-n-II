@@ -269,7 +269,7 @@ public class AltaFamiliar extends javax.swing.JFrame {
             Familiar fam = new Familiar(nom, ape, sex, doc, dire, tele, dia, mes, anio, rela,dniFami);
             sistema.setFamiliares(fam);
             afiliado.setFamiliares(fam);
-            System.out.println(afiliado.getFamiliares());
+            //System.out.println(afiliado.getFamiliares());
             this.limpliarTextos();
             JOptionPane.showMessageDialog(null, "Familiar guardado", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
             MenuPrincipal m = new MenuPrincipal(sistema,afiliado,empleado);

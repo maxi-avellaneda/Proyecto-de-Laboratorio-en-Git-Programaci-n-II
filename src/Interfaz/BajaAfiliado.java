@@ -18,10 +18,10 @@ public class BajaAfiliado extends javax.swing.JFrame {
     private Afiliado afiliado;
     private Empleado empleado;
 
-    public BajaAfiliado(Sistema c,Afiliado a,Empleado e) {
+    public BajaAfiliado(Sistema c, Afiliado a, Empleado e) {
         sistema = c;
-        afiliado=a;
-        empleado=e;
+        afiliado = a;
+        empleado = e;
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
@@ -113,7 +113,7 @@ public class BajaAfiliado extends javax.swing.JFrame {
 
     private void jButtonVolverGestionAfiliadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverGestionAfiliadosActionPerformed
 
-        GestionAfiliados gs = new GestionAfiliados(sistema,afiliado,empleado);
+        GestionAfiliados gs = new GestionAfiliados(sistema, afiliado, empleado);
         gs.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonVolverGestionAfiliadosActionPerformed
@@ -126,32 +126,44 @@ public class BajaAfiliado extends javax.swing.JFrame {
             Afiliado afiliadoo = null;
             for (Afiliado a : sistema.getAfiliados()) {
                 if (a.getDni().equals(dni)) {
-                    //JOptionPane.showMessageDialog(null, "Afiliado ya esta dado de baja", "Aviso", JOptionPane.INFORMATION_MESSAGE);
                     afiliadoo = a;
                 }
             }
-            if(afiliadoo != null) {
+            if (afiliadoo != null) {
                 sistema.getAfiliados().remove(afiliadoo);
-
+                JOptionPane.showMessageDialog(null, "Afiliado dado de baja correctamente", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "AFILIADO NO REGISTRADO", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
             }
-            JOptionPane.showMessageDialog(null, "Afiliado dado de baja correctamente", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
-            MenuPrincipal m = new MenuPrincipal(sistema,afiliadoo,empleado);
+
+            MenuPrincipal m = new MenuPrincipal(sistema, afiliadoo, empleado);
             m.setVisible(true);
             dispose();
 
         } catch (VerificarDniException vdni) {
             JOptionPane.showMessageDialog(null, "Dni Invalido", "Error!", JOptionPane.OK_OPTION);
         } catch (AfiliadoNoEncontradoException pnee) {
-            JOptionPane.showMessageDialog(null, "Paciente no registrado", "Aviso!", JOptionPane.WARNING_MESSAGE);
-        }
-        
-        finally {
-            
+            JOptionPane.showMessageDialog(null, "AFILIADO no registrado", "Aviso!", JOptionPane.WARNING_MESSAGE);
+        } finally {
+
             dniBaja.setText(null);
         }
     }//GEN-LAST:event_jButtonDarBajaAfiliadoActionPerformed
 
-    
+    public void verificarDatos(String dni) throws VerificarDniException, VerficarCampoVacioException {
+
+        if (dni.equals("")) {
+            throw new VerficarCampoVacioException();
+        }
+        if (dni.length() == 8 || dni.length() == 7) {
+            int numero = Integer.parseInt(dni);
+            if (numero < 1000000) {
+                throw new VerificarDniException();
+            }
+        } else {
+            throw new VerificarDniException();
+        }
+    }
     /**
      * @param args the command line arguments
      */

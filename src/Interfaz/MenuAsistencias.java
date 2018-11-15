@@ -1,15 +1,12 @@
 
 package Interfaz;
 
-<<<<<<< HEAD
 import laboratorio2018.Afiliado;
 import laboratorio2018.Empleado;
-=======
 import java.util.ArrayList;
 import laboratorio2018.Afiliado;
 import laboratorio2018.Empleado;
 import laboratorio2018.Familiar;
->>>>>>> 850cd290e44c0fc94ef4c89b726ed5f19444446e
 import laboratorio2018.Sistema;
 
 /**
@@ -21,7 +18,8 @@ public class MenuAsistencias extends javax.swing.JFrame {
     private Sistema sistema;
     private Afiliado afiliado;
     private Empleado empleado;
-<<<<<<< HEAD
+    //Afiliado afi = null;
+    private ArrayList<Familiar> familiares = new ArrayList<Familiar>();
     
     public MenuAsistencias(Sistema c,Afiliado a,Empleado e) {
         sistema=c;
@@ -32,33 +30,9 @@ public class MenuAsistencias extends javax.swing.JFrame {
         setResizable(false);
         setTitle("MENU ASISTENCIAS MEDICAS");
     }
-    public MenuAsistencias(){
-=======
-    public Afiliado afi = null;
-      private ArrayList<Familiar> familiares = new ArrayList<Familiar>();
-
-    public MenuAsistencias(Sistema c) {
-        sistema = c;
-        
-        initComponents();
-        setLocationRelativeTo(null);
-        setResizable(false);
-        setTitle("BAJA DE FAMILIAR");
-    }
-
-    public MenuAsistencias(Sistema c, Afiliado a,Empleado e) {
-        sistema = c;
-        afiliado = a;
-        empleado=e;
-        //System.out.println("Familiares: "+afiliado.getFamiliares());
-        initComponents();
-        setLocationRelativeTo(null);
-        setResizable(false);
-        setTitle("BAJA DE FAMILIAR");
-    }
-
+   
     public MenuAsistencias() {
->>>>>>> 850cd290e44c0fc94ef4c89b726ed5f19444446e
+
         initComponents();
     }
 
@@ -144,22 +118,15 @@ public class MenuAsistencias extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonSalirMenuPrincipalActionPerformed
 
     private void jButtonVerAsistenciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerAsistenciasActionPerformed
-<<<<<<< HEAD
+
         
 
     }//GEN-LAST:event_jButtonVerAsistenciasActionPerformed
-
+ 
     private void jButtonBrindarAsistenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBrindarAsistenciaActionPerformed
         
-=======
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonVerAsistenciasActionPerformed
-
-    private void jButtonBrindarAsistenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBrindarAsistenciaActionPerformed
-        // TODO add your handling code here:
         AprobarAsistencia aa = new AprobarAsistencia(sistema,afiliado,empleado);
         aa.setVisible(true);
->>>>>>> 850cd290e44c0fc94ef4c89b726ed5f19444446e
         dispose();
     }//GEN-LAST:event_jButtonBrindarAsistenciaActionPerformed
 

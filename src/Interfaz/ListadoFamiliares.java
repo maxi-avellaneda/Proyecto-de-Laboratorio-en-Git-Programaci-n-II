@@ -35,8 +35,6 @@ public class ListadoFamiliares extends javax.swing.JFrame {
         }
         if (familiares.isEmpty()) {
             JOptionPane.showMessageDialog(null, "NO SE ENCONTRARON FAMILIARES", "ERROR", JOptionPane.INFORMATION_MESSAGE);
-            //GestionAfiliados ga = new GestionAfiliados(sistema, afiliado);
-            //ga.setVisible(true);
 
         }
         for (Familiar fa : familiares) {

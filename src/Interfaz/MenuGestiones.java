@@ -124,7 +124,7 @@ public class MenuGestiones extends javax.swing.JFrame {
 
     private void jButtonGestionEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGestionEmpleadosActionPerformed
         // TODO add your handling code here:
-        GestionEmpleados ge = new GestionEmpleados(sistema,empleado);
+        GestionEmpleados ge = new GestionEmpleados(sistema,afiliado,empleado);
         ge.setVisible(true);
         dispose();
         
