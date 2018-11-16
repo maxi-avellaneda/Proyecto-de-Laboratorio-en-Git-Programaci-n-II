@@ -132,6 +132,7 @@ public class Sistema { // seria la asistencia medica
         } else {
             throw new VerificarDniException();
         }
+        
     }
 
     public void buscarAfiliado(String dni) throws AfiliadoNoEncontradoException {//busca a los afiliados

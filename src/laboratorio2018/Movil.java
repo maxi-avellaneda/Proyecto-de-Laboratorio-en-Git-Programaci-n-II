@@ -49,5 +49,14 @@ public class Movil {
     public void setNum(String num) {
         this.num = num;
     }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+    
     
 }

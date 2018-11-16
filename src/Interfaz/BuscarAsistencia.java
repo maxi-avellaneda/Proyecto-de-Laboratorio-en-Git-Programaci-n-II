@@ -173,7 +173,8 @@ public class BuscarAsistencia extends javax.swing.JFrame {
                 if (a.getDni().equals(dni)) {
                     if(!a.getAsistencias().isEmpty()){
                         for(Asistencia asi : afiliado.getAsistencias()){
-                            if (asi.getFecha().equals(fecha)){
+                            
+                            if (asi.getFecha().trim().equals(fecha.trim())){
                                 AgregarDiagnostico ad= new AgregarDiagnostico();
                                 ad.setVisible(true);
                                 dispose();

@@ -22,6 +22,8 @@ public class Asistencia {
     private Diagnostico diagnostico;
     private Doctor doctor;
     private Enfermero enfermero;
+    private Chofer chofer;
+    private Administrativo administrativo;
     private Calendar fecha = Calendar.getInstance();
     private int dia;
     private int mes;
@@ -56,9 +58,20 @@ public class Asistencia {
         this.afi = afi;
     }*/
 
-    public Asistencia(Doctor doc/*,Movil m*/,int dia,int mes,int anio,Diagnostico d){
+    public Asistencia(Movil m,Doctor doc,Enfermero enf,Chofer ch,Administrativo ad,int dia,int mes,int anio,Diagnostico d){
         doctor=doc;
-        //movil=m;
+        movil=m;
+        enfermero=enf;
+        chofer=ch;
+        administrativo=ad;
+        diagnostico=d;
+        this.dia=dia;
+        this.mes=mes;
+        this.anio=anio;
+    }
+    public Asistencia(Doctor doc,Movil m,int dia,int mes,int anio,Diagnostico d){
+        doctor=doc;
+        movil=m;
         diagnostico=d;
         this.dia=dia;
         this.mes=mes;
@@ -72,6 +85,24 @@ public class Asistencia {
         this.mes=mes;
         this.anio=anio;
     }
+    
+    public Asistencia(Chofer ch/*,Movil m*/,int dia,int mes,int anio,Diagnostico d){
+        chofer=ch;
+        //movil=m;
+        diagnostico=d;
+        this.dia=dia;
+        this.mes=mes;
+        this.anio=anio;
+    }
+    
+   /* public Asistencia(Chofer ch,Movil m,int dia,int mes,int anio,Diagnostico d){
+        chofer=ch;
+        movil=m;
+        diagnostico=d;
+        this.dia=dia;
+        this.mes=mes;
+        this.anio=anio;
+    }*/
 
     public int getAnio() {
         Calendar fechaActual = Calendar.getInstance();

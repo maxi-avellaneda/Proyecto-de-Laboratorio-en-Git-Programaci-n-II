@@ -25,9 +25,9 @@ public class Laboratorio2018 {
         Familiar f2 = new Familiar("Maria","Rodriguez","Femenino","10123456","Sumalao","123456",2,10,1993,"Prima","12345678");
         
         //Gestion de los moviles que cuenta la empresa (hacemos de cuenta que tiene 3 vehiculos a disposicion)
-        Movil m1 = new Movil("2016","Mercedes-Benz","AB778UE","Ambulancia 1","Libre"); //TODAS SERIAN AMBULANCIAS
-        Movil m2 = new Movil("2015","Volkswagen","AB669WE","Ambulancia 2","Libre");
-        Movil m3 = new Movil("2016","Sterling","AB145RE","Ambulancia 3","Libre");
+        Movil m1 = new Movil("2016","Mercedes-Benz","AB778UE","1","Libre"); //TODAS SERIAN AMBULANCIAS
+        Movil m2 = new Movil("2015","Volkswagen","AB669WE","2","Libre");
+        Movil m3 = new Movil("2016","Sterling","AB145RE","3","Libre");
        //Movil m4 = new Movil("2014","Skoda","AB568TE","Ambulancia 4");
        //Movil m5 = new Movil("2013","Peugeot","AB113OE","Ambulancia 5");
        //Movil m6 = new Movil("2017","Toyota","AB998PE","Ambulancia 6");

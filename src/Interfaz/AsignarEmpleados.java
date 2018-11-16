@@ -2,12 +2,15 @@ package Interfaz;
 
 import Exceptions.VerficarCampoVacioException;
 import javax.swing.JOptionPane;
+import laboratorio2018.Administrativo;
 import laboratorio2018.Afiliado;
 import laboratorio2018.Asistencia;
+import laboratorio2018.Chofer;
 import laboratorio2018.Diagnostico;
 import laboratorio2018.Doctor;
 import laboratorio2018.Empleado;
 import laboratorio2018.Enfermero;
+import laboratorio2018.Movil;
 import laboratorio2018.Sistema;
 
 /**
@@ -19,7 +22,7 @@ public class AsignarEmpleados extends javax.swing.JFrame {
     private Sistema sistema;
     private Afiliado afiliado;
     private Empleado empleado;
-    private Asistencia asistencia;
+    //private Asistencia asistencia;
     //private Diagnostico diagnostico;
 
     public AsignarEmpleados() {
@@ -110,6 +113,11 @@ public class AsignarEmpleados extends javax.swing.JFrame {
         });
 
         listaChof.setText("VER CHOFERES DISPONIBLES");
+        listaChof.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listaChofActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel5.setText("Movil n°:");
@@ -121,6 +129,11 @@ public class AsignarEmpleados extends javax.swing.JFrame {
         });
 
         listaMov.setText("VER MOVILES DISPONIBLES");
+        listaMov.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listaMovActionPerformed(evt);
+            }
+        });
 
         legajoAdmi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,6 +142,11 @@ public class AsignarEmpleados extends javax.swing.JFrame {
         });
 
         listaAd.setText("VER ADMINISTRATIVOS DISPONIBLES");
+        listaAd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listaAdActionPerformed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel6.setText("Administrativo legajo n°:");
@@ -176,11 +194,10 @@ public class AsignarEmpleados extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)))
+                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(35, 35, 35)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -287,11 +304,11 @@ public class AsignarEmpleados extends javax.swing.JFrame {
 
     private void ConfirmarEmpleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmarEmpleActionPerformed
         try {
-            String legDoc, legEnf, legCho, legAd, legMov,d,me,a;
+            String legDoc, legEnf, legCho, legAd, legMov, d, me, a;
             int dia, mes, anio;
-            d=diaAc.getText();
-            me=mesAc.getText();
-            a=anioAc.getText();
+            d = diaAc.getText();
+            me = mesAc.getText();
+            a = anioAc.getText();
             verificarCampo1(d, me, a);
             legDoc = legajoDoctor.getText();
             legEnf = legajoEnfermero.getText();
@@ -302,9 +319,74 @@ public class AsignarEmpleados extends javax.swing.JFrame {
             mes = Integer.parseInt(mesAc.getText());
             anio = Integer.parseInt(anioAc.getText());
             verificarCampo(legDoc/*,legEnf,legCho,legAd,legMov*/);
-            Doctor doctor = null;
             Diagnostico diagnostico = new Diagnostico("");
-            for (Doctor doc : empleado.getDoctores()) {
+            Movil movil = null;
+            Doctor doctor = null;
+            Enfermero enfermero = null;
+            Chofer chofer = null;
+            Administrativo administrativo = null;
+            for (Movil mov : sistema.getMovil()) {
+                if (mov.getNum().equals(legMov)) {
+                    movil = mov;
+                    for (Doctor doc : empleado.getDoctores()) {
+                        if (doc.getLegajo().equals(legDoc)) {
+                            doctor = doc;
+                            for (Enfermero enf : empleado.getEnfermeros()) {
+                                if (enf.getLegajo().equals(legEnf)) {
+                                    enfermero = enf;
+                                    for (Chofer ch : empleado.getChoferes()) {
+                                        if (ch.getLegajo().equals(legCho)) {
+                                            chofer = ch;
+                                            for (Administrativo ad : empleado.getAdminis()) {
+                                                if (ad.getLegajo().equals(legAd)) {
+                                                    administrativo = ad;
+
+                                                    Asistencia asi = new Asistencia(movil,doctor,enfermero,chofer,administrativo,dia,mes,anio,diagnostico);
+                                                    sistema.setAsistencias(asi);
+                                                    //Asistencia asi3 = new Asistencia(chofer, dia, mes, anio, diagnostico);
+                                                    //sistema.setAsistencias(asi3);
+                                                    JOptionPane.showMessageDialog(null, "AYUDA EN CAMINO...", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
+                                                }
+                                            }
+                                            //Asistencia asi = new Asistencia(movil,doctor,enfermero,chofer,dia,mes,anio,diagnostico);
+                                            //sistema.setAsistencias(asi);
+                                            //Asistencia asi3 = new Asistencia(chofer, dia, mes, anio, diagnostico);
+                                            //sistema.setAsistencias(asi3);
+                                            JOptionPane.showMessageDialog(null, "AYUDA EN CAMINO...", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
+                                        }
+                                    }
+                                    //Asistencia asi2 = new Asistencia(enfermero, dia, mes, anio, diagnostico);
+                                    //sistema.setAsistencias(asi2);
+                                    //JOptionPane.showMessageDialog(null, "AYUDA EN CAMINO...", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
+                                }
+                            }
+                            //Asistencia asi = new Asistencia(doctor, dia, mes, anio, diagnostico);
+                            //sistema.setAsistencias(asi);
+                            //JOptionPane.showMessageDialog(null, "AYUDA EN CAMINO...", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
+                        }
+                    }
+                    //Asistencia asi3 = new Asistencia(movil,dia,mes,anio,diagnostico);
+                    //sistema.setAsistencias(asi3);
+                    //JOptionPane.showMessageDialog(null, "AYUDA EN CAMINO...", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
+                }
+            }
+            if (movil == null) {
+                JOptionPane.showMessageDialog(null, "NO SE ENCONTRO AL MOVIL", "ERROR", JOptionPane.INFORMATION_MESSAGE);
+            }
+            if (doctor == null) {
+                JOptionPane.showMessageDialog(null, "NO SE ENCONTRO AL DOCTOR", "ERROR", JOptionPane.INFORMATION_MESSAGE);
+            }
+            if (enfermero == null) {
+                JOptionPane.showMessageDialog(null, "NO SE ENCONTRO AL ENFERMERO", "ERROR", JOptionPane.INFORMATION_MESSAGE);
+            }
+            if (chofer == null) {
+                JOptionPane.showMessageDialog(null, "NO SE ENCONTRO AL CHOFER", "ERROR", JOptionPane.INFORMATION_MESSAGE);
+            }
+            if (administrativo == null) {
+                JOptionPane.showMessageDialog(null, "NO SE ENCONTRO AL ADMINISTRATIVO", "ERROR", JOptionPane.INFORMATION_MESSAGE);
+            }
+
+            /*for (Doctor doc : empleado.getDoctores()) {
                 if (doc.getLegajo().equals(legDoc)) {
                     doctor=doc;
                     Asistencia asi = new Asistencia(doctor,dia,mes,anio,diagnostico);
@@ -315,22 +397,33 @@ public class AsignarEmpleados extends javax.swing.JFrame {
             if(doctor==null){
                 JOptionPane.showMessageDialog(null, "NO SE ENCONTRO AL DOCTOR", "ERROR", JOptionPane.INFORMATION_MESSAGE);
             }
-            Enfermero enfermero=null;
+            
             for (Enfermero doc : empleado.getEnfermeros()) {
-                if (doc.getLegajo().equals(legDoc)) {
+                if (doc.getLegajo().equals(legEnf)) {
                     enfermero=doc;
                     Asistencia asi2 = new Asistencia(enfermero,dia,mes,anio,diagnostico);
                     sistema.setAsistencias(asi2);
-                    JOptionPane.showMessageDialog(null, "AYUDA EN CAMINO...", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
+                    //JOptionPane.showMessageDialog(null, "AYUDA EN CAMINO...", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
                 }
             }
-            if(doctor==null){
-                JOptionPane.showMessageDialog(null, "NO SE ENCONTRO AL DOCTOR", "ERROR", JOptionPane.INFORMATION_MESSAGE);
+            if(enfermero==null){
+                JOptionPane.showMessageDialog(null, "NO SE ENCONTRO AL ENFERMERO", "ERROR", JOptionPane.INFORMATION_MESSAGE);
             }
             
+            for (Chofer doc : empleado.getChoferes()) {
+                if (doc.getLegajo().equals(legCho)) {
+                    chofer=doc;
+                    Asistencia asi3 = new Asistencia(chofer,dia,mes,anio,diagnostico);
+                    sistema.setAsistencias(asi3);
+                    //JOptionPane.showMessageDialog(null, "AYUDA EN CAMINO...", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
+                }
+            }
+            if(chofer==null){
+                JOptionPane.showMessageDialog(null, "NO SE ENCONTRO AL CHOFER", "ERROR", JOptionPane.INFORMATION_MESSAGE);
+            }*/
             this.limpliarTextos();
             //JOptionPane.showMessageDialog(null, "AYUDA EN CAMINO...", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
-            MenuAsistencias m = new MenuAsistencias(sistema,afiliado,empleado);
+            MenuAsistencias m = new MenuAsistencias(sistema, afiliado, empleado);
             m.setVisible(true);
             dispose();
 
@@ -347,14 +440,14 @@ public class AsignarEmpleados extends javax.swing.JFrame {
         legajoMovil.setText(null);
     }
 
-    public void verificarCampo1(String dia,String mes,String anio) throws VerficarCampoVacioException {
+    public void verificarCampo1(String dia, String mes, String anio) throws VerficarCampoVacioException {
 
-        if (dia.equals("")&&mes.equals("")&&anio.equals("")) {
+        if (dia.equals("") && mes.equals("") && anio.equals("")) {
             throw new VerficarCampoVacioException();
         }
 
     }
-    
+
     public void verificarCampo(String leg/*,String leg1,String leg2,String leg3,String leg4*/) throws VerficarCampoVacioException {
 
         if (leg.equals("")/*&&leg1.equals("")&&leg2.equals("")&&leg3.equals("")&&leg4.equals("")*/) {
@@ -379,8 +472,26 @@ public class AsignarEmpleados extends javax.swing.JFrame {
     private void listaEnfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaEnfActionPerformed
         VerEnfermeros en = new VerEnfermeros(sistema, afiliado, empleado);
         en.setVisible(true);
-        dispose();
+      
     }//GEN-LAST:event_listaEnfActionPerformed
+
+    private void listaChofActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaChofActionPerformed
+        VerChofer va = new VerChofer(sistema, afiliado, empleado);
+        va.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_listaChofActionPerformed
+
+    private void listaMovActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaMovActionPerformed
+        VerMoviles vr = new VerMoviles(sistema, afiliado, empleado);
+        vr.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_listaMovActionPerformed
+
+    private void listaAdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaAdActionPerformed
+        VerAdministratativos add = new VerAdministratativos(sistema, afiliado, empleado);
+        add.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_listaAdActionPerformed
 
     /**
      * @param args the command line arguments

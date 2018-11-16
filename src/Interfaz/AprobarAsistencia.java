@@ -180,7 +180,7 @@ public class AprobarAsistencia extends javax.swing.JFrame {
                         //br.setVisible(true);
                         //dispose();
                     }else{
-                        System.out.println("todavia no");
+                        //System.out.println("todavia no");
                         JOptionPane.showMessageDialog(null, "MOROSO", "NO PUEDE PEDIR ASISTENCIA MEDICA!", JOptionPane.INFORMATION_MESSAGE);
                         MenuPrincipal me = new MenuPrincipal(sistema,afiliado,empleado);
                         me.setVisible(true);
