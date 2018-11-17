@@ -23,24 +23,28 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="176" max="-2" attributes="0"/>
-              <Component id="jLabel2" min="-2" pref="319" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               <Component id="jButtonVolverGestionAfiliados" min="-2" pref="107" max="-2" attributes="0"/>
           </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="34" max="32767" attributes="0"/>
-              <Component id="jLabel1" min="-2" pref="239" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jButtonBuscarAfiAsistencia" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                  <Component id="buscarDni" alignment="0" min="-2" pref="320" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="176" max="-2" attributes="0"/>
+                      <Component id="jLabel2" min="-2" pref="319" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" pref="340" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="buscarDni" min="-2" pref="225" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="253" max="-2" attributes="0"/>
+                      <Component id="jButtonBuscarAfiAsistencia" min="-2" pref="150" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
+              <EmptySpace pref="77" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -54,9 +58,9 @@
                   <Component id="buscarDni" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
                   <Component id="jLabel1" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
               <Component id="jButtonBuscarAfiAsistencia" min="-2" pref="62" max="-2" attributes="0"/>
-              <EmptySpace pref="81" max="32767" attributes="0"/>
+              <EmptySpace pref="63" max="32767" attributes="0"/>
               <Component id="jButtonVolverGestionAfiliados" min="-2" pref="56" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -73,7 +77,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="16" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="INGRESE DNI DEL AFILIADO:"/>
+        <Property name="text" type="java.lang.String" value="INGRESE DNI DEL AFILIADO O FAMILIAR:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">

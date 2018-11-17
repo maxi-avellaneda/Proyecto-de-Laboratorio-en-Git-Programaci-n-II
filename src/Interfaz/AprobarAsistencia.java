@@ -1,4 +1,3 @@
-
 package Interfaz;
 
 import Exceptions.AfiliadoNoEncontradoException;
@@ -10,6 +9,7 @@ import laboratorio2018.AbonoAfiliados;
 import laboratorio2018.Afiliado;
 import laboratorio2018.Asistencia;
 import laboratorio2018.Empleado;
+import laboratorio2018.Familiar;
 import laboratorio2018.Sistema;
 
 /**
@@ -17,54 +17,26 @@ import laboratorio2018.Sistema;
  * @author Rodrigo
  */
 public class AprobarAsistencia extends javax.swing.JFrame {
- 
+
     private Sistema sistema;
     private Afiliado afiliado;
     private Empleado empleado;
-    //public Afiliado afi;
-    private ArrayList<Asistencia> asistencias= new ArrayList<Asistencia>();
+    private ArrayList<Asistencia> asistencias = new ArrayList<Asistencia>();
 
-    public AprobarAsistencia(Sistema c,Afiliado a,Empleado e) {
+    public AprobarAsistencia(Sistema c, Afiliado a, Empleado e) {
         sistema = c;
-        empleado=e;
-        afiliado=a;
-        
+        empleado = e;
+        afiliado = a;
+
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
         setTitle("APROBAR ASISTENCIA");
     }
 
-    
-
     public AprobarAsistencia() {
         initComponents();
     }
-
-
-    /*public class BrindarAsistencia extends javax.swing.JFrame {
-        try {
-            String dni = buscarDni.getText();
-            sistema.buscarAfiliado(dni);
-            for (Afiliado a : sistema.getAfiliados()) {
-                if (a.getDni().equals(dni)) {
-                    if(a.comprobarAbono().equals("Sin Mora")){
-                        BrindarAsistencia ba
-                    }
-                }
-            }
-        } catch (VerificarDniException vdni) {
-            JOptionPane.showMessageDialog(null, "Dni Invalido", "Error!", JOptionPane.OK_OPTION);
-        } catch (AfiliadoNoEncontradoException pnee) {
-            JOptionPane.showMessageDialog(null, "No se encontro al afiliado", "Aviso!", JOptionPane.WARNING_MESSAGE);
-        } catch (VerficarCampoVacioException cav) {
-            JOptionPane.showMessageDialog(null, "Campo Vacio, ingrese de nuevo", "Atencion!", JOptionPane.QUESTION_MESSAGE);
-        } finally {
-            buscarDni.setText(null);
-        }
-    }*/                                                    
-
-    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -85,7 +57,7 @@ public class AprobarAsistencia extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel1.setText("INGRESE DNI DEL AFILIADO:");
+        jLabel1.setText("INGRESE DNI DEL AFILIADO O FAMILIAR:");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jLabel2.setText("BRINDAR ASISTENCIA MÉDICA");
@@ -110,21 +82,23 @@ public class AprobarAsistencia extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(176, 176, 176)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jButtonVolverGestionAfiliados, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonBuscarAfiAsistencia, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buscarDni, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(77, 77, 77))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(176, 176, 176)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buscarDni, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(253, 253, 253)
+                        .addComponent(jButtonBuscarAfiAsistencia, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,9 +109,9 @@ public class AprobarAsistencia extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buscarDni, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
+                .addGap(50, 50, 50)
                 .addComponent(jButtonBuscarAfiAsistencia, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addComponent(jButtonVolverGestionAfiliados, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -145,49 +119,45 @@ public class AprobarAsistencia extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buscarDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarDniActionPerformed
-        
+
     }//GEN-LAST:event_buscarDniActionPerformed
 
     private void jButtonVolverGestionAfiliadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverGestionAfiliadosActionPerformed
 
-        MenuAsistencias mn= new MenuAsistencias(sistema,afiliado,empleado);
+        MenuAsistencias mn = new MenuAsistencias(sistema, afiliado, empleado);
         mn.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonVolverGestionAfiliadosActionPerformed
 
     private void jButtonBuscarAfiAsistenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarAfiAsistenciaActionPerformed
         try {
-            
+
             String dni = buscarDni.getText();
-            String con="SIN MORA";
+            String con = "SIN MORA";
             verificarDatos(dni);
             sistema.buscarAfiliado(dni);
             Afiliado af = null;
+            Familiar familiar = null;
             AbonoAfiliados abo = null;
             for (Afiliado a : sistema.getAfiliados()) {
-                if (a.getDni().equals(dni)) {        
-                    af=a;
-                    abo=af.getAbono();
-                    abo.fechaPagoAbono();
-                    System.out.println("condicion: "+abo.fechaPagoAbono());
-                    
-                    if(abo.fechaPagoAbono().equals(con)){
-                        JOptionPane.showMessageDialog(null, "HABILITADO", "PUEDE PEDIR ASISTENCIA MEDICA", JOptionPane.INFORMATION_MESSAGE);
-                        AsignarEmpleados asig = new AsignarEmpleados(sistema,afiliado,empleado);
-                        asig.setVisible(true);
-                        dispose();
-                        //BrindarAsistencia br = new BrindarAsistencia(sistema,afiliado,empleado);
-                        //br.setVisible(true);
-                        //dispose();
-                    }else{
-                        //System.out.println("todavia no");
-                        JOptionPane.showMessageDialog(null, "MOROSO", "NO PUEDE PEDIR ASISTENCIA MEDICA!", JOptionPane.INFORMATION_MESSAGE);
-                        MenuPrincipal me = new MenuPrincipal(sistema,afiliado,empleado);
-                        me.setVisible(true);
-                        dispose();
-                    }
+                if (a.getDni().equals(dni)) {
+                    af = a;
                 }
             }
+            //for(Familiar)
+            abo = af.getAbono();
+            if (abo.fechaPagoAbono().equals(con)) {
+                JOptionPane.showMessageDialog(null, "HABILITADO", "PUEDE PEDIR ASISTENCIA MEDICA", JOptionPane.INFORMATION_MESSAGE);
+                AsignarEmpleados asig = new AsignarEmpleados(sistema, afiliado, empleado);
+                asig.setVisible(true);
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "MOROSO, TIENE DEUDA", "NO PUEDE PEDIR ASISTENCIA MEDICA!", JOptionPane.INFORMATION_MESSAGE);
+                MenuPrincipal me = new MenuPrincipal(sistema, afiliado, empleado);
+                me.setVisible(true);
+                dispose();
+            }
+
         } catch (VerificarDniException vdni) {
             JOptionPane.showMessageDialog(null, "Dni Invalido", "Error!", JOptionPane.OK_OPTION);
         } catch (AfiliadoNoEncontradoException pnee) {
@@ -197,22 +167,6 @@ public class AprobarAsistencia extends javax.swing.JFrame {
         } finally {
             buscarDni.setText(null);
         }
-        
-        /*try {
-            String dni = buscarDni.getText();
-            sistema.buscarAfiliado(dni);
-            for (Afiliado a : sistema.getAfiliados()) {
-                if (a.getDni().equals(dni)) {
-                        BrindarAsistencia ba = new BrindarAsistencia();
-                        ba.setVisible(true);
-                        dispose();
-                }
-            }
-        } catch (AfiliadoNoEncontradoException pnee) {
-            JOptionPane.showMessageDialog(null, "No se encontro al afiliado", "Aviso!", JOptionPane.WARNING_MESSAGE);
-        } finally {
-            buscarDni.setText(null);
-        }*/
     }//GEN-LAST:event_jButtonBuscarAfiAsistenciaActionPerformed
 
     public void verificarDatos(String dni) throws VerificarDniException, VerficarCampoVacioException {
@@ -229,6 +183,7 @@ public class AprobarAsistencia extends javax.swing.JFrame {
             throw new VerificarDniException();
         }
     }
+
     /**
      * @param args the command line arguments
      */

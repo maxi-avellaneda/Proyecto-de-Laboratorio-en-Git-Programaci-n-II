@@ -58,5 +58,10 @@ public class Movil {
         this.estado = estado;
     }
     
+    @Override
+    public String toString(){
+        String movil ="MOVIL: "+"\nNumero: "+getNum()+"\nMarca: "+getMarca()+"\nModelo: "+getModelo()+"\nPatente: "+getPatente()+"\nEstado: "+getEstado();
+        return movil;
+    }
     
 }

@@ -1,4 +1,3 @@
-
 package laboratorio2018;
 
 import java.text.DateFormat;
@@ -11,12 +10,7 @@ import java.util.Iterator;
  * @author Rodrigo
  */
 public class Asistencia {
-    
-    //private int doctor;
-   // private int enfermero;
-    //private int chofer;
-    //private String movil;
-    //private int administrativo;
+
     private Movil movil;
     private Empleado empleado;
     private Diagnostico diagnostico;
@@ -25,122 +19,37 @@ public class Asistencia {
     private Chofer chofer;
     private Administrativo administrativo;
     private Calendar fecha = Calendar.getInstance();
-    private int dia;
-    private int mes;
-    private int anio;
+    private String dia;
+    private String mes;
+    private String anio;
     private Afiliado afi;
-    private Sistema sis;
-    private String nomDoc;
-    private String nomEnf;
-    private String nomCho;
-    private String nomAdm;
-    
-    /*public Asistencia(int doctor, int enfermero, int chofer, String movil, int administrativo, int dia, int mes, int anio){
-        this.doctor = doctor;
-        this.enfermero = enfermero;
-        this.chofer = chofer;
-        this.movil = movil;
-        this.administrativo = administrativo;
+
+    public Asistencia(Movil m, Doctor doc, Enfermero enf, Chofer ch, Administrativo ad, String dia, String mes, String anio, Diagnostico d) {
+        doctor = doc;
+        movil = m;
+        enfermero = enf;
+        chofer = ch;
+        administrativo = ad;
+        diagnostico = d;
         this.dia = dia;
         this.mes = mes;
         this.anio = anio;
-    }*/
-
-   /* public Asistencia(int doctor, int enfermero, int chofer, String movil, int administrativo, int dia, int mes, int anio, Afiliado afi) {
-        this.doctor = doctor;
-        this.enfermero = enfermero;
-        this.chofer = chofer;
-        this.movil = movil;
-        this.administrativo = administrativo;
-        this.dia = dia;
-        this.mes = mes;
-        this.anio = anio;
-        this.afi = afi;
-    }*/
-
-    public Asistencia(Movil m,Doctor doc,Enfermero enf,Chofer ch,Administrativo ad,int dia,int mes,int anio,Diagnostico d){
-        doctor=doc;
-        movil=m;
-        enfermero=enf;
-        chofer=ch;
-        administrativo=ad;
-        diagnostico=d;
-        this.dia=dia;
-        this.mes=mes;
-        this.anio=anio;
-    }
-    public Asistencia(Doctor doc,Movil m,int dia,int mes,int anio,Diagnostico d){
-        doctor=doc;
-        movil=m;
-        diagnostico=d;
-        this.dia=dia;
-        this.mes=mes;
-        this.anio=anio;
-    }
-    public Asistencia(Enfermero enf/*,Movil m*/,int dia,int mes,int anio,Diagnostico d){
-        enfermero=enf;
-        //movil=m;
-        diagnostico=d;
-        this.dia=dia;
-        this.mes=mes;
-        this.anio=anio;
-    }
-    
-    public Asistencia(Chofer ch/*,Movil m*/,int dia,int mes,int anio,Diagnostico d){
-        chofer=ch;
-        //movil=m;
-        diagnostico=d;
-        this.dia=dia;
-        this.mes=mes;
-        this.anio=anio;
-    }
-    
-   /* public Asistencia(Chofer ch,Movil m,int dia,int mes,int anio,Diagnostico d){
-        chofer=ch;
-        movil=m;
-        diagnostico=d;
-        this.dia=dia;
-        this.mes=mes;
-        this.anio=anio;
-    }*/
-
-    public int getAnio() {
-        Calendar fechaActual = Calendar.getInstance();
-        int anioAc = fechaActual.get(Calendar.YEAR);
-        return anioAc;
     }
 
-    public void setAnio(int anio) {
-        this.anio=anio;
-    }
-
-    public int getDia() {
-        Calendar fechaActual = Calendar.getInstance();
-        int diaAc = fechaActual.get(Calendar.DAY_OF_MONTH);
-        return diaAc;
-    }
-
-    public void setDia(int dia) {
-        this.dia = dia;
-    }
-
-    public int getMes() {
-        Calendar fechaActual = Calendar.getInstance();
-        int mesAc = fechaActual.get(Calendar.MONTH);
-        return mesAc;
-    }
-    
     @Override
-    public String toString(){
-        String datos= "Fecha de la peticion:"+getDia()+"/"+getMes()+"/"+getFecha();
+    public String toString() {
+        String datos = "Fecha de la Asistencia:" + getDia() + "/" + getMes() + "/" + getAnio()+
+                "\n\nEMPLEADOS QUE ASISTIERON A LA EMERGENCIA MEDICA:\n\n"
+                + "Doctor: "+getDoctor().getNombre()+" "+getDoctor().getApellido()+
+                "\n\nEnfermero: "+getEnfermero().getNombre()+" "+getEnfermero().getApellido()
+                +"\n\nChofer: "+getChofer().getNombre()+" "+getChofer().getApellido()+
+                "\n\nAdministrativo que tomo el pedido de asistencia: "
+                +getAdministrativo().getNombre()+" "+getAdministrativo().getApellido()
+                +"\n\nMovil:  "+getMovil().getNum()+"\nMarca: "+getMovil().getMarca()+
+                "\nPatente: "+getMovil().getPatente()+
+                "\n\nDIAGNOSTICO Y TRATAMIENTO:\n"+getDiagnostico();
         return datos;
     }
-
-    public void setMes(int mes) {
-        this.mes = mes;
-    }
-
-    
 
     public Afiliado getAfi() {
         return afi;
@@ -150,73 +59,89 @@ public class Asistencia {
         this.afi = afi;
     }
 
-    /*public String getDoctor() {
-        for (Doctor d : sis.getDoctores()){
-            if(d.getLegajo().equals(doctor)){
-                nomDoc=d.getNombre();
-            }
-        }
-        return nomDoc;
-    }
+    public String getFecha() {
 
-    public void setDoctor(int doctor) {
-        this.doctor = doctor;
-    }
-
-    public String getEnfermero() {
-        for (Enfermero e : sis.getEnfermeros()){
-            if(e.getLegajo().equals(enfermero)){
-                nomEnf=e.getNombre();
-            }
-        }
-        return nomEnf;
-    }
-
-    public void setEnfermero(int enfermero) {
-        this.enfermero = enfermero;
-    }
-
-    public String getChofer() {
-        for (Chofer c : sis.getChoferes()){
-            if(c.getLegajo().equals(chofer)){
-                nomCho=c.getNombre();
-            }
-        }
-        return nomCho;
-    }
-
-    public void setChofer(int chofer) {
-        this.chofer = chofer;
-    }
-
-    public String getMovil() {
-        return movil;
-    }
-    
-    public void setMovil(String movil) {
-        this.movil = movil;
-    }
-
-    public String getAdministrativo() {
-        for (Administrativo a : sis.getAdminis()){
-            if(a.getLegajo().equals(administrativo)){
-                nomAdm=a.getNombre();
-            }
-        }
-        return nomAdm;
-    }
-
-    public void setAdministrativo(int administrativo) {
-        this.administrativo = administrativo;
-    }*/
-
-    public String getFecha(){
-        
         DateFormat formato1 = new SimpleDateFormat("dd/MM/yyyy");
         String time = formato1.format(fecha.getTime());
         return time;
     }
-    public void setFecha(int dia,int mes,int anio){
-        fecha.set(dia,mes,anio);
+
+    public void setFecha(int dia, int mes, int anio) {
+        fecha.set(dia, mes, anio);
     }
+
+    public String getDia() {
+        return dia;
     }
+
+    public void setDia(String dia) {
+        this.dia = dia;
+    }
+
+    public String getMes() {
+        return mes;
+    }
+
+    public void setMes(String mes) {
+        this.mes = mes;
+    }
+
+    public String getAnio() {
+        return anio;
+    }
+
+    public void setAnio(String anio) {
+        this.anio = anio;
+    }
+
+    public Diagnostico getDiagnostico() {
+        return diagnostico;
+    }
+
+    public void setDiagnostico(Diagnostico diagnostico) {
+        this.diagnostico = diagnostico;
+    }
+
+    public Movil getMovil() {
+        return movil;
+    }
+
+    public void setMovil(Movil movil) {
+        this.movil = movil;
+    }
+
+    public Doctor getDoctor() {
+        return doctor;
+    }
+
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
+    }
+
+    public Enfermero getEnfermero() {
+        return enfermero;
+    }
+
+    public void setEnfermero(Enfermero enfermero) {
+        this.enfermero = enfermero;
+    }
+
+    public Chofer getChofer() {
+        return chofer;
+    }
+
+    public void setChofer(Chofer chofer) {
+        this.chofer = chofer;
+    }
+
+    public Administrativo getAdministrativo() {
+        return administrativo;
+    }
+
+    public void setAdministrativo(Administrativo administrativo) {
+        this.administrativo = administrativo;
+    }
+
+    
+    
+}

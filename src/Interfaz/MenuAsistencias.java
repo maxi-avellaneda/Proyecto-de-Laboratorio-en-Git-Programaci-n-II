@@ -58,7 +58,7 @@ public class MenuAsistencias extends javax.swing.JFrame {
         });
 
         jButtonVerAsistencias.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButtonVerAsistencias.setText("VER ASISTENCIAS ");
+        jButtonVerAsistencias.setText("VER ASISTENCIAS POR INTERVALO DE TIEMPO");
         jButtonVerAsistencias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonVerAsistenciasActionPerformed(evt);
@@ -131,8 +131,8 @@ public class MenuAsistencias extends javax.swing.JFrame {
 
     private void jButtonVerAsistenciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerAsistenciasActionPerformed
 
-        ListadoAsistencias la = new ListadoAsistencias(sistema,afiliado,empleado);
-        la.setVisible(true);
+        ComprobarAsistencia b = new ComprobarAsistencia(sistema,afiliado,empleado);
+        b.setVisible(true);
         dispose();
         
 

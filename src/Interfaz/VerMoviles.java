@@ -6,6 +6,7 @@
 package Interfaz;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import javax.swing.JOptionPane;
 import laboratorio2018.Afiliado;
 import laboratorio2018.Doctor;
@@ -23,6 +24,7 @@ public class VerMoviles extends javax.swing.JFrame {
     private Afiliado afiliado;
     private Empleado empleado;
     private ArrayList<Movil> moviles = new ArrayList<Movil>();
+    
     public VerMoviles() {
         initComponents();
     }
@@ -49,8 +51,11 @@ public class VerMoviles extends javax.swing.JFrame {
         }
         for (Movil doct : moviles) {
 
-            vermoviles.append("Movil: "+doct+"\n\n");
+            vermoviles.append(doct+"\n\n");
         }
+        
+        
+        
 
     }
 
@@ -111,8 +116,8 @@ public class VerMoviles extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void volverAsignarEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverAsignarEmpleadosActionPerformed
-        AsignarEmpleados a = new AsignarEmpleados(sistema, afiliado, empleado);
-        a.setVisible(true);
+        //AsignarEmpleados a = new AsignarEmpleados(sistema, afiliado, empleado);
+        //a.setVisible(true);
         dispose();
     }//GEN-LAST:event_volverAsignarEmpleadosActionPerformed
 

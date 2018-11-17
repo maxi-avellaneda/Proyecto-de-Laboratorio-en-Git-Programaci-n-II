@@ -1,14 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Interfaz;
 
 import Exceptions.AfiliadoNoEncontradoException;
 import Exceptions.VerficarCampoVacioException;
 import Exceptions.VerificarDniException;
-import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import laboratorio2018.Afiliado;
 import laboratorio2018.Asistencia;
@@ -17,18 +13,20 @@ import laboratorio2018.Sistema;
 
 /**
  *
- * @author Rodrigo
+ * @author maxix
  */
-public class BuscarAsistencia extends javax.swing.JFrame {
+public class ComprobarAsistencia extends javax.swing.JFrame {
 
     private Sistema sistema;
     private Afiliado afiliado;
     private Empleado empleado;
     private Asistencia asistencia;
-    //public Afiliado afi;
-    private ArrayList<Asistencia> asistencias = new ArrayList<Asistencia>();
 
-    public BuscarAsistencia(Sistema c, Afiliado a, Empleado e) {
+    public ComprobarAsistencia() {
+        initComponents();
+    }
+
+    public ComprobarAsistencia(Sistema c, Afiliado a, Empleado e) {
         sistema = c;
         empleado = e;
         afiliado = a;
@@ -36,20 +34,12 @@ public class BuscarAsistencia extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
-        setTitle("BUSCAR ASISTENCIA");
+        setTitle("COMPROBAR ASISTENCIA");
     }
-
-    public BuscarAsistencia() {
-        initComponents();
-    }
-
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buscarDni = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButtonVolverMenuAsistencias = new javax.swing.JButton();
         jButtonBuscaAsistencia = new javax.swing.JButton();
@@ -57,17 +47,10 @@ public class BuscarAsistencia extends javax.swing.JFrame {
         dia = new javax.swing.JTextField();
         mes = new javax.swing.JTextField();
         anio = new javax.swing.JTextField();
+        buscarDni = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        buscarDni.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buscarDniActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel1.setText("INGRESE DNI DEL AFILIADO:");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jLabel2.setText("BUSCAR ASISTENCIA MÉDICA");
@@ -96,6 +79,15 @@ public class BuscarAsistencia extends javax.swing.JFrame {
                 diaActionPerformed(evt);
             }
         });
+
+        buscarDni.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarDniActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel1.setText("INGRESE DNI DEL AFILIADO:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -143,7 +135,7 @@ public class BuscarAsistencia extends javax.swing.JFrame {
                         .addComponent(mes, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
                         .addComponent(dia, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(anio, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
                 .addComponent(jButtonBuscaAsistencia, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
                 .addComponent(jButtonVolverMenuAsistencias, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -151,10 +143,6 @@ public class BuscarAsistencia extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void buscarDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarDniActionPerformed
-
-    }//GEN-LAST:event_buscarDniActionPerformed
 
     private void jButtonVolverMenuAsistenciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverMenuAsistenciasActionPerformed
 
@@ -166,7 +154,6 @@ public class BuscarAsistencia extends javax.swing.JFrame {
     private void jButtonBuscaAsistenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscaAsistenciaActionPerformed
         try {
             String diaa, mess, anioo;
-            int d, m, a;
             String dni = buscarDni.getText();
             diaa = dia.getText();
             mess = mes.getText();
@@ -189,8 +176,8 @@ public class BuscarAsistencia extends javax.swing.JFrame {
                 }
             }
             if (as != null) {
-                AgregarDiagnostico ad = new AgregarDiagnostico(sistema, afiliado, empleado,diaa,mess,anioo);
-                ad.setVisible(true);
+                ListadoAsistencias lis = new ListadoAsistencias(sistema,afiliado,empleado,diaa,mess,anioo);
+                lis.setVisible(true);
                 dispose();
             } else {
                 JOptionPane.showMessageDialog(null, "NO SE ENCONTRO ASISTENCIA EN ESA FECHA", "VERIFIQUE!!!!", JOptionPane.OK_OPTION);
@@ -206,7 +193,6 @@ public class BuscarAsistencia extends javax.swing.JFrame {
             //buscarDni.setText(null);
         }
 
-
     }//GEN-LAST:event_jButtonBuscaAsistenciaActionPerformed
 
     public void verificarCampo1(String dia, String mes, String anio) throws VerficarCampoVacioException {
@@ -216,10 +202,6 @@ public class BuscarAsistencia extends javax.swing.JFrame {
         }
 
     }
-    private void diaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_diaActionPerformed
-
     public void verificarDatos(String dni) throws VerificarDniException, VerficarCampoVacioException {
 
         if (dni.equals("")) {
@@ -234,6 +216,13 @@ public class BuscarAsistencia extends javax.swing.JFrame {
             throw new VerificarDniException();
         }
     }
+    private void diaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_diaActionPerformed
+
+    private void buscarDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarDniActionPerformed
+
+    }//GEN-LAST:event_buscarDniActionPerformed
 
     /**
      * @param args the command line arguments
@@ -252,20 +241,20 @@ public class BuscarAsistencia extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(BuscarAsistencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ComprobarAsistencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(BuscarAsistencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ComprobarAsistencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(BuscarAsistencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ComprobarAsistencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(BuscarAsistencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ComprobarAsistencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BuscarAsistencia().setVisible(true);
+                new ComprobarAsistencia().setVisible(true);
             }
         });
     }

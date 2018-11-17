@@ -106,8 +106,8 @@ public class VerDoctores extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void volverAsignarEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverAsignarEmpleadosActionPerformed
-        AsignarEmpleados a = new AsignarEmpleados(sistema, afiliado, empleado);
-        a.setVisible(true);
+        //AsignarEmpleados a = new AsignarEmpleados(sistema, afiliado, empleado);
+        //a.setVisible(true);
         dispose();
     }//GEN-LAST:event_volverAsignarEmpleadosActionPerformed
 

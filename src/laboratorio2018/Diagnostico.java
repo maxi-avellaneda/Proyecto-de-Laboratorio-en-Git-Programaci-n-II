@@ -19,7 +19,7 @@ public class Diagnostico {
     }
     @Override
     public String toString(){
-        String diagnostico =".\nTratamiento: "+getTratamiento();
+        String diagnostico = getTratamiento();
         return diagnostico;
     }
 

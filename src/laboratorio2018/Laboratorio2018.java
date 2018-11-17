@@ -8,7 +8,7 @@ public class Laboratorio2018 {
     public static void main(String[] args) {
         
         //Abono de Afiliados
-        AbonoAfiliados abono1 = new AbonoAfiliados(15,11,2018,1000); //abono1.fechaPagoAbono();
+        AbonoAfiliados abono1 = new AbonoAfiliados(15,11,2018,1000); //abono1.fechaPagoAbono();System.out.println("cond: "+abono1.fechaPagoAbono());
         AbonoAfiliados abono2 = new AbonoAfiliados(2,11,2018,1000);//abono2.fechaPagoAbono();
         AbonoAfiliados abono3 = new AbonoAfiliados(10,10,2018,1000);//abono3.fechaPagoAbono();
         
@@ -28,9 +28,9 @@ public class Laboratorio2018 {
         Movil m1 = new Movil("2016","Mercedes-Benz","AB778UE","1","Libre"); //TODAS SERIAN AMBULANCIAS
         Movil m2 = new Movil("2015","Volkswagen","AB669WE","2","Libre");
         Movil m3 = new Movil("2016","Sterling","AB145RE","3","Libre");
-       //Movil m4 = new Movil("2014","Skoda","AB568TE","Ambulancia 4");
-       //Movil m5 = new Movil("2013","Peugeot","AB113OE","Ambulancia 5");
-       //Movil m6 = new Movil("2017","Toyota","AB998PE","Ambulancia 6");
+        Movil m4 = new Movil("2014","Skoda","AB568TE","Ambulancia 4","Libre");
+        Movil m5 = new Movil("2013","Peugeot","AB113OE","Ambulancia 5","Libre");
+        Movil m6 = new Movil("2017","Toyota","AB998PE","Ambulancia 6","Libre");
         
         //GESTION DE EMPLEADOS DE LA EMPRESA (DOCTOR,ENFERMEROS,CHOFERES Y ADMINISTRATIVOS)
         Doctor doc1 = new Doctor("Paola","Jacobo","Femenina","20147158","Av Ocampos","777888",1,2,1980,"Doctor","1125","Libre");
@@ -58,9 +58,6 @@ public class Laboratorio2018 {
         sistema.setAfiliados(afi2);
         sistema.setAfiliados(afi3);
         
-        sistema.setAbonos(abono1);
-        sistema.setAbonos(abono2);
-        sistema.setAbonos(abono3);
         
         sistema.setDoctores(doc1);
         sistema.setDoctores(doc2);
@@ -77,6 +74,9 @@ public class Laboratorio2018 {
         sistema.setMovil(m1);
         sistema.setMovil(m2);
         sistema.setMovil(m3);
+        sistema.setMovil(m4);
+        sistema.setMovil(m5);
+        sistema.setMovil(m6);
         
         sistema.setAdminis(ad1);
         sistema.setAdminis(ad2);

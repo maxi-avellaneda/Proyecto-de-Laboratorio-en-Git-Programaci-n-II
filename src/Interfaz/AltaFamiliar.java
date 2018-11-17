@@ -4,10 +4,12 @@ package Interfaz;
 import Exceptions.VerficarCampoVacioException;
 import Exceptions.VerificarDniException;
 import Exceptions.VerificarRepetidosException;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import laboratorio2018.Familiar;
 import laboratorio2018.Sistema;
 import laboratorio2018.Afiliado;
+import laboratorio2018.Asistencia;
 import laboratorio2018.Empleado;
 
 /**
@@ -19,6 +21,7 @@ public class AltaFamiliar extends javax.swing.JFrame {
     private Sistema sistema;
     private Afiliado afiliado;
     private Empleado empleado;
+    //private ArrayList<Familiar> familiares= new ArrayList<Familiar>();
 
     public AltaFamiliar(Sistema c,Afiliado a,Empleado e) {
         sistema = c;
@@ -267,9 +270,9 @@ public class AltaFamiliar extends javax.swing.JFrame {
             sistema.verificarDatos(doc, nom, ape, dire, tele);
             sistema.buscarRepetido(doc);
             Familiar fam = new Familiar(nom, ape, sex, doc, dire, tele, dia, mes, anio, rela,dniFami);
-            sistema.setFamiliares(fam);
             afiliado.setFamiliares(fam);
-            //System.out.println(afiliado.getFamiliares());
+            sistema.setFamiliares(fam);
+            sistema.setAfiliados(afiliado);
             this.limpliarTextos();
             JOptionPane.showMessageDialog(null, "Familiar guardado", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
             MenuPrincipal m = new MenuPrincipal(sistema,afiliado,empleado);

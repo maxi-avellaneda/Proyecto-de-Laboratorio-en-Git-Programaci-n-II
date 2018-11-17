@@ -7,6 +7,7 @@ import laboratorio2018.Sistema;
 import Exceptions.VerficarCampoVacioException;
 import Exceptions.VerificarDniException;
 import Exceptions.VerificarRepetidosException;
+import laboratorio2018.AbonoAfiliados;
 import laboratorio2018.Empleado;
 
 /**
@@ -211,7 +212,7 @@ public class AltaAfiliado extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonVolverGestionaAfiliadosActionPerformed
 
     private void jButtonGuardarAfiliadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarAfiliadoActionPerformed
-        // TODO add your handling code here:
+        
         try {
             String nom, ape,dire,sex="",doc,tele;
             int dia,mes,anio;
@@ -229,13 +230,14 @@ public class AltaAfiliado extends javax.swing.JFrame {
             dia = Integer.parseInt(diaNac.getText());
             mes = Integer.parseInt(MesNac.getText());
             anio = Integer.parseInt(anioNac.getText());
-           // System.out.println("nom: "+nom+" \nape: "+ape+" \nsexo: "+sex+" \ndoc: "+doc+" \ndire: "+dire+" \ntele: "+tele+" \ndia: "+dia+" \nmes: "+mes+" \nanio: "+anio);
             sistema.verificarDatos(doc, nom, ape, dire,tele);
             sistema.buscarRepetido(doc);
+            AbonoAfiliados abono = new AbonoAfiliados(0,0,0,0);
             Afiliado afi = new Afiliado(nom,ape,sex,doc,dire,tele,dia,mes,anio);
+            afi.setAbono(abono);
             sistema.setAfiliados(afi);
             this.limpliarTextos();
-            JOptionPane.showMessageDialog(null, "Afiliado guardado", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "AFILIADO GUARDADO", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
             MenuPrincipal m = new MenuPrincipal(sistema,afiliado,empleado);
             m.setVisible(true);
             dispose();
