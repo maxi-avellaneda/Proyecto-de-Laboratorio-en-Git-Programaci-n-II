@@ -24,6 +24,9 @@ public class Laboratorio2018 {
         Familiar f1 = new Familiar("Enzo","Avellaneda","Masculino","31231755","Sumalao","382556",14,8,1981,"Hermano","41015072");
         Familiar f2 = new Familiar("Maria","Rodriguez","Femenino","10123456","Sumalao","123456",2,10,1993,"Prima","12345678");
         
+        afi1.setFamiliares(f1);
+        afi2.setFamiliares(f2);
+        
         //Gestion de los moviles que cuenta la empresa (hacemos de cuenta que tiene 3 vehiculos a disposicion)
         Movil m1 = new Movil("2016","Mercedes-Benz","AB778UE","1","Libre"); //TODAS SERIAN AMBULANCIAS
         Movil m2 = new Movil("2015","Volkswagen","AB669WE","2","Libre");

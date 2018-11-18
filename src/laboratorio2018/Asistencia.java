@@ -23,14 +23,17 @@ public class Asistencia {
     private String mes;
     private String anio;
     private Afiliado afi;
+    private Familiar fam;
 
-    public Asistencia(Movil m, Doctor doc, Enfermero enf, Chofer ch, Administrativo ad, String dia, String mes, String anio, Diagnostico d) {
+    public Asistencia(Afiliado afil,Familiar famil,Movil m, Doctor doc, Enfermero enf, Chofer ch, Administrativo ad, String dia, String mes, String anio, Diagnostico d) {
         doctor = doc;
         movil = m;
         enfermero = enf;
         chofer = ch;
         administrativo = ad;
         diagnostico = d;
+        afi=afil;
+        fam=famil;
         this.dia = dia;
         this.mes = mes;
         this.anio = anio;
@@ -39,6 +42,8 @@ public class Asistencia {
     @Override
     public String toString() {
         String datos = "Fecha de la Asistencia:" + getDia() + "/" + getMes() + "/" + getAnio()+
+                "\n\nAfiliado: "+getAfi().getNombre()+" "+getAfi().getApellido()+
+                "\n\nFamiliar: "+getFam().getNombre()+" "+getFam().getApellido()+
                 "\n\nEMPLEADOS QUE ASISTIERON A LA EMERGENCIA MEDICA:\n\n"
                 + "Doctor: "+getDoctor().getNombre()+" "+getDoctor().getApellido()+
                 "\n\nEnfermero: "+getEnfermero().getNombre()+" "+getEnfermero().getApellido()
@@ -47,7 +52,7 @@ public class Asistencia {
                 +getAdministrativo().getNombre()+" "+getAdministrativo().getApellido()
                 +"\n\nMovil:  "+getMovil().getNum()+"\nMarca: "+getMovil().getMarca()+
                 "\nPatente: "+getMovil().getPatente()+
-                "\n\nDIAGNOSTICO Y TRATAMIENTO:\n"+getDiagnostico();
+                "\n\nDIAGNOSTICO Y TRATAMIENTO:\n\n"+getDiagnostico();
         return datos;
     }
 
@@ -142,6 +147,15 @@ public class Asistencia {
         this.administrativo = administrativo;
     }
 
+    public Familiar getFam() {
+        return fam;
+    }
+
+    public void setFam(Familiar fam) {
+        this.fam = fam;
+    }
+
+    
     
     
 }

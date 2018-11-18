@@ -5,6 +5,7 @@ import javax.swing.JOptionPane;
 import laboratorio2018.Afiliado;
 import laboratorio2018.Asistencia;
 import laboratorio2018.Empleado;
+import laboratorio2018.Familiar;
 import laboratorio2018.Sistema;
 
 /**
@@ -40,7 +41,11 @@ public class ListadoAsistencias extends javax.swing.JFrame {
                 as = asis;
             }
         }
-      
+        /*Familiar f=null;
+        Familiar fa = new Familiar("NINGUN FAMILIAR PIDIO","ASISTENCIA, FUE EL AFILIADO!!!","","","","",0,0,0,"","");
+        if(as.getFam().equals(f)){
+            as.setFam(fa);
+        }*/
         if(as!=null){
             JOptionPane.showMessageDialog(null, "SE ENCONTRO LA ASISTENCIA", "Operacion Exitosa!!!!", JOptionPane.INFORMATION_MESSAGE);
             asistencias.append(as.toString());

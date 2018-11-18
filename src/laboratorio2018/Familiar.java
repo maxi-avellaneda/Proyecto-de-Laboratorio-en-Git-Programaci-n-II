@@ -77,9 +77,7 @@ public class Familiar extends Persona{
         return familiar;
     }
 
-    public Familiar(String relacion) {
-        this.relacion = relacion;
-    }
+    
 
     public String getRelacion() {
         return relacion;
@@ -116,4 +114,14 @@ public class Familiar extends Persona{
     public void setAsistencias(Asistencia as) {
         asistencias.add(as);
     }
+
+    public Afiliado getAfiliado() {
+        return afiliado;
+    }
+
+    public void setAfiliado(Afiliado afiliado) {
+        this.afiliado = afiliado;
+    }
+    
+    
 }

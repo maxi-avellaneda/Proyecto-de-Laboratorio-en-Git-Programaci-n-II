@@ -21,6 +21,7 @@ public class AltaFamiliar extends javax.swing.JFrame {
     private Sistema sistema;
     private Afiliado afiliado;
     private Empleado empleado;
+    private Afiliado afil;
     //private ArrayList<Familiar> familiares= new ArrayList<Familiar>();
 
     public AltaFamiliar(Sistema c,Afiliado a,Empleado e) {
@@ -266,15 +267,29 @@ public class AltaFamiliar extends javax.swing.JFrame {
             mes = Integer.parseInt(MesNac.getText());
             anio = Integer.parseInt(anioNac.getText());
             dniFami = claveFamiliar.getText();
-            //System.out.println("nom: "+nom+" \nape: "+ape+" \nsexo: "+sex+" \ndoc: "+doc+" \ndire: "+dire+" \ntele: "+tele+" \ndia: "+dia+" \nmes: "+mes+" \nanio: "+anio);
             sistema.verificarDatos(doc, nom, ape, dire, tele);
-            sistema.buscarRepetido(doc);
+            buscarRepetido(dniFami,doc);
+            Afiliado aux=null;
+            for(Afiliado w: sistema.getAfiliados()){
+                if(w.getDni().equals(dniFami)){
+                    aux=w;
+                }
+            }
             Familiar fam = new Familiar(nom, ape, sex, doc, dire, tele, dia, mes, anio, rela,dniFami);
+            if(aux!=null){
+                aux.setFamiliares(fam);
+                sistema.setAfiliados(aux);
+                JOptionPane.showMessageDialog(null, "Familiar guardado", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
+            }else{
+                JOptionPane.showMessageDialog(null, "NO EXISTE EL AFILIADO, NECESITA DAR DE ALTA AL AFILIADO PRIMERO", "Operacion Exitosa", JOptionPane.WARNING_MESSAGE);
+            }
+            ///aux.setFamiliares(fam);
+            /*afil.setFamiliares(fam);
             afiliado.setFamiliares(fam);
             sistema.setFamiliares(fam);
-            sistema.setAfiliados(afiliado);
+            sistema.setAfiliados(afil);*/
             this.limpliarTextos();
-            JOptionPane.showMessageDialog(null, "Familiar guardado", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
+            //JOptionPane.showMessageDialog(null, "Familiar guardado", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
             MenuPrincipal m = new MenuPrincipal(sistema,afiliado,empleado);
             m.setVisible(true);
             dispose();
@@ -293,6 +308,25 @@ public class AltaFamiliar extends javax.swing.JFrame {
         apellido.setText(null);
         documento.setText(null);
         direccion.setText(null);
+    }
+    public void buscarRepetido(String clave,String dni) throws VerificarRepetidosException {
+        Afiliado a=null;
+        for (Afiliado afi : sistema.getAfiliados()) {
+            if (afi.getDni().equals(clave)) {
+                a=afi;
+                
+            }
+        }
+        Familiar fami=null;
+        for(Familiar fa: a.getFamiliares()){
+            if(fa.getDni().equals(dni)){
+                fami=fa;
+                
+            }
+        }
+        if(fami!=null){
+            throw new VerificarRepetidosException();
+        }
     }
 
     private void jRadioButtonMasculinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMasculinoActionPerformed

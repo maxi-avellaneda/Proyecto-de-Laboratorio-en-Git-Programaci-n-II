@@ -17,31 +17,36 @@ public class ListadoFamiliares extends javax.swing.JFrame {
     private Sistema sistema;
     private Afiliado afiliado;
     private Empleado empleado;
+    private String dni;
 
-    public ListadoFamiliares(Sistema c, Afiliado b, String d,Empleado e) {
+    public ListadoFamiliares(Sistema c, Afiliado b, String d, Empleado e) {
         sistema = c;
         afiliado = b;
-        String dni = d;
-        empleado=e;
+        dni = d;
+        empleado = e;
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
         setTitle("LISTADO DE FAMILIARES DEL AFILIADO");
+        Afiliado aux = null;
 
-        for (Familiar f : afiliado.getFamiliares()) {
-            if (f.getClaveFamiliar().equals(dni)) {
-                familiares.add(f);
+        for (Afiliado a : sistema.getAfiliados()) {
+            if (a.getDni().equals(dni)) {
+                aux = a;
             }
         }
-        if (familiares.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "NO SE ENCONTRARON FAMILIARES", "ERROR", JOptionPane.INFORMATION_MESSAGE);
-
+        Familiar fa = null;
+        for (Familiar f : aux.getFamiliares()) {
+            familiares.add(f);
         }
-        for (Familiar fa : familiares) {
+        if (familiares == null) {
+            JOptionPane.showMessageDialog(null, "NO SE ENCONTRARON FAMILIARES", "ERROR", JOptionPane.WARNING_MESSAGE);
+        } else {
+            for (Familiar fam : familiares) {
 
-            jTextAreaListadoFamiliares.append(fa + "\n");
+                jTextAreaListadoFamiliares.append(fam + "\n\n");
+            }
         }
-
     }
 
     public ListadoFamiliares() {
@@ -102,7 +107,7 @@ public class ListadoFamiliares extends javax.swing.JFrame {
 
     private void jButtonVolverGestionAfiliadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverGestionAfiliadoActionPerformed
         // TODO add your handling code here:
-        GestionAfiliados ges = new GestionAfiliados(sistema, afiliado,empleado);
+        GestionAfiliados ges = new GestionAfiliados(sistema, afiliado, empleado);
         ges.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonVolverGestionAfiliadoActionPerformed

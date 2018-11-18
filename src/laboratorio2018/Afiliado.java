@@ -14,10 +14,8 @@ public class Afiliado extends Persona { //el afiliado es un paciente
     private ArrayList<Familiar> familiares =  new ArrayList<Familiar>();
     private AbonoAfiliados abono;
     private int edad;
-    //private String estado;//esto servirá en 0 para moroso, 1 para cuando no está en mora
     private Calendar fechaDeNaciemiento = Calendar.getInstance();
     private ArrayList<Asistencia> asistencias= new ArrayList<Asistencia>();
-    //private ArrayList<AbonoAfiliados> abonos = new ArrayList<AbonoAfiliados>();
   
     public Afiliado(){}
     
@@ -27,14 +25,7 @@ public class Afiliado extends Persona { //el afiliado es un paciente
         edad = this.calcularEdad();
     }
     
-    public Afiliado(Doctor doctor, Diagnostico diagnostico, int edad, String nombre, String apellido, String sexo, String dni, String direccion,String telefono) {
-        super(nombre, apellido, sexo, dni, direccion,telefono);
-        this.doctor = doctor;
-        this.diagnostico = diagnostico;
-        this.edad = edad;
-    }
-
-    
+   
     public int calcularEdad(){
         int edad=0;
         Calendar fechaActual = Calendar.getInstance();
@@ -90,7 +81,10 @@ public class Afiliado extends Persona { //el afiliado es un paciente
 
     @Override
     public String toString(){
-        String afiliado = "Afiliado: "+getNombre() +" " +getApellido() +"\nSexo: "+getSexo()+"\nDNI N° :"+getDni()+"\nDireccion: "+getDireccion()+"\nFecha de Nacimiento: "+getFechaDeNaciemiento()+"\nEdad: "+calcularEdad()+"\nCantidad de asistencias solicitadas:"+cantidadAsistencias()/*+"\nCondicion de su pago: "+comprobarAbono()*/;
+        String afiliado = "Afiliado: "+getNombre() +" " +getApellido() +
+                "\nSexo: "+getSexo()+"\nDNI N° :"+getDni()+"\nDireccion: "+getDireccion()
+                +"\nFecha de Nacimiento: "+getFechaDeNaciemiento()+
+                "\nEdad: "+calcularEdad();
         return afiliado;
     }
 

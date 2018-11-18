@@ -10,6 +10,7 @@ import laboratorio2018.Diagnostico;
 import laboratorio2018.Doctor;
 import laboratorio2018.Empleado;
 import laboratorio2018.Enfermero;
+import laboratorio2018.Familiar;
 import laboratorio2018.Movil;
 import laboratorio2018.Sistema;
 
@@ -22,15 +23,20 @@ public class AsignarEmpleados extends javax.swing.JFrame {
     private Sistema sistema;
     private Afiliado afiliado;
     private Empleado empleado;
+    private Afiliado afil;
+    private Familiar famil;
 
     public AsignarEmpleados() {
         initComponents();
     }
 
-    public AsignarEmpleados(Sistema c, Afiliado a, Empleado e) {
+    public AsignarEmpleados(Sistema c, Afiliado a, Empleado e,Afiliado af,Familiar famili) {
         sistema = c;
         afiliado = a;
         empleado = e;
+        afil=af;
+        famil=famili;
+        
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
@@ -348,8 +354,11 @@ public class AsignarEmpleados extends javax.swing.JFrame {
 
                 }
             }
-            if (movil != null && doctor != null && enfermero != null && chofer != null && administrativo != null) {
-                Asistencia asi = new Asistencia(movil, doctor, enfermero, chofer, administrativo, d, me, a, diagnostico);
+            if(famil==null){
+                famil = new Familiar("NINGUN FAMILIAR PIDIO","ASISTENCIA, FUE EL AFILIADO!!!","","","","",0,0,0,"","");
+            }
+            if (afil!=null &&movil != null && doctor != null && enfermero != null && chofer != null && administrativo != null) {
+                Asistencia asi = new Asistencia(afil,famil,movil, doctor, enfermero, chofer, administrativo, d, me, a, diagnostico);
                 sistema.setAsistencias(asi);
                 JOptionPane.showMessageDialog(null, "AYUDA EN CAMINO...", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
             } else {
