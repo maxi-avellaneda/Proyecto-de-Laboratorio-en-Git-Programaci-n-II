@@ -50,7 +50,7 @@ public class LaboratorioTest {
      @Test
      public void verAfiliado(){
          Afiliado afi = new Afiliado("Florencia","Andrada","Femenina","41028963","Belgrano","405060",25,10,1998);
-         assertEquals(afi.toString(), "Afiliado: Florencia Andrada\nSexo: Femenina\nDNI N° :"+41028963+"\nDireccion: Belgrano\nFecha de Nacimiento: 25/10/1998\nEdad: "+20);
+         assertEquals(afi.toString(), "Afiliado: Florencia Andrada\nSexo: Femenina\nDNI N° :41028963\nDireccion: Belgrano\nFecha de Nacimiento: 25/10/1998\nEdad: "+20);
      }
      
      @Test 

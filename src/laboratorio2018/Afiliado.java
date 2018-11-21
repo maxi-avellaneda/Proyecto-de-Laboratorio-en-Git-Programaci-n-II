@@ -68,6 +68,7 @@ public class Afiliado extends Persona { //el afiliado es un paciente
         if(anioNac>anioAc){System.out.println("FECHA DE NACIMIENTO MAL INGRESADA");}
         return edad;
     }
+    
    
      public String getFechaDeNaciemiento() {
         DateFormat formato1 = new SimpleDateFormat("dd/MM/yyyy");

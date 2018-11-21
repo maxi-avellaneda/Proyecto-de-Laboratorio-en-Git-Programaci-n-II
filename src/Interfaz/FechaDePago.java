@@ -16,14 +16,16 @@ public class FechaDePago extends javax.swing.JFrame {
     private Sistema sistema;
     private Afiliado afiliado;
     private Empleado empleado;
+    private String dni;
     public FechaDePago() {
         initComponents();
     }
 
-    public FechaDePago(Sistema c,Afiliado a,Empleado e) {
+    public FechaDePago(Sistema c,Afiliado a,Empleado e, String d) {
         sistema=c;
         afiliado=a;
         empleado=e;
+        dni=d;
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
@@ -167,7 +169,7 @@ public class FechaDePago extends javax.swing.JFrame {
     }//GEN-LAST:event_menuPrinciActionPerformed
 
     private void pagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pagarActionPerformed
-        Integer diapago,mespago,aniopago,cantidadfami;
+        int diapago,mespago,aniopago,cantidadfami;
         float abono,aux1,aux2;
         diapago = Integer.parseInt(diadepago.getText());
         mespago = Integer.parseInt(mesdepago.getText());
@@ -176,14 +178,33 @@ public class FechaDePago extends javax.swing.JFrame {
         aux1=Float.parseFloat(monto.getText());
         aux2=aux1/4;
         if(cantidadfami==0){
-            abono = Float.parseFloat(monto.getText());
+            abono = aux1;
         }else{
             abono = aux1 + (aux2*cantidadfami) ;  
         }
         System.out.println("abono final: "+abono);
         AbonoAfiliados ab = new AbonoAfiliados(diapago,mespago,aniopago,abono);
-        afiliado.setAbono(ab);
-        sistema.setAfiliados(afiliado);
+        String condi=ab.fechaPagoAbono();
+        //AbonoAfiliados ab = new AbonoAfiliados(diapago,mespago,aniopago,abono);
+        //String condi=ab.fechaPagoAbono();
+        
+        //AbonoAfiliados aux = new AbonoAfiliados(condi);
+        AbonoAfiliados aux3= new AbonoAfiliados(diapago,mespago,aniopago,abono,condi);
+      //  afiliado.setAbono(ab);
+      // sistema.setAfiliados(afiliado);
+        Afiliado afi=null;
+            for(Afiliado a: sistema.getAfiliados()){
+                if(a.getDni().equals(dni)){
+                    afi=a;
+                }
+            }
+            if (afi!=null){
+                afi.setAbono(aux3);
+                sistema.setAfiliados(afi);
+            }
+            else{
+                System.out.println("El pago vino nulo");
+            }
         this.limpliarTextos();
         JOptionPane.showMessageDialog(null, "Pago de afiliado guardado", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
         MenuPrincipal m = new MenuPrincipal(sistema,afiliado,empleado);

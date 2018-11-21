@@ -278,7 +278,6 @@ public class AltaFamiliar extends javax.swing.JFrame {
             Familiar fam = new Familiar(nom, ape, sex, doc, dire, tele, dia, mes, anio, rela,dniFami);
             if(aux!=null){
                 aux.setFamiliares(fam);
-                sistema.setAfiliados(aux);
                 JOptionPane.showMessageDialog(null, "Familiar guardado", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
             }else{
                 JOptionPane.showMessageDialog(null, "NO EXISTE EL AFILIADO, NECESITA DAR DE ALTA AL AFILIADO PRIMERO", "Operacion Exitosa", JOptionPane.WARNING_MESSAGE);

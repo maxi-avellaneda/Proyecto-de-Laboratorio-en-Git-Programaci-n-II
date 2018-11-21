@@ -201,12 +201,13 @@ public class AprobarAsistencia extends javax.swing.JFrame {
             sistema.buscarAfiliado(dniAfi);
             Afiliado af = null;
             Familiar familiar = null;
-            AbonoAfiliados abo = null;
+            AbonoAfiliados abo;
             for (Afiliado a : sistema.getAfiliados()) {
                 if (a.getDni().equals(dniAfi)) {
                     af = a;
                 }
             }
+            System.out.println("af= "+af);
             abo = af.getAbono();
             if (abo.fechaPagoAbono().equals(con)) {
                 JOptionPane.showMessageDialog(null, "HABILITADO", "NO HAY DEUDA", JOptionPane.INFORMATION_MESSAGE);

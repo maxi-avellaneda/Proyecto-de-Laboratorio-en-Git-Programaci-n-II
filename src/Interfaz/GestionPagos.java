@@ -129,7 +129,7 @@ public class GestionPagos extends javax.swing.JFrame {
             for (Afiliado a : sistema.getAfiliados()) {
                 if (a.getDni().equals(dni)) {        
                     afi=a;
-                    FechaDePago f = new FechaDePago(sistema,afi,empleado);
+                    FechaDePago f = new FechaDePago(sistema,afiliado,empleado,dni);
                     f.setVisible(true);
                     dispose();
                 }

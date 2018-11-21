@@ -19,27 +19,41 @@ public class AbonoAfiliados {
         this.mespago=mespago;
         this.abono=abono;
     }
-    public AbonoAfiliados(){}
+    public AbonoAfiliados(String condicion){
+        this.condicion=condicion;
+    }
+    public AbonoAfiliados(int diapago,int mespago,int aniopago,float abono, String condicion){
+        this.aniopago=aniopago;
+        this.diapago=diapago;
+        this.mespago=mespago;
+        this.abono=abono;
+        this.condicion=condicion;
+    }
     
     public String fechaPagoAbono(){
         int diaPagar,mesPagar,anioPagar;
         anioPagar = (calendario.get(Calendar.YEAR))- aniopago;
-        Math.abs(anioPagar);
+    //    Math.abs(anioPagar);
         mesPagar = (calendario.get(Calendar.MONTH)+1)- mespago;
-        Math.abs(mesPagar);
-        diaPagar = (calendario.get(Calendar.DAY_OF_MONTH))- diapago;
-        
-        if(anioPagar==0 && mesPagar<=2 &&mesPagar>=0 /*&& diaPagar <= 0*/){
-            if(mesPagar==0 && diaPagar>0){
+      // Math.abs(mesPagar);
+        diaPagar = (calendario.get(Calendar.DAY_OF_MONTH))- aniopago;
+       // Math.abs(diaPagar);
+       
+        if(anioPagar==0 && mesPagar<=2 && mesPagar>=0 /*&& diaPagar <= 0*/){
+            System.out.println("Comparacion;");
+            if(mesPagar==0 /*&& diaPagar>0*/){
                 condicion="SIN MORA";
+                System.out.println("Condicion: "+condicion);
             }
-            if(mesPagar>0 && mesPagar<=2 && diaPagar <=0){
+            if(mesPagar>0 && mesPagar<=2 /*&& diaPagar <=0*/){
                 condicion="SIN MORA";
+                System.out.println("Condicion2: "+condicion);
             }
             
             return condicion;
         }else{
             condicion="MOROSO";
+            System.out.println("Condicion3: "+condicion);
         } 
         
         return condicion; 
@@ -99,6 +113,10 @@ public class AbonoAfiliados {
     public void setAfiliado(Afiliado afiliado) {
         this.afiliado = afiliado;
     }
-    
+    @Override
+    public String toString(){
+        String abon = "Dia de pago: "+getDia()+"\nMes de pago: "+getMes()+"\nAño de pago: "+getAnio()+"\nAbono pagado: "+getAbono()+"\nCondicion: "+fechaPagoAbono();
+        return abon;
+    }
     
 }
