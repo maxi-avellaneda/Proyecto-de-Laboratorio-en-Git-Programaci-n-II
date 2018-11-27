@@ -5,6 +5,7 @@
  */
 package Interfaz;
 
+import Exceptions.AfiliadoNoEncontradoException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import laboratorio2018.Afiliado;
@@ -121,10 +122,20 @@ public class AgregarDiagnostico extends javax.swing.JFrame {
 
     private void GuardarDiagnosticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarDiagnosticoActionPerformed
 
-        String diag;
-        diag = diagnostico.getText();
-        Diagnostico d = new Diagnostico(diag);
-        Asistencia as = null;
+        try {
+            String diag;
+            diag = diagnostico.getText();
+            Diagnostico d = new Diagnostico(diag);
+            sistema.buscarAsistencia(dia, mes, anio, d);
+            JOptionPane.showMessageDialog(null, "DIAGNOSTICO GUARDADO", "Operacion Exitosa!!!!", JOptionPane.INFORMATION_MESSAGE);
+            MenuAsistencias mn = new MenuAsistencias(sistema, afiliado, empleado);
+            mn.setVisible(true);
+            dispose();
+        } catch (AfiliadoNoEncontradoException pnee) {
+            JOptionPane.showMessageDialog(null, "NO SE ENCONTRO LA ASISTENCIA BUSCADA", "VERIFIQUE!!!!", JOptionPane.OK_OPTION);
+        }
+
+        /*Asistencia as = null;
         for (Asistencia asis : sistema.getAsistencias()) {
             if (asis.getDia().equals(dia) && asis.getMes().equals(mes) && asis.getAnio().equals(anio)) {
                 as = asis;
@@ -135,11 +146,7 @@ public class AgregarDiagnostico extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "DIAGNOSTICO GUARDADO", "Operacion Exitosa!!!!", JOptionPane.INFORMATION_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(null, "FALLO RARO", "VERIFIQUE!!!!", JOptionPane.OK_OPTION);
-        }
-
-        MenuAsistencias mn = new MenuAsistencias(sistema, afiliado, empleado);
-        mn.setVisible(true);
-        dispose();
+        }*/
 
     }//GEN-LAST:event_GuardarDiagnosticoActionPerformed
 

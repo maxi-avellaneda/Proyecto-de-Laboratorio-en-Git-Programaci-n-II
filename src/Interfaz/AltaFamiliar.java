@@ -1,6 +1,6 @@
-
 package Interfaz;
 
+import Exceptions.AfiliadoNoEncontradoException;
 import Exceptions.VerficarCampoVacioException;
 import Exceptions.VerificarDniException;
 import Exceptions.VerificarRepetidosException;
@@ -24,10 +24,10 @@ public class AltaFamiliar extends javax.swing.JFrame {
     private Afiliado afil;
     //private ArrayList<Familiar> familiares= new ArrayList<Familiar>();
 
-    public AltaFamiliar(Sistema c,Afiliado a,Empleado e) {
+    public AltaFamiliar(Sistema c, Afiliado a, Empleado e) {
         sistema = c;
-        afiliado=a;
-        empleado=e;
+        afiliado = a;
+        empleado = e;
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
@@ -249,7 +249,7 @@ public class AltaFamiliar extends javax.swing.JFrame {
     private void jButtonGuardarFamiliarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarFamiliarActionPerformed
         // TODO add your handling code here:
         try {
-            String nom, ape, dire, sex = "", doc, tele, rela,dniFami;
+            String nom, ape, dire, sex = "", doc, tele, rela, dniFami;
             int dia, mes, anio;
             nom = nombre.getText();
             ape = apellido.getText();
@@ -268,28 +268,22 @@ public class AltaFamiliar extends javax.swing.JFrame {
             anio = Integer.parseInt(anioNac.getText());
             dniFami = claveFamiliar.getText();
             sistema.verificarDatos(doc, nom, ape, dire, tele);
-            buscarRepetido(dniFami,doc);
-            Afiliado aux=null;
-            for(Afiliado w: sistema.getAfiliados()){
-                if(w.getDni().equals(dniFami)){
-                    aux=w;
+            buscarRepetido(dniFami, doc);
+            sistema.buscarAfiliado(dniFami);
+            Afiliado aux = null;
+            for (Afiliado w : sistema.getAfiliados()) {
+                if (w.getDni().equals(dniFami)) {
+                    aux = w;
                 }
             }
-            Familiar fam = new Familiar(nom, ape, sex, doc, dire, tele, dia, mes, anio, rela,dniFami);
-            if(aux!=null){
-                aux.setFamiliares(fam);
-                JOptionPane.showMessageDialog(null, "Familiar guardado", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
-            }else{
-                JOptionPane.showMessageDialog(null, "NO EXISTE EL AFILIADO, NECESITA DAR DE ALTA AL AFILIADO PRIMERO", "Operacion Exitosa", JOptionPane.WARNING_MESSAGE);
-            }
-            ///aux.setFamiliares(fam);
-            /*afil.setFamiliares(fam);
-            afiliado.setFamiliares(fam);
-            sistema.setFamiliares(fam);
-            sistema.setAfiliados(afil);*/
+            Familiar fam = new Familiar(nom, ape, sex, doc, dire, tele, dia, mes, anio, rela, dniFami);
+
+            aux.setFamiliares(fam);
+            JOptionPane.showMessageDialog(null, "Familiar guardado", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
+
             this.limpliarTextos();
             //JOptionPane.showMessageDialog(null, "Familiar guardado", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
-            MenuPrincipal m = new MenuPrincipal(sistema,afiliado,empleado);
+            MenuPrincipal m = new MenuPrincipal(sistema, afiliado, empleado);
             m.setVisible(true);
             dispose();
 
@@ -299,6 +293,8 @@ public class AltaFamiliar extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Ingreso un campo vacio", "Atencion!", JOptionPane.QUESTION_MESSAGE);
         } catch (VerificarRepetidosException vr) {
             JOptionPane.showMessageDialog(null, "El Afiliado ya se encuentra registrado", "Atencion!", JOptionPane.WARNING_MESSAGE);
+        } catch (AfiliadoNoEncontradoException pnee) {
+            JOptionPane.showMessageDialog(null, "NO SE ENCONTRO AL AFILIADO con esa clave familiar", "VERIFIQUE!!!!", JOptionPane.OK_OPTION);
         }
     }//GEN-LAST:event_jButtonGuardarFamiliarActionPerformed
 
@@ -308,22 +304,23 @@ public class AltaFamiliar extends javax.swing.JFrame {
         documento.setText(null);
         direccion.setText(null);
     }
-    public void buscarRepetido(String clave,String dni) throws VerificarRepetidosException {
-        Afiliado a=null;
+
+    public void buscarRepetido(String clave, String dni) throws VerificarRepetidosException {
+        Afiliado a = null;
         for (Afiliado afi : sistema.getAfiliados()) {
             if (afi.getDni().equals(clave)) {
-                a=afi;
-                
+                a = afi;
+
             }
         }
-        Familiar fami=null;
-        for(Familiar fa: a.getFamiliares()){
-            if(fa.getDni().equals(dni)){
-                fami=fa;
-                
+        Familiar fami = null;
+        for (Familiar fa : a.getFamiliares()) {
+            if (fa.getDni().equals(dni)) {
+                fami = fa;
+
             }
         }
-        if(fami!=null){
+        if (fami != null) {
             throw new VerificarRepetidosException();
         }
     }
@@ -334,7 +331,7 @@ public class AltaFamiliar extends javax.swing.JFrame {
 
     private void jButtonVolverGestionaAfiliadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverGestionaAfiliadosActionPerformed
         // TODO add your handling code here:
-        GestionAfiliados g = new GestionAfiliados(sistema,afiliado,empleado);
+        GestionAfiliados g = new GestionAfiliados(sistema, afiliado, empleado);
         g.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonVolverGestionaAfiliadosActionPerformed

@@ -207,5 +207,32 @@ public class Sistema { // seria la asistencia medica
     public void setEmpleados(Empleado emp) {
         empleados.add(emp);
     }
+    
+    public void buscarAsistencia(String dia,String mes,String anio,Diagnostico d)throws AfiliadoNoEncontradoException{
+        Asistencia as = null;
+        for (Asistencia asis : this.getAsistencias()) {
+            if (asis.getDia().equals(dia) && asis.getMes().equals(mes) && asis.getAnio().equals(anio)) {
+                as = asis;
+                as.setDiagnostico(d);
+            }
+        }
+    }
+    
+   public Afiliado buscarAfiliad(String dni) throws AfiliadoNoEncontradoException {//busca a los afiliados
+        int bandera = 0;
+        Afiliado aux = null;
+        for (Afiliado afi : this.getAfiliados()) {
+            if (afi.getDni().equals(dni)) {
+                aux=afi;
+                //bandera = 1;
+                //return aux;
+                //break;
+            }
+        }
+        if (bandera == 0) {
+            throw new AfiliadoNoEncontradoException();
+        }
+        return aux;
+    }
 
 }

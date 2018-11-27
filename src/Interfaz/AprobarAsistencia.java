@@ -207,7 +207,7 @@ public class AprobarAsistencia extends javax.swing.JFrame {
                     af = a;
                 }
             }
-            System.out.println("af= "+af);
+            //af=sistema.buscarAfiliad(dniFami);
             abo = af.getAbono();
             if (abo.fechaPagoAbono().equals(con)) {
                 JOptionPane.showMessageDialog(null, "HABILITADO", "NO HAY DEUDA", JOptionPane.INFORMATION_MESSAGE);
