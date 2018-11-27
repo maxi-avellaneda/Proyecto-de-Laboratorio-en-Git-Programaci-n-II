@@ -5,9 +5,11 @@
  */
 
 import Exceptions.AfiliadoNoEncontradoException;
+import Exceptions.FamiliarNoEncontradoException;
 import laboratorio2018.Afiliado;
 import laboratorio2018.Doctor;
 import laboratorio2018.Empleado;
+import laboratorio2018.Familiar;
 import laboratorio2018.Sistema;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -92,5 +94,19 @@ public class LaboratorioTest {
         sis.setAfiliados(new Afiliado("Rodrigo","Cordoba","Masculino","20888999","Pozo el Mistol","102030",10,8,1997));
         sis.getAfiliados().remove(1);
         assertEquals(sis.getAfiliados().size(),1);
+    }
+    
+    @Test (expected=AfiliadoNoEncontradoException.class)
+    public void buscarAfiNoExistente() throws AfiliadoNoEncontradoException{
+        Sistema sis=new Sistema();
+        sis.setAfiliados(new Afiliado("Maximiliano","Avellaneda","Masculino","41015072","Sumalao","298222",8,5,1998));
+        sis.buscarAfiliado("40724574");
+    }
+    
+    @Test  (expected=FamiliarNoEncontradoException.class)
+    public void buscarFamiNoExist() throws FamiliarNoEncontradoException{
+        Sistema sis = new Sistema();
+        sis.setFamiliares(new Familiar("Enzo","Avellaneda","Masculino","31231755","Sumalao","382556",14,8,1981,"Hermano","41015072"));
+        sis.buscarFamiliar("12345678");
     }
     }
